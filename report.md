@@ -25,7 +25,7 @@
 ## 4. Danh sách API (Postman Collection)
 - Xem chi tiết tại: [Rikkei_Bank.postman_collection.json](file:///d:/Phan%20Trung%20Ki%C3%AAn%20-%20PTIT/JAVA%20WEB%20SERVICE/Rikkei%20Bank/Rikkei_Bank.postman_collection.json)
 - **Auth APIs (`/api/v1/auth`)**:
-  - `POST /register`: Đăng ký tài khoản mới (Validates: rỗng, email sai định dạng).
+  - `POST /register`: Đăng ký tài khoản mới (Validates: rỗng, email sai định dạng, trùng lặp username/email lỗi 409).
   - `POST /login`: Đăng nhập, nhận Access Token & Refresh Token (Validates: sai pass, trống dữ liệu).
   - `POST /refresh`: Cấp lại JWT bằng Refresh Token (Validates: sai token, hết hạn).
   - `POST /logout`: Đăng xuất, vô hiệu hóa Access Token (Validates: không có token).

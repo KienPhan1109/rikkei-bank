@@ -48,11 +48,11 @@ public class AuthServiceImpl implements AuthService {
     @Override
     @Transactional
     public UserResponse register(RegisterRequest request) {
-        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
-            throw new RuntimeException("Tên đăng nhập đã tồn tại!");
+        if (userRepository.existsByUsername(request.getUsername())) {
+            throw new com.ptit.rikkei_bank.exception.DuplicateResourceException("Tên đăng nhập đã tồn tại!");
         }
-        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
-            throw new RuntimeException("Email đã tồn tại!");
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new com.ptit.rikkei_bank.exception.DuplicateResourceException("Email đã tồn tại!");
         }
 
         User user = userMapper.toEntity(request);

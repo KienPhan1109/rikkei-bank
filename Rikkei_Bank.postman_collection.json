@@ -91,6 +91,33 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Register Conflict Duplicate User",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\",\n  \"email\": \"testuser@gmail.com\",\n  \"phoneNumber\": \"0987654321\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         },
@@ -195,7 +222,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"refreshToken\": \"replace_with_actual_refresh_token\"\n}"
+                  "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
                 },
                 "url": {
                   "raw": "{{baseUrl}}/auth/refresh",
@@ -249,7 +276,7 @@
                 "header": [
                   {
                     "key": "Authorization",
-                    "value": "Bearer replace_with_actual_access_token"
+                    "value": "Bearer {{accessToken}}"
                   }
                 ],
                 "url": {
