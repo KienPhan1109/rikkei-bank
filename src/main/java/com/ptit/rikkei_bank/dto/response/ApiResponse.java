@@ -8,10 +8,13 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+import lombok.ToString;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponse<T> {
     private boolean success;
