@@ -26,13 +26,11 @@
                   "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\",\n  \"email\": \"testuser@gmail.com\",\n  \"phoneNumber\": \"0987654321\"\n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/register",
+                  "raw": "{{baseUrl}}/auth/register",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "register"
                   ]
@@ -55,13 +53,11 @@
                   "raw": "{\n  \"username\": \"\",\n  \"password\": \"123456\",\n  \"email\": \"testuser@gmail.com\",\n  \"phoneNumber\": \"0987654321\"\n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/register",
+                  "raw": "{{baseUrl}}/auth/register",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "register"
                   ]
@@ -84,13 +80,11 @@
                   "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\",\n  \"email\": \"invalid-email\",\n  \"phoneNumber\": \"0987654321\"\n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/register",
+                  "raw": "{{baseUrl}}/auth/register",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "register"
                   ]
@@ -118,13 +112,11 @@
                   "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\"\n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/login",
+                  "raw": "{{baseUrl}}/auth/login",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "login"
                   ]
@@ -147,13 +139,11 @@
                   "raw": "{\n  \"username\": \"\",\n  \"password\": \"123456\"\n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/login",
+                  "raw": "{{baseUrl}}/auth/login",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "login"
                   ]
@@ -176,13 +166,11 @@
                   "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"wrongpass\"\n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/login",
+                  "raw": "{{baseUrl}}/auth/login",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "login"
                   ]
@@ -210,13 +198,11 @@
                   "raw": "{\n  \"refreshToken\": \"replace_with_actual_refresh_token\"\n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/refresh",
+                  "raw": "{{baseUrl}}/auth/refresh",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "refresh"
                   ]
@@ -239,13 +225,11 @@
                   "raw": "{\n  \"refreshToken\": \"\"\n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/refresh",
+                  "raw": "{{baseUrl}}/auth/refresh",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "refresh"
                   ]
@@ -269,13 +253,11 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/logout",
+                  "raw": "{{baseUrl}}/auth/logout",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "logout"
                   ]
@@ -289,13 +271,11 @@
                 "method": "POST",
                 "header": [],
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/logout",
+                  "raw": "{{baseUrl}}/auth/logout",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "logout"
                   ]
@@ -314,13 +294,11 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/wrong-path",
+                  "raw": "{{baseUrl}}/auth/wrong-path",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "wrong-path"
                   ]
@@ -343,13 +321,11 @@
                   "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \n}"
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/auth/login",
+                  "raw": "{{baseUrl}}/auth/login",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "api",
-                    "v1",
                     "auth",
                     "login"
                   ]
@@ -360,12 +336,34 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users Success",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:8080",
+      "value": "http://localhost:8080/api/v1",
       "type": "string"
     }
   ]
