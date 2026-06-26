@@ -6,8 +6,11 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import lombok.ToString;
+
 @Getter
 @Setter
+@ToString
 public class RegisterRequest {
 
     @NotBlank(message = "Tên đăng nhập không được để trống")
@@ -16,6 +19,7 @@ public class RegisterRequest {
 
     @NotBlank(message = "Mật khẩu không được để trống")
     @Size(min = 6, message = "Mật khẩu phải chứa ít nhất 6 ký tự")
+    @ToString.Exclude
     private String password;
 
     @NotBlank(message = "Email không được để trống")

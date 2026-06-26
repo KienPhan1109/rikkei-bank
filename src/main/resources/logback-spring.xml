@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Định nghĩa biến cho đường dẫn log -->
+    <property name="LOGS" value="./logs" />
+
+    <!-- Đưa vào các định dạng mặc định của Spring Boot để dùng được %clr -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+    <!-- Appender cho Console -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %clr(%d{dd-MM-yyyy HH:mm:ss.SSS}){cyan} %clr(%-5level) %clr([%thread]){yellow} %clr([%X{traceId}]){blue} %clr(%logger{25}){green} %clr([%M:%L]){magenta} - %msg%n%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <!-- Appender cho File Rolling thông thường -->
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/spring-boot-logger.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %-5level [%thread] [%X{traceId}] %logger{25} [%M:%L] - %msg%n%n</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/archived/spring-boot-logger-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Appender riêng cho File Error -->
+    <appender name="ErrorRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/spring-boot-error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %-5level [%thread] [%X{traceId}] %logger{25} [%M:%L] - %msg%n%n</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/archived/spring-boot-error-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="RollingFile" />
+        <appender-ref ref="ErrorRollingFile" />
+        <appender-ref ref="Console" />
+    </root>
+
+    <!-- Cấu hình level DEBUG cho các thư mục nghiệp vụ -->
+    <logger name="com.ptit.rikkei_bank.controller" level="DEBUG"/>
+    <logger name="com.ptit.rikkei_bank.service" level="DEBUG"/>
+
+    <!-- Bỏ qua log quá chi tiết từ một số thư viện -->
+    <logger name="org.springframework" level="info"/>
+    <logger name="org.hibernate" level="info"/>
+    <!-- Hiển thị câu lệnh SQL và binding params -->
+    <!-- <logger name="org.hibernate.SQL" level="debug"/> -->
+    <!-- <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace"/> -->
+</configuration>
