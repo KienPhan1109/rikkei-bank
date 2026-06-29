@@ -20,7 +20,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> findByUserId(Long userId);
     boolean existsByAccountNumber(String accountNumber);
 
-    @Query("SELECT new com.ptit.rikkei_bank.dto.response.AccountResponse(a.accountNumber, a.accountName, a.balance, a.currency, a.isActive, a.createdAt) FROM Account a WHERE a.user.id = :userId")
+    @Query("SELECT new com.ptit.rikkei_bank.dto.response.AccountResponse(a.id, a.accountNumber, a.balance, a.currency, a.active, a.createdAt, a.updatedAt, a.user.id) FROM Account a WHERE a.user.id = :userId")
     Page<AccountResponse> findByUserIdProjected(Long userId, Pageable pageable);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)

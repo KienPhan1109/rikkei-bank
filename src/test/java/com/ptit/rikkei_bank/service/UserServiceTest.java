@@ -90,22 +90,23 @@ public class UserServiceTest {
 
     @Test
     void testDeleteUser_Success() {
-        when(userRepository.existsById(1L)).thenReturn(true);
-        doNothing().when(userRepository).deleteById(1L);
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(userRepository.save(any(User.class))).thenReturn(user);
 
         userService.deleteUser(1L);
 
-        verify(userRepository, times(1)).existsById(1L);
-        verify(userRepository, times(1)).deleteById(1L);
+        assertTrue(user.getIsDeleted());
+        verify(userRepository, times(1)).findById(1L);
+        verify(userRepository, times(1)).save(user);
     }
 
     @Test
     void testDeleteUser_UserNotFound() {
-        when(userRepository.existsById(1L)).thenReturn(false);
+        when(userRepository.findById(1L)).thenReturn(Optional.empty());
 
         assertThrows(BusinessException.class, () -> userService.deleteUser(1L));
-        verify(userRepository, times(1)).existsById(1L);
-        verify(userRepository, never()).deleteById(anyLong());
+        verify(userRepository, times(1)).findById(1L);
+        verify(userRepository, never()).save(any(User.class));
     }
 
     @Test

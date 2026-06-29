@@ -1,0 +1,23 @@
+# Server port
+server.port=8080
+
+# Database Configuration (MySQL)
+spring.datasource.url=jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+spring.datasource.username=root
+spring.datasource.password=Kien@1109AA.
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.format_sql=true
+# Removed hibernate dialect to prevent HHH90000025 warning
+spring.jpa.open-in-view=false
+# JWT Configuration
+app.jwt.secret=RikkeiBankSecretKeyMustBeLongEnoughForHS256Algorithm202611091234567890
+app.jwt.expiration=300000
+app.jwt.refreshExpiration=86400000
+
+# Actuator Endpoints (Monitoring)
+management.endpoints.web.exposure.include=health,metrics
+management.endpoint.health.show-details=always

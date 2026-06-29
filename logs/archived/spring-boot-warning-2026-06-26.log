@@ -1,6 +1,0 @@
-26-06-2026 23:25:20.274 WARN  [restartedMain] [] o.h.orm.deprecation [constructDialect:152] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-
-26-06-2026 23:25:20.954 WARN  [restartedMain] [] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [configure:73] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-
-26-06-2026 23:25:21.020 WARN  [restartedMain] [] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration [openEntityManagerInViewInterceptor:261] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-

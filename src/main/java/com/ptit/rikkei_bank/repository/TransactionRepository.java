@@ -14,7 +14,7 @@ import java.util.List;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
-    @Query("SELECT new com.ptit.rikkei_bank.dto.response.TransactionResponse(t.id, t.transactionCode, t.amount, t.description, t.createdAt, t.fromAccount.accountNumber, t.toAccount.accountNumber) " +
+    @Query("SELECT new com.ptit.rikkei_bank.dto.response.TransactionResponse(t.id, t.transactionCode, t.amount, t.description, t.status, t.createdAt, t.fromAccount.accountNumber, t.toAccount.accountNumber) " +
            "FROM Transaction t WHERE t.fromAccount.id = :accountId OR t.toAccount.id = :accountId ORDER BY t.createdAt DESC")
     Page<TransactionResponse> findByAccountProjected(@Param("accountId") Long accountId, Pageable pageable);
 
