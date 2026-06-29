@@ -44,9 +44,27 @@
         </rollingPolicy>
     </appender>
 
+    <!-- Appender riêng cho File Warning -->
+    <appender name="WarningRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/spring-boot-warning.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %-5level [%thread] [%X{traceId}] %logger{25} [%M:%L] - %msg%n%n</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/archived/spring-boot-warning-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
     <root level="info">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="ErrorRollingFile" />
+        <appender-ref ref="WarningRollingFile" />
         <appender-ref ref="Console" />
     </root>
 
@@ -57,6 +75,7 @@
     <!-- Bỏ qua log quá chi tiết từ một số thư viện -->
     <logger name="org.springframework" level="info"/>
     <logger name="org.hibernate" level="info"/>
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" level="ERROR"/>
     <!-- Hiển thị câu lệnh SQL và binding params -->
     <!-- <logger name="org.hibernate.SQL" level="debug"/> -->
     <!-- <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace"/> -->

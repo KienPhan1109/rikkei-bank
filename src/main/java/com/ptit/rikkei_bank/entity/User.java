@@ -38,6 +38,9 @@ public class User {
     @Column(nullable = false)
     private Boolean isKyc = false;
 
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private Boolean isDeleted = false;
+
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 

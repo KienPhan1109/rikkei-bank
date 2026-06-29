@@ -1,397 +1,2009 @@
 {
-  "info": {
-    "name": "Rikkei Bank",
-    "description": "Collection for Rikkei Bank RESTful API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Phase 2 Auth",
-      "item": [
-        {
-          "name": "Register",
-          "item": [
-            {
-              "name": "Register Success",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\",\n  \"email\": \"testuser@gmail.com\",\n  \"phoneNumber\": \"0987654321\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/register",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "register"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Register Bad Request Missing Username",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"\",\n  \"password\": \"123456\",\n  \"email\": \"testuser@gmail.com\",\n  \"phoneNumber\": \"0987654321\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/register",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "register"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Register Bad Request Invalid Email",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\",\n  \"email\": \"invalid-email\",\n  \"phoneNumber\": \"0987654321\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/register",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "register"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Register Conflict Duplicate User",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\",\n  \"email\": \"testuser@gmail.com\",\n  \"phoneNumber\": \"0987654321\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/register",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "register"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "Login",
-          "item": [
-            {
-              "name": "Login Success",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/login",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "login"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Login Bad Request Missing Field",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"\",\n  \"password\": \"123456\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/login",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "login"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Login Unauthorized Wrong Credentials",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"wrongpass\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/login",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "login"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "Refresh Token",
-          "item": [
-            {
-              "name": "Refresh Token Success",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/refresh",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "refresh"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Refresh Token Bad Request Missing Token",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"refreshToken\": \"\"\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/refresh",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "refresh"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "Logout",
-          "item": [
-            {
-              "name": "Logout Success",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{accessToken}}"
-                  }
-                ],
-                "url": {
-                  "raw": "{{baseUrl}}/auth/logout",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "logout"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Logout Unauthorized No Token",
-              "request": {
-                "method": "POST",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/auth/logout",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "logout"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "Exception Handling",
-          "item": [
-            {
-              "name": "Not Found 404",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/auth/wrong-path",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "wrong-path"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Malformed JSON Request",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/auth/login",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "login"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        }
-      ]
+    "info": {
+        "name": "Rikkei Bank",
+        "description": "Collection for Rikkei Bank RESTful API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
-    {
-      "name": "Users",
-      "item": [
+    "item": [
         {
-          "name": "Get All Users Success",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/users",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "users"
-              ]
-            }
-          },
-          "response": []
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Register",
+                    "item": [
+                        {
+                            "name": "Register Success",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\",\n  \"email\": \"testuser@gmail.com\",\n  \"phoneNumber\": \"0987654321\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/register",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "register"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Register Conflict Duplicate User",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\",\n  \"email\": \"testuser@gmail.com\",\n  \"phoneNumber\": \"0987654321\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/register",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "register"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Register Bad Request Invalid Format",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"abc\",\n  \"password\": \"123\",\n  \"email\": \"testuser@gmail\",\n  \"phoneNumber\": \"1234567890\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/register",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "register"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is not 200\", function () {",
+                                            "    pm.expect(pm.response.code).to.be.above(399);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has error message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Login",
+                    "item": [
+                        {
+                            "name": "Login Success",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/login",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "login"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            "",
+                                            "var jsonData = pm.response.json();",
+                                            "if (jsonData.data && jsonData.data.accessToken) {",
+                                            "    pm.collectionVariables.set(\"accessToken\", jsonData.data.accessToken);",
+                                            "}",
+                                            "if (jsonData.data && jsonData.data.refreshToken) {",
+                                            "    pm.collectionVariables.set(\"refreshToken\", jsonData.data.refreshToken);",
+                                            "}"
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Login Bad Request Missing Field",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"\",\n  \"password\": \"\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/login",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "login"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Login Unauthorized Wrong Credentials",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"wrongpass\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/login",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "login"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Login Admin Success",
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            "",
+                                            "var jsonData = pm.response.json();",
+                                            "if (jsonData.success) {",
+                                            "    pm.collectionVariables.set(\"accessToken\", jsonData.data.accessToken);",
+                                            "    pm.collectionVariables.set(\"refreshToken\", jsonData.data.refreshToken);",
+                                            "}"
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ],
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/login",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "login"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Login Staff Success",
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            "",
+                                            "var jsonData = pm.response.json();",
+                                            "if (jsonData.success) {",
+                                            "    pm.collectionVariables.set(\"accessToken\", jsonData.data.accessToken);",
+                                            "    pm.collectionVariables.set(\"refreshToken\", jsonData.data.refreshToken);",
+                                            "}"
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ],
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"staff\",\n  \"password\": \"staff123\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/login",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "login"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Refresh Token",
+                    "item": [
+                        {
+                            "name": "Refresh Token Success",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/refresh",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "refresh"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            "",
+                                            "var jsonData = pm.response.json();",
+                                            "if (jsonData.data && jsonData.data.accessToken) {",
+                                            "    pm.collectionVariables.set(\"accessToken\", jsonData.data.accessToken);",
+                                            "}"
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Refresh Token Bad Request Missing Token",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"refreshToken\": \"\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/refresh",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "refresh"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Refresh Token Fail Revoked",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"refreshToken\": \"{{revokedRefreshToken}}\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/refresh-token",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "refresh-token"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is not 200\", function () {",
+                                            "    pm.expect(pm.response.code).to.be.above(399);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has error message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout",
+                    "item": [
+                        {
+                            "name": "Logout Success",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/logout",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "logout"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            "",
+                                            "// Clear tokens on logout",
+                                            "pm.collectionVariables.set(\"accessToken\", \"\");",
+                                            "pm.collectionVariables.set(\"refreshToken\", \"\");",
+                                            "",
+                                            "// Save current refresh token as revoked",
+                                            "var currentRefreshToken = pm.collectionVariables.get('refreshToken');",
+                                            "if (currentRefreshToken) {",
+                                            "    pm.collectionVariables.set('revokedRefreshToken', currentRefreshToken);",
+                                            "}",
+                                            "pm.collectionVariables.unset('accessToken');",
+                                            "pm.collectionVariables.unset('refreshToken');"
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Logout Unauthorized No Token",
+                            "request": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/auth/logout",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "auth",
+                                        "logout"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is less than 500ms\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Get All Users Success",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/users",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Toggle User Status Success",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/users/1/status?active=false",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                "1",
+                                "status"
+                            ],
+                            "query": [
+                                {
+                                    "key": "active",
+                                    "value": "false"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete User Success",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/users/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Change Password Success",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"oldPassword\": \"123456\",\n  \"newPassword\": \"newpassword\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/users/me/password",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                "me",
+                                "password"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Toggle User Status Fail Lock Admin",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/users/1/status?active=false",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                "1",
+                                "status"
+                            ],
+                            "query": [
+                                {
+                                    "key": "active",
+                                    "value": "false"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is not 200\", function () {",
+                                    "    pm.expect(pm.response.code).to.be.above(399);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has error message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "eKYC",
+            "item": [
+                {
+                    "name": "Submit KYC Success",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"idNumber\": \"038206012345\",\n  \"fullName\": \"Phan Trung Kiên\",\n  \"dob\": \"2006-09-11\",\n  \"sex\": \"MALE\",\n  \"address\": \"Hà Nội, Việt Nam\",\n  \"idCardFrontUrl\": \"https://rikkeibank.cdn/kyc/front_038206012345.png\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/kyc/submit",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "kyc",
+                                "submit"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get My KYC Success",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/kyc/me",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "kyc",
+                                "me"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Approve eKYC Success",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"status\": \"CONFIRM\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/staff/kyc/1/status",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "staff",
+                                "kyc",
+                                "1",
+                                "status"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Submit KYC Fail Duplicate",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"idNumber\": \"038206012345\",\n  \"fullName\": \"Phan Trung Kiên\",\n  \"dob\": \"2006-09-11\",\n  \"sex\": \"MALE\",\n  \"address\": \"Hà Nội, Việt Nam\",\n  \"idCardFrontUrl\": \"https://rikkeibank.cdn/kyc/front_038206012345.png\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/kyc/submit",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "kyc",
+                                "submit"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is not 200\", function () {",
+                                    "    pm.expect(pm.response.code).to.be.above(399);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has error message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Approve eKYC Reject",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"status\": \"REJECT\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/staff/kyc/1/status",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "staff",
+                                "kyc",
+                                "1",
+                                "status"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All eKYC Profiles",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/staff/kyc",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "staff",
+                                "kyc"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get eKYC Profile by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/staff/kyc/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "staff",
+                                "kyc",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Accounts",
+            "item": [
+                {
+                    "name": "Create Account Success",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"currency\": \"VND\",\n  \"transactionPin\": \"123456\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/accounts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "accounts"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get My Accounts Success",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/accounts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "accounts"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Account Details Success",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/accounts/9283748201",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "accounts",
+                                "9283748201"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Lock Account Success",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"active\": false\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/accounts/9283748201/status",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "accounts",
+                                "9283748201",
+                                "status"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Account Fail No KYC",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"currency\": \"VND\",\n  \"transactionPin\": \"123456\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/accounts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "accounts"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is not 200\", function () {",
+                                    "    pm.expect(pm.response.code).to.be.above(399);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has error message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Transactions",
+            "item": [
+                {
+                    "name": "Transfer Success",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fromAccountNumber\": \"9283748201\",\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 50000.00,\n  \"description\": \"Kien chuyen khoan an sang\",\n  \"transactionPin\": \"123456\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/transactions/transfer",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "transactions",
+                                "transfer"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Transaction History Success",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/transactions/history?accountNumber=9283748201",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "transactions",
+                                "history"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accountNumber",
+                                    "value": "9283748201"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Transfer Fail Insufficient Balance",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fromAccountNumber\": \"9283748201\",\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 999999999.00,\n  \"description\": \"Chuyen tien\",\n  \"transactionPin\": \"123456\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/transactions/transfer",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "transactions",
+                                "transfer"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is not 200\", function () {",
+                                    "    pm.expect(pm.response.code).to.be.above(399);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has error message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Transfer Fail Wrong PIN",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fromAccountNumber\": \"9283748201\",\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 50000.00,\n  \"description\": \"Chuyen tien\",\n  \"transactionPin\": \"wrongpin\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/transactions/transfer",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "transactions",
+                                "transfer"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is not 200\", function () {",
+                                    "    pm.expect(pm.response.code).to.be.above(399);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has error message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Actuator",
+            "item": [
+                {
+                    "name": "Health Check",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/actuator/health",
+                            "host": [
+                                "http://localhost:8080"
+                            ],
+                            "path": [
+                                "actuator",
+                                "health"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Metrics",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/actuator/metrics",
+                            "host": [
+                                "http://localhost:8080"
+                            ],
+                            "path": [
+                                "actuator",
+                                "metrics"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Exception Handling",
+            "item": [
+                {
+                    "name": "Not Found 404",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/wrong-path",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "wrong-path"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Malformed JSON Request",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "login"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is less than 500ms\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Method Not Allowed 405",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "login"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is not 200\", function () {",
+                                    "    pm.expect(pm.response.code).to.be.above(399);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has error message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "variable": [
-    {
-      "key": "baseUrl",
-      "value": "http://localhost:8080/api/v1",
-      "type": "string"
-    }
-  ]
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8080/api/v1",
+            "type": "string"
+        },
+        {
+            "key": "accessToken",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "refreshToken",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "revokedRefreshToken",
+            "value": "",
+            "type": "string"
+        }
+    ]
 }

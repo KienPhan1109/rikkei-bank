@@ -1,0 +1,37 @@
+package com.ptit.rikkei_bank.dto.request;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import com.ptit.rikkei_bank.validator.UniqueIdNumber;
+import java.time.LocalDate;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class KycSubmitRequest {
+
+    @NotBlank(message = "Số CCCD/CMND không được để trống")
+    @UniqueIdNumber(message = "Số CCCD/CMND đã tồn tại!")
+    private String idNumber;
+
+    @NotBlank(message = "Họ và tên không được để trống")
+    private String fullName;
+
+    @NotNull(message = "Ngày sinh không được để trống")
+    private LocalDate dob;
+
+    @NotBlank(message = "Giới tính không được để trống")
+    private String sex;
+
+    @NotBlank(message = "Địa chỉ không được để trống")
+    private String address;
+
+    @NotBlank(message = "Đường dẫn ảnh mặt trước CCCD không được để trống")
+    private String idCardFrontUrl;
+}

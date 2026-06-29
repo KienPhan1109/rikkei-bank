@@ -32,8 +32,12 @@ gantt
     section Giai đoạn 2 (Hoàn thành)
     Security (JWT, Custom Auth)         :done,    des3, 2026-06-23, 2026-06-25
     Logging, AOP & Exception Custom     :done,    des4, 2026-06-25, 2026-06-26
-    section Giai đoạn 3 (Chưa bắt đầu)
-    Nghiệp vụ Core Banking              :active,  des5, 2026-06-26, 2026-07-10
+    section Giai đoạn 3 (Hoàn thành)
+    Nghiệp vụ Core Banking              :done,    des5, 2026-06-26, 2026-06-27
+    section Giai đoạn 4 (Hoàn thành)
+    Quản trị, Redis, Testing & Locking   :done,    des6, 2026-06-27, 2026-06-28
+    section Giai đoạn 5 (Hoàn thành)
+    Tái cấu trúc & Chuẩn hóa (Coding Rules):done,  des7, 2026-06-28, 2026-06-28
 ```
 
 ### ✅ Giai đoạn 1: Nền tảng & Cơ sở dữ liệu
@@ -52,8 +56,24 @@ gantt
     *   **Logback XML:** Cấu hình nâng cao ghi log Console có màu sắc và lưu trữ file hàng ngày (`spring-boot-logger.log`), tự động tách các log lỗi nghiêm trọng ra file riêng biệt (`spring-boot-error.log`).
     *   **Bảo mật thông tin Log:** Áp dụng `@ToString.Exclude` tại các trường nhạy cảm như `password` trong `LoginRequest` và `RegisterRequest` để đảm bảo mật khẩu không bao giờ bị lộ ra log hệ thống dưới dạng clear-text.
 
-### ⏳ Giai đoạn 3: Nghiệp vụ Core Banking (Chưa bắt đầu)
-*   Thực hiện các tính năng KYC, Mở tài khoản thanh toán, Quản lý số dư, Chuyển tiền nội bộ/liên ngân hàng và Tra cứu lịch sử giao dịch.
+### ✅ Giai đoạn 3: Nghiệp vụ Core Banking
+*   Đã hoàn tất tích hợp và kiểm thử toàn bộ các tính năng định danh eKYC (`KycController`, `AdminKycController`), Mở và Quản lý tài khoản thanh toán (`AccountController` với số tài khoản sinh tự động 10 chữ số độc nhất, mã PIN giao dịch băm bảo mật), thực hiện giao dịch chuyển tiền an toàn (`TransactionController` có `@Transactional` kiểm soát số dư nguồn/đích, so khớp mã PIN và ghi log cảnh báo mức `WARN` đối với các lỗi nghiệp vụ `BusinessException`).
+*   Bổ sung tệp log `spring-boot-warning.log` thu thập riêng các cảnh báo nghiệp vụ (như validation fail, lỗi chuyển tiền, 404 Not Found, Malformed JSON...).
+
+### ✅ Giai đoạn 4: Quản trị, Redis Blacklist, Khóa bi quan & Unit Test
+*   **Quản trị & Phân trang (FR-05):** Cập nhật `UserController` cho phép Admin/Staff xem danh sách người dùng phân trang bằng **JPQL Constructor Projection** để tối ưu RAM, bật/tắt trạng thái hoạt động và xóa người dùng.
+*   **Bảo mật nâng cao & Redis (FR-13):** Tách `TokenBlacklist` khỏi Database, sử dụng **Redis** để lưu các Access Token bị thu hồi khi đăng xuất với TTL tự động theo thời hạn còn lại của JWT. Hỗ trợ cơ chế fallback an toàn về ConcurrentHashMap nếu Redis offline.
+*   **Chống chi tiêu kép (FR-07):** Áp dụng **Pessimistic Write Lock** tại tầng Database khi truy vấn tài khoản thực hiện chuyển tiền.
+*   **Duyệt eKYC liên vai trò (FR-09):** Chuyển endpoint duyệt eKYC về `/api/v1/staff/kyc/...` để cả vai trò `ADMIN` và `STAFF` cùng thao tác.
+*   **Đổi mật khẩu (FR-10):** Hỗ trợ API `/api/v1/users/me/password` đổi mật khẩu đơn giản cho người dùng đã xác thực.
+*   **Đo lường & Log kiểm toán (FR-11):** Nâng cấp AOP ghi nhận log kiểm toán riêng biệt `[AUDIT] Account A transferred Amount to Account B` khi giao dịch thành công/thất bại, kèm đo lường hiệu năng của mọi hàm.
+*   **Kiểm thử tự động (FR-12):** Hoàn thành tối thiểu 10 unit test (7 cho Service, 5 cho Controller) sử dụng Mockito và standalone MockMvc, đảm bảo build và test pass 100%.
+
+### ✅ Giai đoạn 5: Tái cấu trúc & Chuẩn hóa (Coding Rules)
+*   **Chống N+1 Query (Rule 15):** Áp dụng `JOIN FETCH` trong `TransactionRepository` và `@EntityGraph` trong `KycProfileRepository`.
+*   **Custom Validator (Rule 7):** Xây dựng `@UniqueUsername`, `@UniqueEmail`, `@UniqueIdNumber` xử lý kiểm tra trùng lặp Database.
+*   **Cấu hình & Spring Profiles (Rule 13):** Sử dụng `application.yml` và `application-local.yml`, cấu hình `@ConfigurationProperties` cho JWT, loại bỏ hardcode qua biến môi trường.
+*   **Giám sát (Rule 12):** Tích hợp Spring Boot Actuator (`/actuator/health`, `/actuator/metrics`).
 
 ---
 
@@ -242,26 +262,261 @@ erDiagram
 ### 📂 4.2. Nhóm API Người dùng (Users)
 *   **Base URL:** `/api/v1/users`
 
-#### 1. Lấy toàn bộ danh sách người dùng
+#### 1. Lấy danh sách người dùng phân trang (Get All Users)
 *   **Phương thức:** `GET`
 *   **Đường dẫn:** `/`
-*   **Mô tả:** Trả về danh sách tất cả các tài khoản người dùng có trên hệ thống. *(Lưu ý: Endpoint này đang được để cấu hình Public để hỗ trợ việc kiểm tra dữ liệu đăng ký thuận tiện).*
-*   **Yêu cầu Headers & Body:** Không có.
+*   **Mô tả:** Trả về danh sách phân trang người dùng bằng JPQL Constructor Projection (Chỉ dành cho ADMIN, STAFF).
+*   **Query Parameters:**
+    *   `page` (int, default: 0): Số trang.
+    *   `size` (int, default: 10): Số lượng phần tử mỗi trang.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
 *   **Phản hồi thành công (200 OK):**
     ```json
-    [
-      {
-        "id": 1,
-        "username": "testuser",
-        "email": "testuser@gmail.com",
-        "phoneNumber": "0987654321",
-        "isActive": true,
-        "kyc": false,
-        "role": "CUSTOMER",
-        "createdAt": "2026-06-26T03:53:12Z"
+    {
+      "success": true,
+      "code": 200,
+      "message": "Lấy danh sách người dùng thành công",
+      "data": {
+        "content": [
+          {
+            "id": 1,
+            "username": "testuser",
+            "email": "testuser@gmail.com",
+            "phoneNumber": "0987654321",
+            "isActive": true,
+            "kyc": false,
+            "role": "CUSTOMER",
+            "createdAt": "2026-06-26T03:53:12"
+          }
+        ],
+        "pageable": "...",
+        "totalPages": 1,
+        "totalElements": 1
       }
-    ]
+    }
     ```
+
+#### 2. Kích hoạt/Khóa người dùng (Toggle User Active Status)
+*   **Phương thức:** `PUT`
+*   **Đường dẫn:** `/{id}/status`
+*   **Mô tả:** Khóa hoặc kích hoạt lại hoạt động tài khoản của người dùng (Chỉ dành cho ADMIN, STAFF).
+*   **Query Parameters:**
+    *   `active` (boolean, Required): `true` để kích hoạt, `false` để khóa.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+
+#### 3. Xóa người dùng (Delete User)
+*   **Phương thức:** `DELETE`
+*   **Đường dẫn:** `/{id}`
+*   **Mô tả:** Xóa vĩnh viễn tài khoản người dùng khỏi hệ thống (Chỉ dành cho ADMIN, STAFF).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+
+#### 4. Đổi mật khẩu cá nhân (Change Password)
+*   **Phương thức:** `PUT`
+*   **Đường dẫn:** `/me/password`
+*   **Mô tả:** Cho phép người dùng đang đăng nhập tự đổi mật khẩu.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "oldPassword": "mySecurePassword123",
+      "newPassword": "newSecurePassword456"
+    }
+    ```
+
+---
+
+### 📂 4.3. Nhóm API Định Danh eKYC (eKYC)
+*   **Base URL:**
+    *   Khách hàng: `/api/v1/kyc`
+    *   Admin: `/api/v1/admin/kyc`
+
+#### 1. Nộp hồ sơ định danh (Submit KYC)
+*   **Phương thức:** `POST`
+*   **Đường dẫn:** `/submit`
+*   **Mô tả:** Khách hàng nộp hồ sơ eKYC cá nhân. Yêu cầu tài khoản đã được xác thực qua JWT và chưa có hồ sơ eKYC trước đó.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "idNumber": "038206012345",
+      "fullName": "Phan Trung Kiên",
+      "dob": "2006-09-11",
+      "sex": "MALE",
+      "address": "Hà Nội, Việt Nam",
+      "idCardFrontUrl": "https://rikkeibank.cdn/kyc/front_038206012345.png"
+    }
+    ```
+*   **Phản hồi thành công (200 OK):**
+    ```json
+    {
+      "success": true,
+      "code": 200,
+      "message": "Nộp hồ sơ định danh eKYC thành công. Vui lòng chờ Admin phê duyệt!",
+      "data": {
+        "id": 1,
+        "idNumber": "038206012345",
+        "fullName": "Phan Trung Kiên",
+        "dob": "2006-09-11",
+        "sex": "MALE",
+        "address": "Hà Nội, Việt Nam",
+        "idCardFrontUrl": "https://rikkeibank.cdn/kyc/front_038206012345.png",
+        "status": "PENDING",
+        "verifiedAt": null,
+        "createdAt": "2026-06-26T23:30:00Z",
+        "userId": 2
+      }
+    }
+    ```
+*   **Các mã phản hồi lỗi thường gặp:**
+    *   `400 Bad Request`: Thông tin định danh trống, định dạng ngày sinh sai hoặc thiếu CCCD.
+    *   `409 Conflict`: Số CCCD đã tồn tại trên hệ thống hoặc tài khoản đã gửi hồ sơ eKYC.
+
+#### 2. Xem hồ sơ định danh cá nhân (Get My KYC)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/me`
+*   **Mô tả:** Khách hàng xem lại thông tin hồ sơ định danh của mình.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Phản hồi thành công (200 OK):** Trả về chi tiết `KycResponse`.
+
+#### 3. Duyệt hồ sơ eKYC (Staff/Admin Update Status)
+*   **Phương thức:** `PUT`
+*   **Đường dẫn:** `/api/v1/staff/kyc/{id}/status`
+*   **Mô tả:** Staff hoặc Admin thực hiện phê duyệt (`CONFIRM`) hoặc từ chối (`REJECT`) hồ sơ eKYC của khách hàng.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}` (Tài khoản Staff hoặc Admin)
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "status": "CONFIRM"
+    }
+    ```
+*   **Phản hồi thành công (200 OK):** Trả về chi tiết `KycResponse` đã cập nhật.
+
+---
+
+### 📂 4.4. Nhóm API Quản Lý Tài Khoản (Accounts)
+*   **Base URL:** `/api/v1/accounts`
+
+#### 1. Mở tài khoản thanh toán mới (Create Account)
+*   **Phương thức:** `POST`
+*   **Đường dẫn:** `/`
+*   **Mô tả:** Mở tài khoản thanh toán mới. Chỉ khả dụng cho người dùng đã hoàn tất định danh eKYC (`isKyc = true`). Hệ thống tự động sinh số tài khoản độc nhất gồm 10 chữ số.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "currency": "VND",
+      "transactionPin": "123456"
+    }
+    ```
+*   **Phản hồi thành công (200 OK):**
+    ```json
+    {
+      "success": true,
+      "code": 200,
+      "message": "Mở tài khoản thanh toán thành công!",
+      "data": {
+        "id": 1,
+        "accountNumber": "9283748201",
+        "balance": 0.00,
+        "currency": "VND",
+        "active": true,
+        "createdAt": "2026-06-26T23:32:00Z",
+        "updatedAt": "2026-06-26T23:32:00Z",
+        "userId": 2
+      }
+    }
+    ```
+
+#### 2. Xem danh sách tài khoản cá nhân (Get My Accounts)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/`
+*   **Mô tả:** Lấy danh sách toàn bộ các tài khoản thanh toán đang sở hữu bởi người dùng đăng nhập.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Phản hồi thành công (200 OK):** Trả về mảng chứa các `AccountResponse`.
+
+#### 3. Thay đổi trạng thái tài khoản (Lock/Unlock Account)
+*   **Phương thức:** `PUT`
+*   **Đường dẫn:** `/{accountNumber}/status`
+*   **Mô tả:** Khóa hoặc mở khóa tài khoản ngân hàng. Chỉ chủ sở hữu tài khoản hoặc Admin mới có quyền thực hiện.
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "active": false
+    }
+    ```
+
+---
+
+### 📂 4.5. Nhóm API Giao Dịch Chuyển Tiền (Transactions)
+*   **Base URL:** `/api/v1/transactions`
+
+#### 1. Thực hiện chuyển tiền (Transfer Money)
+*   **Phương thức:** `POST`
+*   **Đường dẫn:** `/transfer`
+*   **Mô tả:** Chuyển tiền giữa hai tài khoản ngân hàng. Yêu cầu tài khoản nguồn thuộc sở hữu của người dùng đăng nhập, cả 2 tài khoản đều đang hoạt động, mã PIN giao dịch phải chính xác và số dư nguồn phải khả dụng.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "fromAccountNumber": "9283748201",
+      "toAccountNumber": "1029384756",
+      "amount": 500000.00,
+      "description": "Kien chuyen tien an sang",
+      "transactionPin": "123456"
+    }
+    ```
+*   **Phản hồi thành công (200 OK):**
+    ```json
+    {
+      "success": true,
+      "code": 200,
+      "message": "Thực hiện giao dịch chuyển khoản thành công!",
+      "data": {
+        "id": 1,
+        "transactionCode": "TX1782500000123",
+        "amount": 500000.00,
+        "description": "Kien chuyen tien an sang",
+        "status": "SUCCESS",
+        "createdAt": "2026-06-26T23:35:00Z",
+        "fromAccountNumber": "9283748201",
+        "toAccountNumber": "1029384756"
+      }
+    }
+    ```
+
+#### 2. Xem lịch sử giao dịch của tài khoản (Transaction History)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/history`
+*   **Mô tả:** Tra cứu lịch sử chuyển/nhận tiền của một tài khoản cụ thể. Yêu cầu người gọi là chủ tài khoản hoặc Admin.
+*   **Query Parameters:**
+    *   `accountNumber` (String, Required): Số tài khoản cần tra cứu.
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+
+---
+
+### 📂 4.6. Nhóm API Giám Sát Hệ Thống (Actuator)
+*   **Base URL:** `/actuator`
+
+#### 1. Kiểm tra sức khỏe hệ thống (Health Check)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/health`
+*   **Mô tả:** Trả về trạng thái của ứng dụng và các thành phần phụ thuộc (VD: Database, Disk Space).
+
+#### 2. Lấy số liệu giám sát (Metrics)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/metrics`
+*   **Mô tả:** Xem danh sách các chỉ số có thể giám sát (VD: bộ nhớ, request, thời gian xử lý).
 
 ---
 

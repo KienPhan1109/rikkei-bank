@@ -17,15 +17,15 @@ public class UserMapper {
     }
 
     public UserResponse toResponse(User user) {
-        return UserResponse.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .phoneNumber(user.getPhoneNumber())
-                .role(user.getRole() != null ? user.getRole().getName() : null)
-                .isKyc(user.getIsKyc())
-                .isActive(user.getIsActive())
-                .createdAt(user.getCreatedAt())
-                .build();
+        UserResponse response = new UserResponse();
+        response.setId(user.getId());
+        response.setUsername(user.getUsername());
+        response.setEmail(user.getEmail());
+        response.setPhoneNumber(user.getPhoneNumber());
+        response.setRole(user.getRole() != null ? user.getRole().getName() : null);
+        response.setIsKyc(user.getIsKyc());
+        response.setIsActive(user.getIsActive());
+        response.setCreatedAt(user.getCreatedAt());
+        return response;
     }
 }

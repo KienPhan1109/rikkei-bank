@@ -9,6 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import com.ptit.rikkei_bank.dto.request.TransferRequest;
+import com.ptit.rikkei_bank.exception.BusinessException;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+
 import java.util.Arrays;
 
 @Aspect
@@ -40,8 +45,12 @@ public class LoggingAspect {
             log.info("Exit - Class: {} - Method: {}() - {} - Execution time: {} ms", 
                      shortenedClassName, methodName, formattedResult, elapsedTime);
             return result;
+        } catch (BusinessException e) {
+            log.warn("Business warning - Class: {} - Method: {}() - Message: {}", 
+                     shortenedClassName, methodName, e.getMessage());
+            throw e;
         } catch (IllegalArgumentException e) {
-            log.error("Illegal argument - Class: {} - Method: {}() - Arguments: {}", 
+            log.warn("Illegal argument - Class: {} - Method: {}() - Arguments: {}", 
                       shortenedClassName, methodName, Arrays.toString(joinPoint.getArgs()));
             throw e;
         } catch (Exception e) {
@@ -90,5 +99,23 @@ public class LoggingAspect {
             return String.format("Result Body: %s - Status: %s - Headers: %s", bodyStr, statusStr, headersStr);
         }
         return "Result: " + result.toString();
+    }
+
+    @AfterReturning(
+        pointcut = "execution(* com.ptit.rikkei_bank.service.TransactionService.transfer(..)) && args(userId, request)",
+        returning = "result"
+    )
+    public void logAuditTransferSuccess(Object result, Long userId, TransferRequest request) {
+        log.info("[AUDIT] Account {} transferred {} to Account {}", 
+                 request.getFromAccountNumber(), request.getAmount(), request.getToAccountNumber());
+    }
+
+    @AfterThrowing(
+        pointcut = "execution(* com.ptit.rikkei_bank.service.TransactionService.transfer(..)) && args(userId, request)",
+        throwing = "ex"
+    )
+    public void logAuditTransferFailure(Exception ex, Long userId, TransferRequest request) {
+        log.warn("[AUDIT] Transfer failed from Account {} to Account {}. Amount: {}. Reason: {}", 
+                 request.getFromAccountNumber(), request.getToAccountNumber(), request.getAmount(), ex.getMessage());
     }
 }

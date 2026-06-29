@@ -1,11 +1,12 @@
 package com.ptit.rikkei_bank.security;
 
-import com.ptit.rikkei_bank.repository.TokenBlackListRepository;
+import com.ptit.rikkei_bank.service.TokenBlacklistService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,12 +18,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 @Component
+@Slf4j
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtTokenProvider tokenProvider;
     private final CustomUserDetailsService customUserDetailsService;
-    private final TokenBlackListRepository tokenBlackListRepository;
+    private final TokenBlacklistService tokenBlacklistService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -32,7 +34,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
                 // Kiểm tra xem token có nằm trong blacklist không
-                boolean isBlacklisted = tokenBlackListRepository.findByAccessToken(jwt).isPresent();
+                boolean isBlacklisted = tokenBlacklistService.isBlacklisted(jwt);
                 
                 if (!isBlacklisted) {
                     String username = tokenProvider.getUsernameFromJWT(jwt);

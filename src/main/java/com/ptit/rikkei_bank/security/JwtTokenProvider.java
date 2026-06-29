@@ -1,36 +1,34 @@
 package com.ptit.rikkei_bank.security;
+import java.util.Date;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
+import com.ptit.rikkei_bank.config.JwtProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
-import java.util.Date;
 
 @Component
 @Slf4j
 public class JwtTokenProvider {
 
-    @Value("${app.jwt.secret:defaultSecretKeyLongEnoughForHS256Algorithm1234567890}")
-    private String jwtSecret;
+    private final JwtProperties jwtProperties;
 
-    @Value("${app.jwt.expiration:300000}") // Default 5 minutes
-    private long jwtExpirationInMs;
-
-    @Value("${app.jwt.refreshExpiration:86400000}") // Default 1 day
-    private long refreshExpirationInMs;
+    public JwtTokenProvider(JwtProperties jwtProperties) {
+        this.jwtProperties = jwtProperties;
+    }
 
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(jwtSecret.getBytes());
+        return Keys.hmacShaKeyFor(jwtProperties.getSecret().getBytes());
     }
 
     public String generateAccessToken(Authentication authentication) {
         CustomUserDetails userPrincipal = (CustomUserDetails) authentication.getPrincipal();
         Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
+        Date expiryDate = new Date(now.getTime() + jwtProperties.getExpiration());
 
         return Jwts.builder()
                 .setSubject(userPrincipal.getUsername())
@@ -42,7 +40,7 @@ public class JwtTokenProvider {
 
     public String generateAccessTokenFromUsername(String username) {
         Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
+        Date expiryDate = new Date(now.getTime() + jwtProperties.getExpiration());
 
         return Jwts.builder()
                 .setSubject(username)
@@ -76,5 +74,14 @@ public class JwtTokenProvider {
             log.error("JWT claims string is empty.");
         }
         return false;
+    }
+
+    public Date getExpirationFromJWT(String token) {
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+        return claims.getExpiration();
     }
 }

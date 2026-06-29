@@ -1,4 +1,8 @@
 package com.ptit.rikkei_bank.service.impl;
+import java.util.Date;
+import org.springframework.security.authentication.LockedException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.BadCredentialsException;
 
 import com.ptit.rikkei_bank.dto.request.LoginRequest;
 import com.ptit.rikkei_bank.dto.request.RefreshTokenRequest;
@@ -7,18 +11,19 @@ import com.ptit.rikkei_bank.dto.response.AuthResponse;
 import com.ptit.rikkei_bank.dto.response.UserResponse;
 import com.ptit.rikkei_bank.entity.RefreshToken;
 import com.ptit.rikkei_bank.entity.Role;
-import com.ptit.rikkei_bank.entity.TokenBlackList;
 import com.ptit.rikkei_bank.entity.User;
 import com.ptit.rikkei_bank.exception.LoginErrorException;
 import com.ptit.rikkei_bank.mapper.UserMapper;
 import com.ptit.rikkei_bank.repository.RefreshTokenRepository;
 import com.ptit.rikkei_bank.repository.RoleRepository;
-import com.ptit.rikkei_bank.repository.TokenBlackListRepository;
 import com.ptit.rikkei_bank.repository.UserRepository;
 import com.ptit.rikkei_bank.security.JwtTokenProvider;
 import com.ptit.rikkei_bank.service.AuthService;
+import com.ptit.rikkei_bank.service.TokenBlacklistService;
+import com.ptit.rikkei_bank.config.JwtProperties;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -34,26 +39,22 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final RefreshTokenRepository refreshTokenRepository;
-    private final TokenBlackListRepository tokenBlackListRepository;
+    private final TokenBlacklistService tokenBlacklistService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider tokenProvider;
     private final UserMapper userMapper;
+    private final JwtProperties jwtProperties;
 
     @Override
     @Transactional
     public UserResponse register(RegisterRequest request) {
-        if (userRepository.existsByUsername(request.getUsername())) {
-            throw new com.ptit.rikkei_bank.exception.DuplicateResourceException("Tên đăng nhập đã tồn tại!");
-        }
-        if (userRepository.existsByEmail(request.getEmail())) {
-            throw new com.ptit.rikkei_bank.exception.DuplicateResourceException("Email đã tồn tại!");
-        }
 
         User user = userMapper.toEntity(request);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -77,28 +78,31 @@ public class AuthServiceImpl implements AuthService {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String jwt = tokenProvider.generateAccessToken(authentication);
             
-            User user = userRepository.findByUsername(request.getUsername())
+            User user = userRepository.findByUsernameAndIsDeletedFalse(request.getUsername())
                     .orElseThrow(() -> new LoginErrorException("Không tìm thấy người dùng"));
 
             // Create or update Refresh Token
             RefreshToken refreshToken = refreshTokenRepository.findByUser(user).orElse(new RefreshToken());
             refreshToken.setUser(user);
             refreshToken.setToken(UUID.randomUUID().toString());
-            // Token hợp lệ trong 30 ngày
-            refreshToken.setExpiryDate(Instant.now().plusMillis(30L * 24 * 60 * 60 * 1000));
+            // Token hợp lệ sử dụng cấu hình từ properties
+            refreshToken.setExpiryDate(Instant.now().plusMillis(jwtProperties.getRefreshExpiration()));
             refreshToken.setRevoked(false);
             if (refreshToken.getId() == null) {
                 refreshToken.setCreatedAt(LocalDateTime.now());
             }
             refreshTokenRepository.save(refreshToken);
 
-            return AuthResponse.builder()
-                    .accessToken(jwt)
-                    .refreshToken(refreshToken.getToken())
-                    .user(userMapper.toResponse(user))
-                    .build();
-        } catch (Exception e) {
+            return new AuthResponse(jwt, refreshToken.getToken(), userMapper.toResponse(user));
+        } catch (DisabledException | LockedException e) {
+            log.warn("Login failed: User account is locked/disabled - {}", request.getUsername());
+            throw new LoginErrorException("Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên!");
+        } catch (BadCredentialsException e) {
+            log.warn("Login failed: Bad credentials - {}", request.getUsername());
             throw new LoginErrorException("Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!");
+        } catch (Exception e) {
+            log.error("Login failed: Unexpected error - {}", e.getMessage(), e);
+            throw new LoginErrorException("Đăng nhập thất bại. Đã có lỗi xảy ra!");
         }
     }
 
@@ -119,11 +123,7 @@ public class AuthServiceImpl implements AuthService {
 
         String accessToken = tokenProvider.generateAccessTokenFromUsername(token.getUser().getUsername());
         
-        return AuthResponse.builder()
-                .accessToken(accessToken)
-                .refreshToken(token.getToken())
-                .user(userMapper.toResponse(token.getUser()))
-                .build();
+        return new AuthResponse(accessToken, token.getToken(), userMapper.toResponse(token.getUser()));
     }
 
     @Override
@@ -133,17 +133,38 @@ public class AuthServiceImpl implements AuthService {
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
             String jwt = bearerToken.substring(7);
             if (tokenProvider.validateToken(jwt)) {
-                // Đưa access token vào blacklist
-                TokenBlackList blackList = new TokenBlackList();
-                blackList.setAccessToken(jwt);
-                // Thời gian blacklist mặc định là thời điểm hiện tại
-                blackList.setBlacklistedAt(LocalDateTime.now());
-                blackList.setCreatedAt(LocalDateTime.now());
-                // Cần tính toán expiryAt chính xác từ token, ở đây tạm gán +5phút
-                blackList.setExpiryAt(LocalDateTime.now().plusMinutes(5));
-                
-                tokenBlackListRepository.save(blackList);
+                try {
+                    Date expiration = tokenProvider.getExpirationFromJWT(jwt);
+                    long ttlSeconds = (expiration.getTime() - System.currentTimeMillis()) / 1000;
+                    log.info("[Logout] Token TTL remaining: {} seconds", ttlSeconds);
+                    if (ttlSeconds > 0) {
+                        tokenBlacklistService.blacklistToken(jwt, ttlSeconds);
+                    } else {
+                        log.warn("[Logout] Token is already expired or near-expired, skip blacklisting");
+                    }
+                } catch (Exception e) {
+                    log.warn("[Logout] Error calculating TTL, blacklisting with default 300s. Error: {}", e.getMessage());
+                    tokenBlacklistService.blacklistToken(jwt, 300);
+                }
+
+                // Revoke Refresh Token in database
+                try {
+                    String username = tokenProvider.getUsernameFromJWT(jwt);
+                    userRepository.findByUsernameAndIsDeletedFalse(username).ifPresent(user -> {
+                        refreshTokenRepository.findByUser(user).ifPresent(refreshToken -> {
+                            refreshToken.setRevoked(true);
+                            refreshTokenRepository.save(refreshToken);
+                            log.info("[Logout] Successfully revoked refresh token for user: {}", username);
+                        });
+                    });
+                } catch (Exception e) {
+                    log.error("[Logout] Failed to revoke refresh token: {}", e.getMessage());
+                }
+            } else {
+                log.warn("[Logout] Token validation failed during logout");
             }
+        } else {
+            log.warn("[Logout] Authorization header is missing or does not start with Bearer");
         }
     }
 }
