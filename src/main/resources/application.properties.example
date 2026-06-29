@@ -1,0 +1,26 @@
+# Server port
+server.port=8080
+
+# Database Configuration (MySQL)
+spring.datasource.url=jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+spring.datasource.username=your_mysql_username_here
+spring.datasource.password=your_mysql_password_here
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.open-in-view=false
+
+# JWT Configuration
+# MUST BE at least 256 bits (32 characters) for HS256 algorithm
+app.jwt.secret=your_super_secret_jwt_key_must_be_long_enough
+# Access Token expiration (in milliseconds) - Default: 300,000 ms (5 minutes)
+app.jwt.expiration=300000
+# Refresh Token expiration (in milliseconds) - Default: 86,400,000 ms (24 hours)
+app.jwt.refreshExpiration=86400000
+
+# Actuator Endpoints (Monitoring)
+management.endpoints.web.exposure.include=health,metrics
+management.endpoint.health.show-details=always
