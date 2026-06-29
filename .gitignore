@@ -38,3 +38,5 @@ out/
 
 ### Custom Rules ###
 coding_rules.md
+src/main/resources/application.properties
+*.bak
