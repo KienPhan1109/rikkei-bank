@@ -16,12 +16,20 @@ import java.util.Optional;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
-    Optional<Account> findByAccountNumber(String accountNumber);
-    List<Account> findByUserId(Long userId);
-    boolean existsByAccountNumber(String accountNumber);
+    @Query("SELECT a FROM Account a WHERE a.accountNumber = :accountNumber")
+    Optional<Account> findByAccountNumber(@Param("accountNumber") String accountNumber);
+    
+    @Query("SELECT a FROM Account a WHERE a.user.id = :userId")
+    List<Account> findByUserId(@Param("userId") Long userId);
+    
+    @Query("SELECT COUNT(a) > 0 FROM Account a WHERE a.accountNumber = :accountNumber")
+    boolean existsByAccountNumber(@Param("accountNumber") String accountNumber);
 
     @Query("SELECT new com.ptit.rikkei_bank.dto.response.AccountResponse(a.id, a.accountNumber, a.balance, a.currency, a.active, a.createdAt, a.updatedAt, a.user.id) FROM Account a WHERE a.user.id = :userId")
-    Page<AccountResponse> findByUserIdProjected(Long userId, Pageable pageable);
+    Page<AccountResponse> findByUserIdProjected(@Param("userId") Long userId, Pageable pageable);
+
+    @Query("SELECT new com.ptit.rikkei_bank.dto.response.AccountResponse(a.id, a.accountNumber, a.balance, a.currency, a.active, a.createdAt, a.updatedAt, a.user.id) FROM Account a")
+    Page<AccountResponse> findAllProjected(Pageable pageable);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT a FROM Account a WHERE a.accountNumber = :accountNumber")

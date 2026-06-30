@@ -22,4 +22,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
     @Query("SELECT t FROM Transaction t WHERE t.fromAccount.accountNumber = :fromAccountNumber OR t.toAccount.accountNumber = :toAccountNumber ORDER BY t.createdAt DESC")
     List<Transaction> findByFromAccountAccountNumberOrToAccountAccountNumberOrderByCreatedAtDesc(@Param("fromAccountNumber") String fromAccountNumber, @Param("toAccountNumber") String toAccountNumber);
     boolean existsByTransactionCode(String transactionCode);
+
+    @Query("SELECT new com.ptit.rikkei_bank.dto.response.TransactionResponse(t.id, t.transactionCode, t.amount, t.description, t.status, t.createdAt, t.fromAccount.accountNumber, t.toAccount.accountNumber) " +
+           "FROM Transaction t ORDER BY t.createdAt DESC")
+    Page<TransactionResponse> findAllProjected(Pageable pageable);
 }

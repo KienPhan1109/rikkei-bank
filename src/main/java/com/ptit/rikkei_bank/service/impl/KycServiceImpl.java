@@ -8,6 +8,7 @@ import com.ptit.rikkei_bank.entity.KycProfile;
 import com.ptit.rikkei_bank.entity.User;
 import com.ptit.rikkei_bank.enums.Status;
 import com.ptit.rikkei_bank.exception.BusinessException;
+import com.ptit.rikkei_bank.exception.ResourceNotFoundException;
 import com.ptit.rikkei_bank.mapper.KycMapper;
 import com.ptit.rikkei_bank.repository.KycProfileRepository;
 import com.ptit.rikkei_bank.repository.UserRepository;
@@ -34,16 +35,41 @@ public class KycServiceImpl implements KycService {
     @Transactional
     public KycResponse submitKyc(Long userId, KycSubmitRequest request) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new BusinessException("Không tìm thấy người dùng!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng với ID: " + userId));
 
-        if (kycProfileRepository.existsByUserId(userId)) {
-            throw new BusinessException("Người dùng đã nộp hồ sơ định danh eKYC!");
+        KycProfile existingProfile = kycProfileRepository.findByUserId(userId).orElse(null);
+        KycProfile profile;
+        if (existingProfile != null) {
+            if (existingProfile.getStatus() == Status.REJECT) {
+                // Check if the new ID number is already taken by another user
+                if (!existingProfile.getIdNumber().equals(request.getIdNumber()) &&
+                        kycProfileRepository.existsByIdNumber(request.getIdNumber())) {
+                    throw new BusinessException("Số CMND/CCCD đã tồn tại trên hệ thống!");
+                }
+                // Update in-place to avoid Hibernate insert-before-delete constraint violations
+                profile = existingProfile;
+                profile.setIdNumber(request.getIdNumber());
+                profile.setFullName(request.getFullName());
+                profile.setDob(request.getDob());
+                profile.setSex(request.getSex());
+                profile.setAddress(request.getAddress());
+                profile.setIdCardFrontUrl(request.getIdCardFrontUrl());
+                profile.setStatus(Status.PENDING);
+                profile.setRejectionReason(null); // Clear previous rejection reason
+                profile.setCreatedAt(LocalDateTime.now());
+                profile.setVerifiedAt(null);
+            } else {
+                throw new BusinessException("Người dùng đã nộp hồ sơ định danh eKYC!");
+            }
+        } else {
+            if (kycProfileRepository.existsByIdNumber(request.getIdNumber())) {
+                throw new BusinessException("Số CMND/CCCD đã tồn tại trên hệ thống!");
+            }
+            profile = kycMapper.toEntity(request);
+            profile.setStatus(Status.PENDING);
+            profile.setUser(user);
+            profile.setCreatedAt(LocalDateTime.now());
         }
-
-        KycProfile profile = kycMapper.toEntity(request);
-        profile.setStatus(Status.PENDING);
-        profile.setUser(user);
-        profile.setCreatedAt(LocalDateTime.now());
 
         KycProfile savedProfile = kycProfileRepository.save(profile);
         return kycMapper.toResponse(savedProfile);
@@ -53,7 +79,7 @@ public class KycServiceImpl implements KycService {
     @Transactional
     public KycResponse updateKycStatus(Long kycId, KycStatusUpdateRequest request) {
         KycProfile profile = kycProfileRepository.findById(kycId)
-                .orElseThrow(() -> new BusinessException("Không tìm thấy hồ sơ định danh!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy hồ sơ định danh với ID: " + kycId));
 
         Status status;
         try {
@@ -66,10 +92,15 @@ public class KycServiceImpl implements KycService {
         profile.setVerifiedAt(LocalDateTime.now());
 
         if (status == Status.CONFIRM) {
+            profile.setRejectionReason(null);
             User user = profile.getUser();
             user.setIsKyc(true);
             userRepository.save(user);
         } else if (status == Status.REJECT) {
+            if (request.getRejectionReason() == null || request.getRejectionReason().trim().isEmpty()) {
+                throw new BusinessException("Vui lòng cung cấp lý do từ chối duyệt eKYC!");
+            }
+            profile.setRejectionReason(request.getRejectionReason().trim());
             User user = profile.getUser();
             user.setIsKyc(false);
             userRepository.save(user);
@@ -83,7 +114,7 @@ public class KycServiceImpl implements KycService {
     @Transactional(readOnly = true)
     public KycResponse getKycByUserId(Long userId) {
         KycProfile profile = kycProfileRepository.findByUserId(userId)
-                .orElseThrow(() -> new BusinessException("Người dùng chưa nộp hồ sơ định danh eKYC!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Người dùng chưa nộp hồ sơ định danh eKYC!"));
         return kycMapper.toResponse(profile);
     }
 
@@ -91,7 +122,7 @@ public class KycServiceImpl implements KycService {
     @Transactional(readOnly = true)
     public KycResponse getKycById(Long kycId) {
         KycProfile profile = kycProfileRepository.findById(kycId)
-                .orElseThrow(() -> new BusinessException("Không tìm thấy hồ sơ định danh!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy hồ sơ định danh với ID: " + kycId));
         return kycMapper.toResponse(profile);
     }
 

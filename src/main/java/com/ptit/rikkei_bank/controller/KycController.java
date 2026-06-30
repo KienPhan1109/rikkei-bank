@@ -10,11 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/kyc")
@@ -23,7 +19,7 @@ public class KycController {
 
     private final KycService kycService;
 
-    @PostMapping("/submit")
+    @PostMapping
     public ResponseEntity<ApiResponse<KycResponse>> submitKyc(
             @AuthenticationPrincipal CustomUserDetails userDetails,
             @Valid @RequestBody KycSubmitRequest request) {
@@ -36,7 +32,7 @@ public class KycController {
         ));
     }
 
-    @GetMapping("/me")
+    @GetMapping
     public ResponseEntity<ApiResponse<KycResponse>> getMyKyc(
             @AuthenticationPrincipal CustomUserDetails userDetails) {
         Long userId = userDetails.getUser().getId();

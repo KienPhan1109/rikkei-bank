@@ -6,7 +6,9 @@ import org.springframework.data.domain.Pageable;
 
 public interface UserService {
     Page<UserResponse> getAllUsers(Pageable pageable);
+    UserResponse getUserById(Long id);
     void toggleUserStatus(Long userId, boolean active);
-    void deleteUser(Long userId);
+    void lockUser(Long userId);
+    void unlockUser(Long userId);
     void changePassword(Long userId, String oldPassword, String newPassword);
 }

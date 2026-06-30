@@ -7,6 +7,9 @@ import com.ptit.rikkei_bank.entity.Account;
 import com.ptit.rikkei_bank.entity.Transaction;
 import com.ptit.rikkei_bank.entity.User;
 import com.ptit.rikkei_bank.exception.BusinessException;
+import com.ptit.rikkei_bank.exception.ForbiddenException;
+import com.ptit.rikkei_bank.exception.InsufficientBalanceException;
+import com.ptit.rikkei_bank.exception.ResourceNotFoundException;
 import com.ptit.rikkei_bank.mapper.TransactionMapper;
 import com.ptit.rikkei_bank.repository.AccountRepository;
 import com.ptit.rikkei_bank.repository.TransactionRepository;
@@ -21,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -36,18 +40,39 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     @Transactional
     public TransactionResponse transfer(Long userId, TransferRequest request) {
-        if (request.getAmount() == null || request.getAmount().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new BusinessException("Số tiền chuyển khoản phải lớn hơn 0!");
+        if (request.getAmount() == null || request.getAmount().compareTo(new BigDecimal("2000")) < 0) {
+            throw new BusinessException("Số tiền chuyển khoản tối thiểu là 2000 VND!");
         }
 
-        Account fromAccount = accountRepository.findByAccountNumberForUpdate(request.getFromAccountNumber())
-                .orElseThrow(() -> new BusinessException("Không tìm thấy tài khoản nguồn!"));
+        List<Account> userAccounts = accountRepository.findByUserId(userId);
+        if (userAccounts.isEmpty()) {
+            throw new BusinessException("Người dùng chưa có tài khoản thanh toán!");
+        }
+        String fromAccountNumber = userAccounts.get(0).getAccountNumber();
 
-        Account toAccount = accountRepository.findByAccountNumberForUpdate(request.getToAccountNumber())
-                .orElseThrow(() -> new BusinessException("Không tìm thấy tài khoản đích!"));
-
-        if (fromAccount.getAccountNumber().equals(toAccount.getAccountNumber())) {
+        // Lock accounts to prevent race conditions
+        // Need to ensure consistent lock order to avoid deadlocks
+        String account1 = fromAccountNumber;
+        String account2 = request.getToAccountNumber();
+        
+        if (account1.equals(account2)) {
             throw new BusinessException("Không thể thực hiện chuyển khoản đến cùng một tài khoản!");
+        }
+
+        Account fromAccount;
+        Account toAccount;
+
+        // Prevent deadlock by locking in a consistent order (e.g. lexicographically)
+        if (account1.compareTo(account2) < 0) {
+            fromAccount = accountRepository.findByAccountNumberForUpdate(account1)
+                    .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản nguồn: " + account1));
+            toAccount = accountRepository.findByAccountNumberForUpdate(account2)
+                    .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản đích: " + account2));
+        } else {
+            toAccount = accountRepository.findByAccountNumberForUpdate(account2)
+                    .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản đích: " + account2));
+            fromAccount = accountRepository.findByAccountNumberForUpdate(account1)
+                    .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản nguồn: " + account1));
         }
 
         if (fromAccount.getActive() == null || !fromAccount.getActive()) {
@@ -59,7 +84,7 @@ public class TransactionServiceImpl implements TransactionService {
         }
 
         if (!fromAccount.getUser().getId().equals(userId)) {
-            throw new BusinessException("Không có quyền thực hiện giao dịch từ tài khoản này!");
+            throw new ForbiddenException("Không có quyền thực hiện giao dịch từ tài khoản này!");
         }
 
         if (!passwordEncoder.matches(request.getTransactionPin(), fromAccount.getTransactionPin())) {
@@ -67,7 +92,7 @@ public class TransactionServiceImpl implements TransactionService {
         }
 
         if (fromAccount.getBalance().compareTo(request.getAmount()) < 0) {
-            throw new BusinessException("Số dư tài khoản không đủ để thực hiện giao dịch!");
+            throw new InsufficientBalanceException("Số dư tài khoản không đủ để thực hiện giao dịch!");
         }
 
         // Deduct from sender and add to receiver
@@ -103,18 +128,26 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional(readOnly = true)
     public PageResponse<TransactionResponse> getTransactionHistory(Long userId, String accountNumber, Pageable pageable) {
         Account account = accountRepository.findByAccountNumber(accountNumber)
-                .orElseThrow(() -> new BusinessException("Không tìm thấy tài khoản ngân hàng!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản: " + accountNumber));
 
         User caller = userRepository.findById(userId)
-                .orElseThrow(() -> new BusinessException("Không tìm thấy người dùng!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng với ID: " + userId));
 
-        boolean isAdmin = caller.getRole() != null && "ADMIN".equalsIgnoreCase(caller.getRole().getName());
+        boolean hasAccess = caller.getRole() != null && 
+                ("ADMIN".equalsIgnoreCase(caller.getRole().getName()) || "STAFF".equalsIgnoreCase(caller.getRole().getName()));
 
-        if (!account.getUser().getId().equals(userId) && !isAdmin) {
-            throw new BusinessException("Không có quyền truy cập lịch sử giao dịch của tài khoản này!");
+        if (!account.getUser().getId().equals(userId) && !hasAccess) {
+            throw new ForbiddenException("Không có quyền truy cập lịch sử giao dịch của tài khoản này!");
         }
 
         Page<TransactionResponse> txPage = transactionRepository.findByAccountProjected(account.getId(), pageable);
+        return PageResponse.of(txPage);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public PageResponse<TransactionResponse> getAllTransactions(Pageable pageable) {
+        Page<TransactionResponse> txPage = transactionRepository.findAllProjected(pageable);
         return PageResponse.of(txPage);
     }
 }

@@ -49,6 +49,12 @@ public class KycProfile {
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private Boolean isDeleted = false;
+
+    @Column(nullable = true)
+    private String rejectionReason;
+
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;

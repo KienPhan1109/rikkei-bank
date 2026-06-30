@@ -193,8 +193,8 @@ public class LoggingAspect {
         returning = "result"
     )
     public void logAuditTransferSuccess(Object result, Long userId, TransferRequest request) {
-        log.info("[AUDIT] Account {} transferred {} to Account {}", 
-                 request.getFromAccountNumber(), request.getAmount(), request.getToAccountNumber());
+        log.info("[AUDIT] User {} transferred {} to Account {}", 
+                 userId, request.getAmount(), request.getToAccountNumber());
     }
 
     @AfterThrowing(
@@ -202,7 +202,7 @@ public class LoggingAspect {
         throwing = "ex"
     )
     public void logAuditTransferFailure(Exception ex, Long userId, TransferRequest request) {
-        log.warn("[AUDIT] Transfer failed from Account {} to Account {}. Amount: {}. Reason: {}", 
-                 request.getFromAccountNumber(), request.getToAccountNumber(), request.getAmount(), ex.getMessage());
+        log.warn("[AUDIT] Transfer failed from User {} to Account {}. Amount: {}. Reason: {}", 
+                 userId, request.getToAccountNumber(), request.getAmount(), ex.getMessage());
     }
 }

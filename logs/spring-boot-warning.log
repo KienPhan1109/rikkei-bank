@@ -1,24 +1,8 @@
-29-06-2026 18:55:54.774 WARN  [http-nio-8080-exec-3] [ebff8d1517] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {phoneNumber=Số điện thoại đã tồn tại!, email=Email đã tồn tại!, username=Tên đăng nhập đã tồn tại!}
+30-06-2026 23:12:36.610 WARN  [http-nio-8080-exec-2] [b7d9cc962f] c.p.r.s.i.AuthServiceImpl [login:102] - Login failed: Bad credentials - testuser
 
-29-06-2026 18:56:44.022 WARN  [http-nio-8080-exec-4] [20afe18906] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {phoneNumber=Số điện thoại đã tồn tại!, email=Email đã tồn tại!, username=Tên đăng nhập đã tồn tại!}
+30-06-2026 23:12:36.622 WARN  [http-nio-8080-exec-2] [b7d9cc962f] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
 
-29-06-2026 18:56:54.781 WARN  [http-nio-8080-exec-7] [9de59ec487] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {password=Mật khẩu phải chứa ít nhất 6 ký tự, phoneNumber=Số điện thoại không đúng định dạng của Việt Nam, email=Email không hợp lệ, username=Tên đăng nhập phải từ 4 đến 20 ký tự}
+30-06-2026 23:12:50.224 WARN  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
 
-29-06-2026 18:57:16.932 WARN  [http-nio-8080-exec-9] [35956b5536] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {password=Mật khẩu phải chứa ít nhất 6 ký tự, phoneNumber=Số điện thoại không đúng định dạng của Việt Nam, email=Email không hợp lệ, username=Tên đăng nhập phải từ 4 đến 20 ký tự}
-
-29-06-2026 18:57:57.217 WARN  [http-nio-8080-exec-2] [e6941d2e0f] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {password=Mật khẩu không được để trống, username=Tên đăng nhập không được để trống}
-
-29-06-2026 18:58:23.747 WARN  [http-nio-8080-exec-5] [bbfc2b8c88] c.p.r.s.i.AuthServiceImpl [login:101] - Login failed: Bad credentials - testuser
-
-29-06-2026 18:58:23.748 WARN  [http-nio-8080-exec-5] [bbfc2b8c88] c.p.r.aop.LoggingAspect [logAround:49] - Business warning - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
-
-29-06-2026 18:58:23.762 WARN  [http-nio-8080-exec-5] [bbfc2b8c88] c.p.r.aop.LoggingAspect [logAround:49] - Business warning - Class: c.p.r.c.AuthController - Method: login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
-
-29-06-2026 18:59:52.923 WARN  [http-nio-8080-exec-8] [7739423e28] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {refreshToken=Refresh token không được để trống}
-
-29-06-2026 18:59:58.320 WARN  [http-nio-8080-exec-10] [5671a94002] c.p.r.e.GlobalExceptionHandler [handleNoResourceFoundException:32] - Resource not found - Request path error: No static resource api/v1/auth/refresh-token for request '/api/v1/auth/refresh-token'.
-
-29-06-2026 19:00:18.415 WARN  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
-
-29-06-2026 19:09:27.861 WARN  [Test worker] [] o.s.w.s.m.s.DefaultHandlerExceptionResolver [logException:248] - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.ptit.rikkei_bank.dto.response.ApiResponse<java.lang.Void>> com.ptit.rikkei_bank.controller.UserController.changePassword(com.ptit.rikkei_bank.security.CustomUserDetails,com.ptit.rikkei_bank.dto.request.ChangePasswordRequest) with 2 errors: [Field error in object 'changePasswordRequest' on field 'oldPassword': rejected value []; codes [NotBlank.changePasswordRequest.oldPassword,NotBlank.oldPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordRequest.oldPassword,oldPassword]; arguments []; default message [oldPassword]]; default message [Mật khẩu cũ không được để trống]] [Field error in object 'changePasswordRequest' on field 'newPassword': rejected value []; codes [NotBlank.changePasswordRequest.newPassword,NotBlank.newPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordRequest.newPassword,newPassword]; arguments []; default message [newPassword]]; default message [Mật khẩu mới không được để trống]] ]
+30-06-2026 23:21:35.463 WARN  [http-nio-8080-exec-6] [24c5dbfedd] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] createAccount() - Message: Tài khoản chưa thực hiện định danh eKYC! Vui lòng thực hiện KYC trước khi mở tài khoản.
 

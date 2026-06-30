@@ -21,6 +21,6 @@ public interface KycProfileRepository extends JpaRepository<KycProfile, Long> {
     @EntityGraph(attributePaths = {"user"})
     List<KycProfile> findAll();
 
-    @Query("SELECT new com.ptit.rikkei_bank.dto.response.KycResponse(k.id, k.idNumber, k.fullName, k.dob, k.sex, k.address, k.idCardFrontUrl, k.status, k.verifiedAt, k.createdAt, k.user.id) FROM KycProfile k")
+    @Query("SELECT new com.ptit.rikkei_bank.dto.response.KycResponse(k.id, k.idNumber, k.fullName, k.dob, k.sex, k.address, k.idCardFrontUrl, k.status, k.verifiedAt, k.createdAt, k.user.id, k.rejectionReason) FROM KycProfile k")
     Page<KycResponse> findAllProjected(Pageable pageable);
 }

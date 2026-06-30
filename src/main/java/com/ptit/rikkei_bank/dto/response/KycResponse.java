@@ -25,8 +25,9 @@ public class KycResponse {
     private LocalDateTime verifiedAt;
     private LocalDateTime createdAt;
     private Long userId;
+    private String rejectionReason;
 
-    public KycResponse(Long id, String idNumber, String fullName, LocalDate dob, String sex, String address, String idCardFrontUrl, Status status, LocalDateTime verifiedAt, LocalDateTime createdAt, Long userId) {
+    public KycResponse(Long id, String idNumber, String fullName, LocalDate dob, String sex, String address, String idCardFrontUrl, Status status, LocalDateTime verifiedAt, LocalDateTime createdAt, Long userId, String rejectionReason) {
         this.id = id;
         this.idNumber = idNumber;
         this.fullName = fullName;
@@ -38,5 +39,6 @@ public class KycResponse {
         this.verifiedAt = verifiedAt;
         this.createdAt = createdAt;
         this.userId = userId;
+        this.rejectionReason = rejectionReason;
     }
 }

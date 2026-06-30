@@ -10,4 +10,5 @@ import java.util.List;
 public interface TransactionService {
     TransactionResponse transfer(Long userId, TransferRequest request);
     PageResponse<TransactionResponse> getTransactionHistory(Long userId, String accountNumber, Pageable pageable);
+    PageResponse<TransactionResponse> getAllTransactions(Pageable pageable);
 }

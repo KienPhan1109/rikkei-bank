@@ -13,4 +13,6 @@ import lombok.Setter;
 public class KycStatusUpdateRequest {
     @NotBlank(message = "Trạng thái phê duyệt không được để trống")
     private String status; // Hợp lệ: CONFIRM hoặc REJECT
+
+    private String rejectionReason;
 }

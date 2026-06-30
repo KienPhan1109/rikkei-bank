@@ -557,13 +557,13 @@
                                     "raw": "{\n  \"refreshToken\": \"{{revokedRefreshToken}}\"\n}"
                                 },
                                 "url": {
-                                    "raw": "{{baseUrl}}/auth/refresh-token",
+                                    "raw": "{{baseUrl}}/auth/refresh",
                                     "host": [
                                         "{{baseUrl}}"
                                     ],
                                     "path": [
                                         "auth",
-                                        "refresh-token"
+                                        "refresh"
                                     ]
                                 }
                             },
@@ -633,17 +633,17 @@
                                             "    pm.expect(jsonData.message).to.exist;",
                                             "});",
                                             "",
-                                            "// Clear tokens on logout",
-                                            "pm.collectionVariables.set(\"accessToken\", \"\");",
-                                            "pm.collectionVariables.set(\"refreshToken\", \"\");",
-                                            "",
                                             "// Save current refresh token as revoked",
                                             "var currentRefreshToken = pm.collectionVariables.get('refreshToken');",
                                             "if (currentRefreshToken) {",
                                             "    pm.collectionVariables.set('revokedRefreshToken', currentRefreshToken);",
                                             "}",
                                             "pm.collectionVariables.unset('accessToken');",
-                                            "pm.collectionVariables.unset('refreshToken');"
+                                            "pm.collectionVariables.unset('refreshToken');",
+                                            "",
+                                            "// Clear tokens on logout",
+                                            "pm.collectionVariables.set(\"accessToken\", \"\");",
+                                            "pm.collectionVariables.set(\"refreshToken\", \"\");"
                                         ],
                                         "type": "text/javascript"
                                     }
@@ -698,150 +698,6 @@
         {
             "name": "Users",
             "item": [
-                {
-                    "name": "Get All Users Success",
-                    "request": {
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{baseUrl}}/users",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "users"
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Toggle User Status Success",
-                    "request": {
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{baseUrl}}/users/1/status?active=false",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "users",
-                                "1",
-                                "status"
-                            ],
-                            "query": [
-                                {
-                                    "key": "active",
-                                    "value": "false"
-                                }
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Delete User Success",
-                    "request": {
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{baseUrl}}/users/1",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "users",
-                                "1"
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
                 {
                     "name": "Change Password Success",
                     "request": {
@@ -970,13 +826,12 @@
                             "raw": "{\n  \"idNumber\": \"038206012345\",\n  \"fullName\": \"Phan Trung Kiên\",\n  \"dob\": \"2006-09-11\",\n  \"sex\": \"MALE\",\n  \"address\": \"Hà Nội, Việt Nam\",\n  \"idCardFrontUrl\": \"https://rikkeibank.cdn/kyc/front_038206012345.png\"\n}"
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/kyc/submit",
+                            "raw": "{{baseUrl}}/kyc",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
-                                "kyc",
-                                "submit"
+                                "kyc"
                             ]
                         }
                     },
@@ -1016,69 +871,12 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{baseUrl}}/kyc/me",
+                            "raw": "{{baseUrl}}/kyc",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
-                                "kyc",
-                                "me"
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Approve eKYC Success",
-                    "request": {
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            },
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"status\": \"CONFIRM\"\n}"
-                        },
-                        "url": {
-                            "raw": "{{baseUrl}}/staff/kyc/1/status",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "staff",
-                                "kyc",
-                                "1",
-                                "status"
+                                "kyc"
                             ]
                         }
                     },
@@ -1126,13 +924,12 @@
                             "raw": "{\n  \"idNumber\": \"038206012345\",\n  \"fullName\": \"Phan Trung Kiên\",\n  \"dob\": \"2006-09-11\",\n  \"sex\": \"MALE\",\n  \"address\": \"Hà Nội, Việt Nam\",\n  \"idCardFrontUrl\": \"https://rikkeibank.cdn/kyc/front_038206012345.png\"\n}"
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/kyc/submit",
+                            "raw": "{{baseUrl}}/kyc",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
-                                "kyc",
-                                "submit"
+                                "kyc"
                             ]
                         }
                     },
@@ -1147,155 +944,6 @@
                                     "});",
                                     "",
                                     "pm.test(\"Response has error message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Approve eKYC Reject",
-                    "request": {
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            },
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"status\": \"REJECT\"\n}"
-                        },
-                        "url": {
-                            "raw": "{{baseUrl}}/staff/kyc/1/status",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "staff",
-                                "kyc",
-                                "1",
-                                "status"
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Get All eKYC Profiles",
-                    "request": {
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{baseUrl}}/staff/kyc",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "staff",
-                                "kyc"
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Get eKYC Profile by ID",
-                    "request": {
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{baseUrl}}/staff/kyc/1",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "staff",
-                                "kyc",
-                                "1"
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
                                     "    var jsonData = pm.response.json();",
                                     "    pm.expect(jsonData.message).to.exist;",
                                     "});",
@@ -1511,14 +1159,10 @@
                     ]
                 },
                 {
-                    "name": "Create Account Fail No KYC",
+                    "name": "Deposit (Nạp tiền)",
                     "request": {
                         "method": "POST",
                         "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {{accessToken}}"
@@ -1526,38 +1170,89 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"currency\": \"VND\",\n  \"transactionPin\": \"123456\"\n}"
+                            "raw": "{\r\n    \"amount\": 50000,\r\n    \"description\": \"Nạp tiền tiêu vặt\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/accounts",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/deposit",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
-                                "accounts"
+                                "accounts",
+                                "{{accountNumber}}",
+                                "deposit"
                             ]
                         }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is not 200\", function () {",
-                                    "    pm.expect(pm.response.code).to.be.above(399);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has error message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
+                    }
+                },
+                {
+                    "name": "Withdraw (Rút tiền)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
                             }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"amount\": 10000,\r\n    \"description\": \"Rút tiền ăn sáng\",\r\n    \"transactionPin\": \"123456\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/withdraw",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "accounts",
+                                "{{accountNumber}}",
+                                "withdraw"
+                            ]
                         }
-                    ]
+                    }
+                },
+                {
+                    "name": "Change PIN (Đổi mã PIN)",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"oldPin\": \"123456\",\r\n    \"newPin\": \"654321\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/pin",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "accounts",
+                                "{{accountNumber}}",
+                                "pin"
+                            ]
+                        }
+                    }
                 }
             ]
         },
@@ -1583,13 +1278,12 @@
                             "raw": "{\n  \"fromAccountNumber\": \"9283748201\",\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 50000.00,\n  \"description\": \"Kien chuyen khoan an sang\",\n  \"transactionPin\": \"123456\"\n}"
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/transactions/transfer",
+                            "raw": "{{baseUrl}}/transfers",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
-                                "transactions",
-                                "transfer"
+                                "transfers"
                             ]
                         }
                     },
@@ -1781,9 +1475,9 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "http://localhost:8080/actuator/health",
+                            "raw": "{{baseUrl}}/actuator/health",
                             "host": [
-                                "http://localhost:8080"
+                                "{{baseUrl}}"
                             ],
                             "path": [
                                 "actuator",
@@ -1822,9 +1516,9 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "http://localhost:8080/actuator/metrics",
+                            "raw": "{{baseUrl}}/actuator/metrics",
                             "host": [
-                                "http://localhost:8080"
+                                "{{baseUrl}}"
                             ],
                             "path": [
                                 "actuator",
@@ -1987,6 +1681,541 @@
                                 ],
                                 "type": "text/javascript"
                             }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Admin & Staff",
+            "item": [
+                {
+                    "name": "Get All Users Success",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/users",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is acceptable\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete User Success",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/users/103",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                "103"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is acceptable\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Users",
+                    "item": []
+                },
+                {
+                    "name": "Accounts",
+                    "item": []
+                },
+                {
+                    "name": "Transactions",
+                    "item": []
+                },
+                {
+                    "name": "KYC",
+                    "item": []
+                }
+            ]
+        },
+        {
+            "name": "Admin & Staff",
+            "item": [
+                {
+                    "name": "Users",
+                    "item": [
+                        {
+                            "name": "Get All Users",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/users",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "users"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Get User By ID",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/users/1",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "users",
+                                        "1"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Lock User",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/users/1/lock",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "users",
+                                        "1",
+                                        "lock"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Unlock User",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/users/1/unlock",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "users",
+                                        "1",
+                                        "unlock"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Toggle User Status Success",
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/users/1/status",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "users",
+                                        "1",
+                                        "status"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"active\": false\n}"
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is acceptable\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Accounts",
+                    "item": [
+                        {
+                            "name": "Get All Accounts",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/accounts",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "accounts"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Transactions",
+                    "item": [
+                        {
+                            "name": "Get All Transactions",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/transactions",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "transactions"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "KYC",
+                    "item": [
+                        {
+                            "name": "Approve eKYC Success",
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"status\": \"CONFIRM\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/kyc/103/status",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "kyc",
+                                        "103",
+                                        "status"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is acceptable\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Approve eKYC Reject",
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"status\": \"REJECT\",\n  \"rejectionReason\": \"Hình ảnh CMND/CCCD bị mờ, không rõ số\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/kyc/1/status",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "kyc",
+                                        "1",
+                                        "status"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is acceptable\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get All eKYC Profiles",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/kyc",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "kyc"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is acceptable\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get eKYC Profile by ID",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/kyc/1",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "kyc",
+                                        "1"
+                                    ]
+                                }
+                            },
+                            "response": [],
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "exec": [
+                                            "pm.test(\"Status code is 200 OK\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response time is acceptable\", function () {",
+                                            "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                                            "});",
+                                            "",
+                                            "pm.test(\"Response has success message\", function () {",
+                                            "    var jsonData = pm.response.json();",
+                                            "    pm.expect(jsonData.message).to.exist;",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ]
                         }
                     ]
                 }

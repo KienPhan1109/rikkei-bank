@@ -38,6 +38,7 @@ public class KycMapper {
         response.setVerifiedAt(profile.getVerifiedAt());
         response.setCreatedAt(profile.getCreatedAt());
         response.setUserId(profile.getUser() != null ? profile.getUser().getId() : null);
+        response.setRejectionReason(profile.getRejectionReason());
         return response;
     }
 }

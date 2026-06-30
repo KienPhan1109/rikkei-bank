@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import lombok.extern.slf4j.Slf4j;
+import tools.jackson.databind.exc.InvalidFormatException;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 @RestControllerAdvice
 @Slf4j
@@ -51,6 +53,17 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ApiResponse<Void>> handleHttpMessageNotReadableException(HttpMessageNotReadableException exception) {
         log.warn("Malformed JSON request - Message: {}", exception.getMessage());
+        
+        if (exception.getCause() instanceof InvalidFormatException formatException) {
+            if (formatException.getPath() != null && !formatException.getPath().isEmpty()) {
+                String fieldName = formatException.getPath().getFirst().getPropertyName();
+                if ("dob".equals(fieldName)) {
+                    return ResponseEntity.badRequest()
+                            .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "Ngày sinh không đúng định dạng (YYYY-MM-DD)"));
+                }
+            }
+        }
+        
         return ResponseEntity.badRequest()
                 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "Lỗi định dạng dữ liệu đầu vào"));
     }
@@ -74,5 +87,33 @@ public class GlobalExceptionHandler {
         // Business warning is already logged by LoggingAspect, no need for double logging here
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), exception.getMessage()));
+    }
+
+    @ExceptionHandler(InvalidTokenException.class)
+    public ResponseEntity<ApiResponse<Void>> handleInvalidTokenException(InvalidTokenException exception) {
+        log.warn("Token error: {}", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(ApiResponse.error(HttpStatus.UNAUTHORIZED.value(), exception.getMessage()));
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleResourceNotFoundException(ResourceNotFoundException exception) {
+        log.warn("Resource not found: {}", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ApiResponse.error(HttpStatus.NOT_FOUND.value(), exception.getMessage()));
+    }
+
+    @ExceptionHandler(InsufficientBalanceException.class)
+    public ResponseEntity<ApiResponse<Void>> handleInsufficientBalanceException(InsufficientBalanceException exception) {
+        log.warn("Insufficient balance: {}", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(ApiResponse.error(HttpStatus.CONFLICT.value(), exception.getMessage()));
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<ApiResponse<Void>> handleForbiddenException(ForbiddenException exception) {
+        log.warn("Access denied: {}", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(ApiResponse.error(HttpStatus.FORBIDDEN.value(), exception.getMessage()));
     }
 }

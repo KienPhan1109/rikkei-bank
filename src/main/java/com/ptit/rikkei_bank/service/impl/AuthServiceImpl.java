@@ -12,6 +12,7 @@ import com.ptit.rikkei_bank.dto.response.UserResponse;
 import com.ptit.rikkei_bank.entity.RefreshToken;
 import com.ptit.rikkei_bank.entity.Role;
 import com.ptit.rikkei_bank.entity.User;
+import com.ptit.rikkei_bank.exception.InvalidTokenException;
 import com.ptit.rikkei_bank.exception.LoginErrorException;
 import com.ptit.rikkei_bank.mapper.UserMapper;
 import com.ptit.rikkei_bank.repository.RefreshTokenRepository;
@@ -110,15 +111,15 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public AuthResponse refreshToken(RefreshTokenRequest request) {
         RefreshToken token = refreshTokenRepository.findByToken(request.getRefreshToken())
-                .orElseThrow(() -> new RuntimeException("Refresh token không tồn tại trong hệ thống!"));
+                .orElseThrow(() -> new InvalidTokenException("Refresh token không tồn tại trong hệ thống!"));
 
         if (token.getExpiryDate().compareTo(Instant.now()) < 0) {
             refreshTokenRepository.delete(token);
-            throw new RuntimeException("Refresh token đã hết hạn, vui lòng đăng nhập lại!");
+            throw new InvalidTokenException("Refresh token đã hết hạn, vui lòng đăng nhập lại!");
         }
 
         if (token.getRevoked()) {
-            throw new RuntimeException("Refresh token đã bị thu hồi!");
+            throw new InvalidTokenException("Refresh token đã bị thu hồi!");
         }
 
         String accessToken = tokenProvider.generateAccessTokenFromUsername(token.getUser().getUsername());

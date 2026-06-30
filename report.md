@@ -259,12 +259,14 @@ erDiagram
 
 ---
 
-### 📂 4.2. Nhóm API Người dùng (Users)
-*   **Base URL:** `/api/v1/users`
+### 📂 4.2. Nhóm API Quản trị & Người dùng (Users & Staff)
+*   **Base URL:**
+    *   Người dùng: `/api/v1/users`
+    *   Quản trị viên: `/api/v1/staff/users`
 
 #### 1. Lấy danh sách người dùng phân trang (Get All Users)
 *   **Phương thức:** `GET`
-*   **Đường dẫn:** `/`
+*   **Đường dẫn:** `/api/v1/staff/users`
 *   **Mô tả:** Trả về danh sách phân trang người dùng bằng JPQL Constructor Projection (Chỉ dành cho ADMIN, STAFF).
 *   **Query Parameters:**
     *   `page` (int, default: 0): Số trang.
@@ -299,23 +301,34 @@ erDiagram
 
 #### 2. Kích hoạt/Khóa người dùng (Toggle User Active Status)
 *   **Phương thức:** `PUT`
-*   **Đường dẫn:** `/{id}/status`
-*   **Mô tả:** Khóa hoặc kích hoạt lại hoạt động tài khoản của người dùng (Chỉ dành cho ADMIN, STAFF).
-*   **Query Parameters:**
-    *   `active` (boolean, Required): `true` để kích hoạt, `false` để khóa.
+*   **Đường dẫn:** `/api/v1/staff/users/{id}/status`
+*   **Mô tả:** Khóa hoặc kích hoạt lại hoạt động tài khoản của người dùng sử dụng Request Body JSON (Chỉ dành cho ADMIN, STAFF).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "active": false
+    }
+    ```
+
+#### 3. Khóa người dùng dây chuyền (Lock User)
+*   **Phương thức:** `POST`
+*   **Đường dẫn:** `/api/v1/staff/users/{id}/lock`
+*   **Mô tả:** Khóa hoạt động người dùng và đồng thời khóa toàn bộ các tài khoản thanh toán của họ (Chỉ dành cho ADMIN, STAFF).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
 
-#### 3. Xóa người dùng (Delete User)
-*   **Phương thức:** `DELETE`
-*   **Đường dẫn:** `/{id}`
-*   **Mô tả:** Xóa vĩnh viễn tài khoản người dùng khỏi hệ thống (Chỉ dành cho ADMIN, STAFF).
+#### 4. Mở khóa người dùng (Unlock User)
+*   **Phương thức:** `POST`
+*   **Đường dẫn:** `/api/v1/staff/users/{id}/unlock`
+*   **Mô tả:** Mở khóa hoạt động người dùng và mở khóa lại toàn bộ các tài khoản thanh toán tương ứng (Chỉ dành cho ADMIN, STAFF).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
 
-#### 4. Đổi mật khẩu cá nhân (Change Password)
+#### 5. Đổi mật khẩu cá nhân (Change Password)
 *   **Phương thức:** `PUT`
-*   **Đường dẫn:** `/me/password`
+*   **Đường dẫn:** `/api/v1/users/me/password`
 *   **Mô tả:** Cho phép người dùng đang đăng nhập tự đổi mật khẩu.
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
@@ -332,12 +345,12 @@ erDiagram
 ### 📂 4.3. Nhóm API Định Danh eKYC (eKYC)
 *   **Base URL:**
     *   Khách hàng: `/api/v1/kyc`
-    *   Admin: `/api/v1/admin/kyc`
+    *   Quản trị viên: `/api/v1/staff/kyc`
 
 #### 1. Nộp hồ sơ định danh (Submit KYC)
 *   **Phương thức:** `POST`
-*   **Đường dẫn:** `/submit`
-*   **Mô tả:** Khách hàng nộp hồ sơ eKYC cá nhân. Yêu cầu tài khoản đã được xác thực qua JWT và chưa có hồ sơ eKYC trước đó.
+*   **Đường dẫn:** `/api/v1/kyc`
+*   **Mô tả:** Khách hàng nộp hồ sơ eKYC cá nhân. Hỗ trợ ghi đè/nộp lại hồ sơ mới nếu trạng thái trước đó bị STAFF/ADMIN từ chối (`REJECT`).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
 *   **Yêu cầu Request Body (JSON):**
@@ -351,64 +364,40 @@ erDiagram
       "idCardFrontUrl": "https://rikkeibank.cdn/kyc/front_038206012345.png"
     }
     ```
-*   **Phản hồi thành công (200 OK):**
-    ```json
-    {
-      "success": true,
-      "code": 200,
-      "message": "Nộp hồ sơ định danh eKYC thành công. Vui lòng chờ Admin phê duyệt!",
-      "data": {
-        "id": 1,
-        "idNumber": "038206012345",
-        "fullName": "Phan Trung Kiên",
-        "dob": "2006-09-11",
-        "sex": "MALE",
-        "address": "Hà Nội, Việt Nam",
-        "idCardFrontUrl": "https://rikkeibank.cdn/kyc/front_038206012345.png",
-        "status": "PENDING",
-        "verifiedAt": null,
-        "createdAt": "2026-06-26T23:30:00Z",
-        "userId": 2
-      }
-    }
-    ```
-*   **Các mã phản hồi lỗi thường gặp:**
-    *   `400 Bad Request`: Thông tin định danh trống, định dạng ngày sinh sai hoặc thiếu CCCD.
-    *   `409 Conflict`: Số CCCD đã tồn tại trên hệ thống hoặc tài khoản đã gửi hồ sơ eKYC.
+*   **Phản hồi thành công (200 OK):** Trả về chi tiết `KycResponse`.
 
 #### 2. Xem hồ sơ định danh cá nhân (Get My KYC)
 *   **Phương thức:** `GET`
-*   **Đường dẫn:** `/me`
-*   **Mô tả:** Khách hàng xem lại thông tin hồ sơ định danh của mình.
+*   **Đường dẫn:** `/api/v1/kyc`
+*   **Mô tả:** Khách hàng xem lại thông tin hồ sơ định danh cá nhân của mình.
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
-*   **Phản hồi thành công (200 OK):** Trả về chi tiết `KycResponse`.
 
 #### 3. Duyệt hồ sơ eKYC (Staff/Admin Update Status)
 *   **Phương thức:** `PUT`
 *   **Đường dẫn:** `/api/v1/staff/kyc/{id}/status`
-*   **Mô tả:** Staff hoặc Admin thực hiện phê duyệt (`CONFIRM`) hoặc từ chối (`REJECT`) hồ sơ eKYC của khách hàng.
+*   **Mô tả:** Staff hoặc Admin thực hiện phê duyệt (`CONFIRM`) hoặc từ chối (`REJECT` - yêu cầu bắt buộc nhập kèm lý do từ chối cụ thể) đối với hồ sơ eKYC của khách hàng.
 *   **Yêu cầu Headers:**
-    *   `Authorization`: `Bearer {{accessToken}}` (Tài khoản Staff hoặc Admin)
+    *   `Authorization`: `Bearer {{accessToken}}`
 *   **Yêu cầu Request Body (JSON):**
     ```json
     {
-      "status": "CONFIRM"
+      "status": "REJECT",
+      "rejectionReason": "Hình ảnh CCCD bị mờ, không rõ số"
     }
     ```
-*   **Phản hồi thành công (200 OK):** Trả về chi tiết `KycResponse` đã cập nhật.
 
 ---
 
-### 📂 4.4. Nhóm API Quản Lý Tài Khoản (Accounts)
-*   **Base URL:** `/api/v1/accounts`
+### 📂 4.4. Nhóm API Quản Lý Tài Khoản & Giao Dịch (Accounts & Transactions)
+*   **Base URL:**
+    *   Khách hàng: `/api/v1/accounts`
+    *   Quản trị viên: `/api/v1/staff/accounts`
 
 #### 1. Mở tài khoản thanh toán mới (Create Account)
 *   **Phương thức:** `POST`
-*   **Đường dẫn:** `/`
-*   **Mô tả:** Mở tài khoản thanh toán mới. Chỉ khả dụng cho người dùng đã hoàn tất định danh eKYC (`isKyc = true`). Hệ thống tự động sinh số tài khoản độc nhất gồm 10 chữ số.
-*   **Yêu cầu Headers:**
-    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Đường dẫn:** `/api/v1/accounts`
+*   **Mô tả:** Mở tài khoản thanh toán mới. Chỉ khả dụng cho người dùng đã hoàn tất định danh eKYC (`isKyc = true`).
 *   **Yêu cầu Request Body (JSON):**
     ```json
     {
@@ -416,37 +405,16 @@ erDiagram
       "transactionPin": "123456"
     }
     ```
-*   **Phản hồi thành công (200 OK):**
-    ```json
-    {
-      "success": true,
-      "code": 200,
-      "message": "Mở tài khoản thanh toán thành công!",
-      "data": {
-        "id": 1,
-        "accountNumber": "9283748201",
-        "balance": 0.00,
-        "currency": "VND",
-        "active": true,
-        "createdAt": "2026-06-26T23:32:00Z",
-        "updatedAt": "2026-06-26T23:32:00Z",
-        "userId": 2
-      }
-    }
-    ```
 
 #### 2. Xem danh sách tài khoản cá nhân (Get My Accounts)
 *   **Phương thức:** `GET`
-*   **Đường dẫn:** `/`
+*   **Đường dẫn:** `/api/v1/accounts`
 *   **Mô tả:** Lấy danh sách toàn bộ các tài khoản thanh toán đang sở hữu bởi người dùng đăng nhập.
-*   **Yêu cầu Headers:**
-    *   `Authorization`: `Bearer {{accessToken}}`
-*   **Phản hồi thành công (200 OK):** Trả về mảng chứa các `AccountResponse`.
 
 #### 3. Thay đổi trạng thái tài khoản (Lock/Unlock Account)
 *   **Phương thức:** `PUT`
-*   **Đường dẫn:** `/{accountNumber}/status`
-*   **Mô tả:** Khóa hoặc mở khóa tài khoản ngân hàng. Chỉ chủ sở hữu tài khoản hoặc Admin mới có quyền thực hiện.
+*   **Đường dẫn:** `/api/v1/accounts/{accountNumber}/status`
+*   **Mô tả:** Khóa hoặc mở khóa tài khoản ngân hàng của chính mình (chủ tài khoản).
 *   **Yêu cầu Request Body (JSON):**
     ```json
     {
@@ -454,21 +422,59 @@ erDiagram
     }
     ```
 
+#### 4. Nạp tiền mặt vào tài khoản (Deposit)
+*   **Phương thức:** `POST`
+*   **Đường dẫn:** `/api/v1/accounts/{accountNumber}/deposits`
+*   **Mô tả:** Nạp số tiền chỉ định vào tài khoản (RESTful).
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "amount": 200000.00,
+      "description": "Nạp tiền tiết kiệm"
+    }
+    ```
+
+#### 5. Rút tiền mặt khỏi tài khoản (Withdraw)
+*   **Phương thức:** `POST`
+*   **Đường dẫn:** `/api/v1/accounts/{accountNumber}/withdrawals`
+*   **Mô tả:** Rút số tiền chỉ định sử dụng mã PIN giao dịch để xác thực (RESTful).
+*   **Yêu cầu Request Body (JSON):**
+    ```json
+    {
+      "amount": 100000.00,
+      "transactionPin": "123456",
+      "description": "Rút tiền tiêu vặt"
+    }
+    ```
+
+#### 6. Xem lịch sử giao dịch của tài khoản (Transaction History)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/api/v1/accounts/{accountNumber}/transactions`
+*   **Mô tả:** Tra cứu danh sách giao dịch phân trang liên quan đến tài khoản thanh toán (RESTful).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+
+#### 7. Lấy danh sách tài khoản toàn hệ thống (Staff Get All Accounts)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/api/v1/staff/accounts`
+*   **Mô tả:** Xem danh sách toàn bộ tài khoản của khách hàng dạng phân trang (Chỉ dành cho ADMIN, STAFF).
+
 ---
 
-### 📂 4.5. Nhóm API Giao Dịch Chuyển Tiền (Transactions)
-*   **Base URL:** `/api/v1/transactions`
+### 📂 4.5. Nhóm API Chuyển Tiền & Xem Lịch Sử Hệ Thống (Transfers & Admin Transactions)
+*   **Base URL:**
+    *   Khách hàng: `/api/v1/transfers`
+    *   Quản trị viên: `/api/v1/staff/transactions`
 
 #### 1. Thực hiện chuyển tiền (Transfer Money)
 *   **Phương thức:** `POST`
-*   **Đường dẫn:** `/transfer`
-*   **Mô tả:** Chuyển tiền giữa hai tài khoản ngân hàng. Yêu cầu tài khoản nguồn thuộc sở hữu của người dùng đăng nhập, cả 2 tài khoản đều đang hoạt động, mã PIN giao dịch phải chính xác và số dư nguồn phải khả dụng.
+*   **Đường dẫn:** `/api/v1/transfers`
+*   **Mô tả:** Thực hiện chuyển khoản nội bộ sang số tài khoản đích (RESTful).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
 *   **Yêu cầu Request Body (JSON):**
     ```json
     {
-      "fromAccountNumber": "9283748201",
       "toAccountNumber": "1029384756",
       "amount": 500000.00,
       "description": "Kien chuyen tien an sang",
@@ -494,29 +500,27 @@ erDiagram
     }
     ```
 
-#### 2. Xem lịch sử giao dịch của tài khoản (Transaction History)
+#### 2. Xem toàn bộ giao dịch hệ thống (Staff Get All Transactions)
 *   **Phương thức:** `GET`
-*   **Đường dẫn:** `/history`
-*   **Mô tả:** Tra cứu lịch sử chuyển/nhận tiền của một tài khoản cụ thể. Yêu cầu người gọi là chủ tài khoản hoặc Admin.
-*   **Query Parameters:**
-    *   `accountNumber` (String, Required): Số tài khoản cần tra cứu.
+*   **Đường dẫn:** `/api/v1/staff/transactions`
+*   **Mô tả:** Trích xuất toàn bộ giao dịch tài chính phát sinh trên hệ thống dạng phân trang (Chỉ dành cho ADMIN, STAFF).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
 
 ---
 
 ### 📂 4.6. Nhóm API Giám Sát Hệ Thống (Actuator)
-*   **Base URL:** `/actuator`
+*   **Base URL:** `/api/v1/actuator`
 
 #### 1. Kiểm tra sức khỏe hệ thống (Health Check)
 *   **Phương thức:** `GET`
 *   **Đường dẫn:** `/health`
-*   **Mô tả:** Trả về trạng thái của ứng dụng và các thành phần phụ thuộc (VD: Database, Disk Space).
+*   **Mô tả:** Trả về trạng thái hoạt động của hệ thống (UP/DOWN) và cơ sở dữ liệu kết nối.
 
 #### 2. Lấy số liệu giám sát (Metrics)
 *   **Phương thức:** `GET`
 *   **Đường dẫn:** `/metrics`
-*   **Mô tả:** Xem danh sách các chỉ số có thể giám sát (VD: bộ nhớ, request, thời gian xử lý).
+*   **Mô tả:** Truy xuất các thông số hiệu năng chuyên sâu về bộ nhớ RAM, luồng xử lý CPU và các chỉ số HTTP request.
 
 ---
 

@@ -1,58 +1,56 @@
-29-06-2026 18:44:29.908 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 16948 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+30-06-2026 23:09:43.775 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 22220 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
 
-29-06-2026 18:44:29.914 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
+30-06-2026 23:09:43.781 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
 
-29-06-2026 18:44:29.996 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+30-06-2026 23:09:43.884 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 
-29-06-2026 18:44:29.997 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+30-06-2026 23:09:43.884 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
 
-29-06-2026 18:44:31.302 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+30-06-2026 23:09:46.418 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
 
-29-06-2026 18:44:31.304 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-06-2026 23:09:46.425 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 
-29-06-2026 18:44:31.588 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 269 ms. Found 6 JPA repository interfaces.
+30-06-2026 23:09:46.928 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 473 ms. Found 6 JPA repository interfaces.
 
-29-06-2026 18:44:31.685 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+30-06-2026 23:09:47.095 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
 
-29-06-2026 18:44:31.688 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+30-06-2026 23:09:47.100 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
 
-29-06-2026 18:44:31.720 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-29-06-2026 18:44:31.721 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-29-06-2026 18:44:31.723 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-29-06-2026 18:44:31.726 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-29-06-2026 18:44:31.728 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-29-06-2026 18:44:31.731 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:09:47.190 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-29-06-2026 18:44:31.732 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces.
+30-06-2026 23:09:47.190 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 34 ms. Found 0 Redis repository interfaces.
 
-29-06-2026 18:44:32.937 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
+30-06-2026 23:09:49.501 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
 
-29-06-2026 18:44:32.955 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
+30-06-2026 23:09:49.540 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
 
-29-06-2026 18:44:32.956 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
+30-06-2026 23:09:49.540 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
 
-29-06-2026 18:44:33.025 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 3026 ms
+30-06-2026 23:09:49.694 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 5810 ms
 
-29-06-2026 18:44:33.506 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
+30-06-2026 23:09:50.670 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
 
-29-06-2026 18:44:33.593 INFO  [restartedMain] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
+30-06-2026 23:09:50.870 INFO  [restartedMain] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
 
-29-06-2026 18:44:34.419 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-06-2026 23:09:52.187 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
 
-29-06-2026 18:44:34.468 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
+30-06-2026 23:09:52.281 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
 
-29-06-2026 18:44:34.768 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@39a4da0f
+30-06-2026 23:09:53.003 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c05ce8c
 
-29-06-2026 18:44:34.771 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
+30-06-2026 23:09:53.016 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
 
-29-06-2026 18:44:34.859 WARN  [restartedMain] [] o.h.orm.deprecation [constructDialect:152] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-
-29-06-2026 18:44:34.883 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
+30-06-2026 23:09:53.276 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -65,580 +63,83 @@
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
 
-29-06-2026 18:44:36.928 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-06-2026 23:09:56.850 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 
-29-06-2026 18:44:37.067 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-06-2026 23:09:58.423 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
 
-29-06-2026 18:44:37.168 INFO  [restartedMain] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
+30-06-2026 23:09:58.642 INFO  [restartedMain] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
 
-29-06-2026 18:44:39.747 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+30-06-2026 23:10:03.239 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
 
-29-06-2026 18:44:39.749 WARN  [restartedMain] [] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [configure:73] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+30-06-2026 23:10:05.710 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/actuator'
 
-29-06-2026 18:44:40.103 WARN  [restartedMain] [] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration [openEntityManagerInViewInterceptor:261] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-06-2026 23:10:05.995 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
 
-29-06-2026 18:44:41.490 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/actuator'
+30-06-2026 23:10:06.020 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 23.25 seconds (process running for 24.281)
 
-29-06-2026 18:44:41.613 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
+30-06-2026 23:10:07.230 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:50] - [DataInitializer] Default admin user created! (Username: admin / Password: admin123)
 
-29-06-2026 18:44:41.625 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 12.578 seconds (process running for 13.526)
+30-06-2026 23:10:07.436 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:65] - [DataInitializer] Default staff user created! (Username: staff / Password: staff123)
 
-29-06-2026 18:47:16.442 INFO  [SpringApplicationShutdownHook] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
+30-06-2026 23:10:07.487 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:69] - [DataInitializer] Generating 100 mock users for pagination testing...
 
-29-06-2026 18:47:16.449 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
+30-06-2026 23:10:24.565 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:87] - [DataInitializer] Successfully generated 100 mock users!
 
-29-06-2026 18:47:16.474 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-06-2026 23:12:35.815 INFO  [http-nio-8080-exec-2] [] o.a.c.c.C.[.[.[/] [log:168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 
-29-06-2026 18:47:16.478 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
+30-06-2026 23:12:35.815 INFO  [http-nio-8080-exec-2] [] o.s.w.s.DispatcherServlet [initServletBean:523] - Initializing Servlet 'dispatcherServlet'
 
-29-06-2026 18:47:16.490 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
+30-06-2026 23:12:35.822 INFO  [http-nio-8080-exec-2] [] o.s.w.s.DispatcherServlet [initServletBean:545] - Completed initialization in 7 ms
 
-29-06-2026 18:47:24.165 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 12932 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+30-06-2026 23:12:36.610 WARN  [http-nio-8080-exec-2] [b7d9cc962f] c.p.r.s.i.AuthServiceImpl [login:102] - Login failed: Bad credentials - testuser
 
-29-06-2026 18:47:24.170 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
+30-06-2026 23:12:36.622 WARN  [http-nio-8080-exec-2] [b7d9cc962f] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
 
-29-06-2026 18:47:24.256 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+30-06-2026 23:12:42.264 INFO  [http-nio-8080-exec-3] [8238e54810] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 509ms
 
-29-06-2026 18:47:24.257 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+30-06-2026 23:12:50.224 WARN  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
 
-29-06-2026 18:47:25.851 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+30-06-2026 23:12:50.263 INFO  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.AuthServiceImpl [logout:140] - [Logout] Token TTL remaining: 291 seconds
 
-29-06-2026 18:47:25.853 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-06-2026 23:12:50.270 INFO  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.RedisTokenBlacklistServiceImpl [blacklistToken:35] - [Local] Blacklisted token in memory cache
 
-29-06-2026 18:47:26.110 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 238 ms. Found 6 JPA repository interfaces.
+30-06-2026 23:12:50.310 INFO  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.AuthServiceImpl [lambda$logout$3:158] - [Logout] Successfully revoked refresh token for user: admin
 
-29-06-2026 18:47:26.177 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+30-06-2026 23:12:50.355 INFO  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/logout - Status: 200 - Time: 104ms
 
-29-06-2026 18:47:26.178 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+30-06-2026 23:14:55.841 INFO  [http-nio-8080-exec-6] [ca453219b3] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/register - Status: 201 - Time: 210ms
 
-29-06-2026 18:47:26.198 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:15:41.062 INFO  [http-nio-8080-exec-8] [93643fd107] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 227ms
 
-29-06-2026 18:47:26.200 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:16:14.679 INFO  [http-nio-8080-exec-10] [ed4dc68f1c] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/refresh - Status: 200 - Time: 27ms
 
-29-06-2026 18:47:26.200 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:21:17.794 ERROR [http-nio-8080-exec-4] [f71903c7b2] c.p.r.s.JwtTokenProvider [validateToken:70] - Expired JWT token
 
-29-06-2026 18:47:26.201 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:21:23.389 INFO  [http-nio-8080-exec-5] [91c3b72b9b] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 217ms
 
-29-06-2026 18:47:26.202 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:21:26.959 INFO  [http-nio-8080-exec-7] [54cacbe574] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/kyc/submit - Status: 200 - Time: 69ms
 
-29-06-2026 18:47:26.203 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+30-06-2026 23:21:35.463 WARN  [http-nio-8080-exec-6] [24c5dbfedd] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] createAccount() - Message: Tài khoản chưa thực hiện định danh eKYC! Vui lòng thực hiện KYC trước khi mở tài khoản.
 
-29-06-2026 18:47:26.204 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+30-06-2026 23:21:53.531 INFO  [http-nio-8080-exec-9] [18ef01fc39] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 260ms
 
-29-06-2026 18:47:27.464 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
+30-06-2026 23:22:26.697 INFO  [http-nio-8080-exec-10] [aec29b4f8c] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/users/103/status - Status: 200 - Time: 36ms
 
-29-06-2026 18:47:27.489 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
+30-06-2026 23:22:34.817 INFO  [http-nio-8080-exec-1] [67b0ef1ce2] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/users/103/status - Status: 200 - Time: 28ms
 
-29-06-2026 18:47:27.489 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
+30-06-2026 23:23:06.805 INFO  [http-nio-8080-exec-2] [3ff9cc9702] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/staff/kyc/1/status - Status: 200 - Time: 19ms
 
-29-06-2026 18:47:27.578 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 3319 ms
+30-06-2026 23:23:14.292 INFO  [http-nio-8080-exec-3] [720f2971e6] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 212ms
 
-29-06-2026 18:47:28.163 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
+30-06-2026 23:27:58.932 INFO  [http-nio-8080-exec-6] [87af4ee02e] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 276ms
 
-29-06-2026 18:47:28.250 INFO  [restartedMain] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
+30-06-2026 23:37:02.126 INFO  [SpringApplicationShutdownHook] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
 
-29-06-2026 18:47:28.902 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-06-2026 23:37:02.136 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
 
-29-06-2026 18:47:28.944 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
+30-06-2026 23:37:02.220 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
 
-29-06-2026 18:47:29.192 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@94030c4
+30-06-2026 23:37:02.226 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
 
-29-06-2026 18:47:29.203 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
-
-29-06-2026 18:47:29.348 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
-	Database JDBC URL [jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true]
-	Database driver: MySQL Connector/J
-	Database dialect: MySQLDialect
-	Database version: 8.0.43
-	Default catalog/schema: rikkei_bank/undefined
-	Autocommit mode: undefined/unknown
-	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-
-29-06-2026 18:47:31.348 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-
-29-06-2026 18:47:31.488 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-29-06-2026 18:47:31.595 INFO  [restartedMain] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
-
-29-06-2026 18:47:33.974 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-
-29-06-2026 18:47:35.799 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/actuator'
-
-29-06-2026 18:47:35.932 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
-
-29-06-2026 18:47:35.947 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 12.763 seconds (process running for 13.777)
-
-29-06-2026 18:47:59.401 INFO  [http-nio-8080-exec-2] [] o.a.c.c.C.[.[.[/] [log:168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-
-29-06-2026 18:47:59.401 INFO  [http-nio-8080-exec-2] [] o.s.w.s.DispatcherServlet [initServletBean:523] - Initializing Servlet 'dispatcherServlet'
-
-29-06-2026 18:47:59.405 INFO  [http-nio-8080-exec-2] [] o.s.w.s.DispatcherServlet [initServletBean:545] - Completed initialization in 4 ms
-
-29-06-2026 18:47:59.851 INFO  [http-nio-8080-exec-2] [6311fddd07] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: register() - Arguments: [RegisterRequest(username=testuser, email=testuser@gmail.com, phoneNumber=0987654321)]
-
-29-06-2026 18:47:59.855 INFO  [http-nio-8080-exec-2] [6311fddd07] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: register() - Arguments: [RegisterRequest(username=testuser, email=testuser@gmail.com, phoneNumber=0987654321)]
-
-29-06-2026 18:48:00.155 INFO  [http-nio-8080-exec-2] [6311fddd07] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.AuthServiceImpl - Method: register() - Result: com.ptit.rikkei_bank.dto.response.UserResponse@254ac941 - Execution time: 297 ms
-
-29-06-2026 18:48:00.195 INFO  [http-nio-8080-exec-2] [6311fddd07] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.AuthController - Method: register() - Result Body: ApiResponse(success=true, code=201, message=Đăng ký tài khoản thành công, data=com.ptit.rikkei_bank.dto.response.UserResponse@254ac941, errors=null, timestamp=2026-06-29T18:48:00.185728900) - Status: 201 Created - Headers: [Location:"/api/v1/users/103"] - Execution time: 334 ms
-
-29-06-2026 18:50:55.116 INFO  [SpringApplicationShutdownHook] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
-
-29-06-2026 18:50:55.128 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
-
-29-06-2026 18:50:55.163 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
-
-29-06-2026 18:50:55.169 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
-
-29-06-2026 18:50:55.183 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
-
-29-06-2026 18:54:26.266 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 11664 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
-
-29-06-2026 18:54:26.273 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
-
-29-06-2026 18:54:26.355 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-
-29-06-2026 18:54:26.356 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-
-29-06-2026 18:54:28.071 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
-
-29-06-2026 18:54:28.077 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-29-06-2026 18:54:28.544 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 434 ms. Found 6 JPA repository interfaces.
-
-29-06-2026 18:54:28.666 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
-
-29-06-2026 18:54:28.676 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-
-29-06-2026 18:54:28.725 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 18:54:28.728 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 18:54:28.728 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 18:54:28.728 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 18:54:28.728 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 18:54:28.733 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 18:54:28.733 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
-
-29-06-2026 18:54:31.204 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
-
-29-06-2026 18:54:31.245 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
-
-29-06-2026 18:54:31.246 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
-
-29-06-2026 18:54:31.393 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 5035 ms
-
-29-06-2026 18:54:32.296 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
-
-29-06-2026 18:54:32.445 INFO  [restartedMain] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
-
-29-06-2026 18:54:33.102 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
-
-29-06-2026 18:54:33.145 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
-
-29-06-2026 18:54:33.727 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@774e8407
-
-29-06-2026 18:54:33.727 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
-
-29-06-2026 18:54:33.935 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
-	Database JDBC URL [jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true]
-	Database driver: MySQL Connector/J
-	Database dialect: MySQLDialect
-	Database version: 8.0.43
-	Default catalog/schema: rikkei_bank/undefined
-	Autocommit mode: undefined/unknown
-	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-
-29-06-2026 18:54:37.315 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-
-29-06-2026 18:54:41.370 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-29-06-2026 18:54:41.555 INFO  [restartedMain] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
-
-29-06-2026 18:54:44.825 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-
-29-06-2026 18:54:47.008 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/actuator'
-
-29-06-2026 18:54:47.233 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
-
-29-06-2026 18:54:47.255 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 21.885 seconds (process running for 22.849)
-
-29-06-2026 18:54:48.276 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:50] - [DataInitializer] Default admin user created! (Username: admin / Password: admin123)
-
-29-06-2026 18:54:48.475 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:65] - [DataInitializer] Default staff user created! (Username: staff / Password: staff123)
-
-29-06-2026 18:54:48.520 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:69] - [DataInitializer] Generating 100 mock users for pagination testing...
-
-29-06-2026 18:55:06.693 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:87] - [DataInitializer] Successfully generated 100 mock users!
-
-29-06-2026 18:55:40.798 INFO  [http-nio-8080-exec-2] [] o.a.c.c.C.[.[.[/] [log:168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-
-29-06-2026 18:55:40.799 INFO  [http-nio-8080-exec-2] [] o.s.w.s.DispatcherServlet [initServletBean:523] - Initializing Servlet 'dispatcherServlet'
-
-29-06-2026 18:55:40.805 INFO  [http-nio-8080-exec-2] [] o.s.w.s.DispatcherServlet [initServletBean:545] - Completed initialization in 5 ms
-
-29-06-2026 18:55:41.242 INFO  [http-nio-8080-exec-2] [6a4cf04fc9] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: register() - Arguments: [RegisterRequest(username=testuser, email=testuser@gmail.com, phoneNumber=0987654321)]
-
-29-06-2026 18:55:41.248 INFO  [http-nio-8080-exec-2] [6a4cf04fc9] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: register() - Arguments: [RegisterRequest(username=testuser, email=testuser@gmail.com, phoneNumber=0987654321)]
-
-29-06-2026 18:55:41.430 INFO  [http-nio-8080-exec-2] [6a4cf04fc9] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.AuthServiceImpl - Method: register() - Result: com.ptit.rikkei_bank.dto.response.UserResponse@1cd1aafd - Execution time: 183 ms
-
-29-06-2026 18:55:41.651 INFO  [http-nio-8080-exec-2] [6a4cf04fc9] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.AuthController - Method: register() - Result Body: ApiResponse(success=true, code=201, message=Đăng ký tài khoản thành công, data=com.ptit.rikkei_bank.dto.response.UserResponse@1cd1aafd, errors=null, timestamp=2026-06-29T18:55:41.451147900) - Status: 201 Created - Headers: [Location:"/api/v1/users/103"] - Execution time: 212 ms
-
-29-06-2026 18:55:54.774 WARN  [http-nio-8080-exec-3] [ebff8d1517] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {phoneNumber=Số điện thoại đã tồn tại!, email=Email đã tồn tại!, username=Tên đăng nhập đã tồn tại!}
-
-29-06-2026 18:56:44.022 WARN  [http-nio-8080-exec-4] [20afe18906] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {phoneNumber=Số điện thoại đã tồn tại!, email=Email đã tồn tại!, username=Tên đăng nhập đã tồn tại!}
-
-29-06-2026 18:56:54.781 WARN  [http-nio-8080-exec-7] [9de59ec487] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {password=Mật khẩu phải chứa ít nhất 6 ký tự, phoneNumber=Số điện thoại không đúng định dạng của Việt Nam, email=Email không hợp lệ, username=Tên đăng nhập phải từ 4 đến 20 ký tự}
-
-29-06-2026 18:57:16.932 WARN  [http-nio-8080-exec-9] [35956b5536] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {password=Mật khẩu phải chứa ít nhất 6 ký tự, phoneNumber=Số điện thoại không đúng định dạng của Việt Nam, email=Email không hợp lệ, username=Tên đăng nhập phải từ 4 đến 20 ký tự}
-
-29-06-2026 18:57:44.459 INFO  [http-nio-8080-exec-1] [b2a65a7fc2] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: login() - Arguments: [LoginRequest(username=testuser)]
-
-29-06-2026 18:57:44.464 INFO  [http-nio-8080-exec-1] [b2a65a7fc2] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Arguments: [LoginRequest(username=testuser)]
-
-29-06-2026 18:57:45.040 INFO  [http-nio-8080-exec-1] [b2a65a7fc2] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Result: com.ptit.rikkei_bank.dto.response.AuthResponse@7219427b - Execution time: 576 ms
-
-29-06-2026 18:57:45.045 INFO  [http-nio-8080-exec-1] [b2a65a7fc2] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.AuthController - Method: login() - Result Body: ApiResponse(success=true, code=200, message=Đăng nhập thành công, data=com.ptit.rikkei_bank.dto.response.AuthResponse@7219427b, errors=null, timestamp=2026-06-29T18:57:45.045145900) - Status: 200 OK - Headers: [] - Execution time: 586 ms
-
-29-06-2026 18:57:57.217 WARN  [http-nio-8080-exec-2] [e6941d2e0f] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {password=Mật khẩu không được để trống, username=Tên đăng nhập không được để trống}
-
-29-06-2026 18:58:23.537 INFO  [http-nio-8080-exec-5] [bbfc2b8c88] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: login() - Arguments: [LoginRequest(username=testuser)]
-
-29-06-2026 18:58:23.545 INFO  [http-nio-8080-exec-5] [bbfc2b8c88] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Arguments: [LoginRequest(username=testuser)]
-
-29-06-2026 18:58:23.747 WARN  [http-nio-8080-exec-5] [bbfc2b8c88] c.p.r.s.i.AuthServiceImpl [login:101] - Login failed: Bad credentials - testuser
-
-29-06-2026 18:58:23.748 WARN  [http-nio-8080-exec-5] [bbfc2b8c88] c.p.r.aop.LoggingAspect [logAround:49] - Business warning - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
-
-29-06-2026 18:58:23.762 WARN  [http-nio-8080-exec-5] [bbfc2b8c88] c.p.r.aop.LoggingAspect [logAround:49] - Business warning - Class: c.p.r.c.AuthController - Method: login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
-
-29-06-2026 18:59:11.148 INFO  [http-nio-8080-exec-4] [e3392f78a7] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: login() - Arguments: [LoginRequest(username=admin)]
-
-29-06-2026 18:59:11.152 INFO  [http-nio-8080-exec-4] [e3392f78a7] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Arguments: [LoginRequest(username=admin)]
-
-29-06-2026 18:59:11.375 INFO  [http-nio-8080-exec-4] [e3392f78a7] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Result: com.ptit.rikkei_bank.dto.response.AuthResponse@2d363871 - Execution time: 223 ms
-
-29-06-2026 18:59:11.385 INFO  [http-nio-8080-exec-4] [e3392f78a7] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.AuthController - Method: login() - Result Body: ApiResponse(success=true, code=200, message=Đăng nhập thành công, data=com.ptit.rikkei_bank.dto.response.AuthResponse@2d363871, errors=null, timestamp=2026-06-29T18:59:11.385086600) - Status: 200 OK - Headers: [] - Execution time: 237 ms
-
-29-06-2026 18:59:17.380 INFO  [http-nio-8080-exec-6] [0ba5301659] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: login() - Arguments: [LoginRequest(username=staff)]
-
-29-06-2026 18:59:17.385 INFO  [http-nio-8080-exec-6] [0ba5301659] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Arguments: [LoginRequest(username=staff)]
-
-29-06-2026 18:59:17.675 INFO  [http-nio-8080-exec-6] [0ba5301659] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Result: com.ptit.rikkei_bank.dto.response.AuthResponse@6639cecc - Execution time: 290 ms
-
-29-06-2026 18:59:17.689 INFO  [http-nio-8080-exec-6] [0ba5301659] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.AuthController - Method: login() - Result Body: ApiResponse(success=true, code=200, message=Đăng nhập thành công, data=com.ptit.rikkei_bank.dto.response.AuthResponse@6639cecc, errors=null, timestamp=2026-06-29T18:59:17.689242200) - Status: 200 OK - Headers: [] - Execution time: 309 ms
-
-29-06-2026 18:59:25.078 INFO  [http-nio-8080-exec-7] [e494c0e305] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: refreshToken() - Arguments: [com.ptit.rikkei_bank.dto.request.RefreshTokenRequest@26543999]
-
-29-06-2026 18:59:25.085 INFO  [http-nio-8080-exec-7] [e494c0e305] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: refreshToken() - Arguments: [com.ptit.rikkei_bank.dto.request.RefreshTokenRequest@26543999]
-
-29-06-2026 18:59:25.115 INFO  [http-nio-8080-exec-7] [e494c0e305] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.AuthServiceImpl - Method: refreshToken() - Result: com.ptit.rikkei_bank.dto.response.AuthResponse@2b0d4bff - Execution time: 30 ms
-
-29-06-2026 18:59:25.118 INFO  [http-nio-8080-exec-7] [e494c0e305] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.AuthController - Method: refreshToken() - Result Body: ApiResponse(success=true, code=200, message=Làm mới token thành công, data=com.ptit.rikkei_bank.dto.response.AuthResponse@2b0d4bff, errors=null, timestamp=2026-06-29T18:59:25.118751) - Status: 200 OK - Headers: [] - Execution time: 40 ms
-
-29-06-2026 18:59:52.923 WARN  [http-nio-8080-exec-8] [7739423e28] c.p.r.e.GlobalExceptionHandler [handleMethodArgumentNotValidException:26] - Validation failed - Errors: {refreshToken=Refresh token không được để trống}
-
-29-06-2026 18:59:58.320 WARN  [http-nio-8080-exec-10] [5671a94002] c.p.r.e.GlobalExceptionHandler [handleNoResourceFoundException:32] - Resource not found - Request path error: No static resource api/v1/auth/refresh-token for request '/api/v1/auth/refresh-token'.
-
-29-06-2026 19:00:17.327 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdGFmZiIsImlhdCI6MTc4MjczNDM2NSwiZXhwIjoxNzgyNzM0NjY1fQ.6uM8qzOrdy72NfBlIVlLCJ6gKLGXIHRj9E_9nciSAuk]
-
-29-06-2026 19:00:18.415 WARN  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
-
-29-06-2026 19:00:18.416 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 1089 ms
-
-29-06-2026 19:00:18.435 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: logout() - Arguments: [SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@688c007d]]
-
-29-06-2026 19:00:18.440 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: logout() - Arguments: [SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@688c007d]]
-
-29-06-2026 19:00:18.449 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.s.i.AuthServiceImpl [logout:139] - [Logout] Token TTL remaining: 246 seconds
-
-29-06-2026 19:00:18.449 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: blacklistToken() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdGFmZiIsImlhdCI6MTc4MjczNDM2NSwiZXhwIjoxNzgyNzM0NjY1fQ.6uM8qzOrdy72NfBlIVlLCJ6gKLGXIHRj9E_9nciSAuk, 246]
-
-29-06-2026 19:00:18.453 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.s.i.RedisTokenBlacklistServiceImpl [blacklistToken:35] - [Local] Blacklisted token in memory cache
-
-29-06-2026 19:00:18.454 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: blacklistToken() - Result: null - Execution time: 5 ms
-
-29-06-2026 19:00:18.481 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.s.i.AuthServiceImpl [lambda$logout$3:157] - [Logout] Successfully revoked refresh token for user: staff
-
-29-06-2026 19:00:18.481 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.AuthServiceImpl - Method: logout() - Result: null - Execution time: 41 ms
-
-29-06-2026 19:00:18.507 INFO  [http-nio-8080-exec-1] [701a8dff2b] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.AuthController - Method: logout() - Result Body: ApiResponse(success=true, code=200, message=Đăng xuất thành công, data=null, errors=null, timestamp=2026-06-29T19:00:18.507340600) - Status: 200 OK - Headers: [] - Execution time: 72 ms
-
-29-06-2026 19:00:42.950 INFO  [http-nio-8080-exec-5] [961e373854] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.AuthController - Method: login() - Arguments: [LoginRequest(username=admin)]
-
-29-06-2026 19:00:42.954 INFO  [http-nio-8080-exec-5] [961e373854] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Arguments: [LoginRequest(username=admin)]
-
-29-06-2026 19:00:43.169 INFO  [http-nio-8080-exec-5] [961e373854] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.AuthServiceImpl - Method: login() - Result: com.ptit.rikkei_bank.dto.response.AuthResponse@7eb52478 - Execution time: 215 ms
-
-29-06-2026 19:00:43.186 INFO  [http-nio-8080-exec-5] [961e373854] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.AuthController - Method: login() - Result Body: ApiResponse(success=true, code=200, message=Đăng nhập thành công, data=com.ptit.rikkei_bank.dto.response.AuthResponse@7eb52478, errors=null, timestamp=2026-06-29T19:00:43.186054500) - Status: 200 OK - Headers: [] - Execution time: 236 ms
-
-29-06-2026 19:01:30.494 INFO  [http-nio-8080-exec-6] [64032f2654] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:01:30.497 INFO  [http-nio-8080-exec-6] [64032f2654] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 3 ms
-
-29-06-2026 19:01:30.528 INFO  [http-nio-8080-exec-6] [64032f2654] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [0, 10]
-
-29-06-2026 19:01:30.535 INFO  [http-nio-8080-exec-6] [64032f2654] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 0, size 10, sort: UNSORTED]]
-
-29-06-2026 19:01:30.630 INFO  [http-nio-8080-exec-6] [64032f2654] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 1 of 11 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 94 ms
-
-29-06-2026 19:01:30.647 INFO  [http-nio-8080-exec-6] [64032f2654] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@ab9da, com.ptit.rikkei_bank.dto.response.UserResponse@208af5d8, com.ptit.rikkei_bank.dto.response.UserResponse@2bcbc50c, com.ptit.rikkei_bank.dto.response.UserResponse@18b4743c, com.ptit.rikkei_bank.dto.response.UserResponse@4d25ca99, com.ptit.rikkei_bank.dto.response.UserResponse@3af6c2d0, com.ptit.rikkei_bank.dto.response.UserResponse@4f608327, com.ptit.rikkei_bank.dto.response.UserResponse@744e0b63, com.ptit.rikkei_bank.dto.response.UserResponse@17dc7671, com.ptit.rikkei_bank.dto.response.UserResponse@1bb0c618], currentPage=1, totalPages=11, totalElements=103, pageSize=10), errors=null, timestamp=2026-06-29T19:01:30.635077400) - Status: 200 OK - Headers: [] - Execution time: 107 ms
-
-29-06-2026 19:02:34.863 INFO  [http-nio-8080-exec-9] [285ba33491] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:02:34.865 INFO  [http-nio-8080-exec-9] [285ba33491] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 2 ms
-
-29-06-2026 19:02:34.889 INFO  [http-nio-8080-exec-9] [285ba33491] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [0, 10]
-
-29-06-2026 19:02:34.894 INFO  [http-nio-8080-exec-9] [285ba33491] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 0, size 10, sort: UNSORTED]]
-
-29-06-2026 19:02:34.905 INFO  [http-nio-8080-exec-9] [285ba33491] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 1 of 11 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 11 ms
-
-29-06-2026 19:02:34.909 INFO  [http-nio-8080-exec-9] [285ba33491] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@98a350c, com.ptit.rikkei_bank.dto.response.UserResponse@61fc0859, com.ptit.rikkei_bank.dto.response.UserResponse@10c31a46, com.ptit.rikkei_bank.dto.response.UserResponse@1ab90243, com.ptit.rikkei_bank.dto.response.UserResponse@42c3664d, com.ptit.rikkei_bank.dto.response.UserResponse@43fc008c, com.ptit.rikkei_bank.dto.response.UserResponse@4be5339f, com.ptit.rikkei_bank.dto.response.UserResponse@191c8bba, com.ptit.rikkei_bank.dto.response.UserResponse@403477da, com.ptit.rikkei_bank.dto.response.UserResponse@636ff730], currentPage=1, totalPages=11, totalElements=103, pageSize=10), errors=null, timestamp=2026-06-29T19:02:34.909826900) - Status: 200 OK - Headers: [] - Execution time: 20 ms
-
-29-06-2026 19:02:43.838 INFO  [http-nio-8080-exec-10] [effc58a407] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:02:43.839 INFO  [http-nio-8080-exec-10] [effc58a407] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 3 ms
-
-29-06-2026 19:02:43.857 INFO  [http-nio-8080-exec-10] [effc58a407] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [0, 10]
-
-29-06-2026 19:02:43.866 INFO  [http-nio-8080-exec-10] [effc58a407] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 0, size 10, sort: UNSORTED]]
-
-29-06-2026 19:02:43.877 INFO  [http-nio-8080-exec-10] [effc58a407] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 1 of 11 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 11 ms
-
-29-06-2026 19:02:43.883 INFO  [http-nio-8080-exec-10] [effc58a407] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@1d461c07, com.ptit.rikkei_bank.dto.response.UserResponse@4d82e282, com.ptit.rikkei_bank.dto.response.UserResponse@5f45ac6c, com.ptit.rikkei_bank.dto.response.UserResponse@30f08f5e, com.ptit.rikkei_bank.dto.response.UserResponse@1d7b1b63, com.ptit.rikkei_bank.dto.response.UserResponse@47376cbc, com.ptit.rikkei_bank.dto.response.UserResponse@35638efa, com.ptit.rikkei_bank.dto.response.UserResponse@1dd7d77, com.ptit.rikkei_bank.dto.response.UserResponse@4438de2c, com.ptit.rikkei_bank.dto.response.UserResponse@3896089b], currentPage=1, totalPages=11, totalElements=103, pageSize=10), errors=null, timestamp=2026-06-29T19:02:43.882216700) - Status: 200 OK - Headers: [] - Execution time: 25 ms
-
-29-06-2026 19:03:13.149 INFO  [http-nio-8080-exec-1] [f222a3a38e] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:03:13.149 INFO  [http-nio-8080-exec-1] [f222a3a38e] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 0 ms
-
-29-06-2026 19:03:13.165 INFO  [http-nio-8080-exec-1] [f222a3a38e] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [1, 10]
-
-29-06-2026 19:03:13.168 INFO  [http-nio-8080-exec-1] [f222a3a38e] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 1, size 10, sort: UNSORTED]]
-
-29-06-2026 19:03:13.179 INFO  [http-nio-8080-exec-1] [f222a3a38e] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 2 of 11 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 11 ms
-
-29-06-2026 19:03:13.179 INFO  [http-nio-8080-exec-1] [f222a3a38e] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@d3a84e7, com.ptit.rikkei_bank.dto.response.UserResponse@57019bb, com.ptit.rikkei_bank.dto.response.UserResponse@68913798, com.ptit.rikkei_bank.dto.response.UserResponse@34e5e7c4, com.ptit.rikkei_bank.dto.response.UserResponse@6d214003, com.ptit.rikkei_bank.dto.response.UserResponse@681921dd, com.ptit.rikkei_bank.dto.response.UserResponse@955f6b1, com.ptit.rikkei_bank.dto.response.UserResponse@1295eb98, com.ptit.rikkei_bank.dto.response.UserResponse@75539091, com.ptit.rikkei_bank.dto.response.UserResponse@54e5502f], currentPage=2, totalPages=11, totalElements=103, pageSize=10), errors=null, timestamp=2026-06-29T19:03:13.179179400) - Status: 200 OK - Headers: [] - Execution time: 14 ms
-
-29-06-2026 19:03:17.749 INFO  [http-nio-8080-exec-2] [ce65ce641c] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:03:17.749 INFO  [http-nio-8080-exec-2] [ce65ce641c] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 0 ms
-
-29-06-2026 19:03:17.772 INFO  [http-nio-8080-exec-2] [ce65ce641c] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [0, 10]
-
-29-06-2026 19:03:17.776 INFO  [http-nio-8080-exec-2] [ce65ce641c] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 0, size 10, sort: UNSORTED]]
-
-29-06-2026 19:03:17.792 INFO  [http-nio-8080-exec-2] [ce65ce641c] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 1 of 11 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 16 ms
-
-29-06-2026 19:03:17.798 INFO  [http-nio-8080-exec-2] [ce65ce641c] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@2e007f36, com.ptit.rikkei_bank.dto.response.UserResponse@7f949c87, com.ptit.rikkei_bank.dto.response.UserResponse@12a297bc, com.ptit.rikkei_bank.dto.response.UserResponse@4dbcc702, com.ptit.rikkei_bank.dto.response.UserResponse@60e8e84c, com.ptit.rikkei_bank.dto.response.UserResponse@3b433072, com.ptit.rikkei_bank.dto.response.UserResponse@3d5a4fd1, com.ptit.rikkei_bank.dto.response.UserResponse@16f50baf, com.ptit.rikkei_bank.dto.response.UserResponse@31783bb5, com.ptit.rikkei_bank.dto.response.UserResponse@131a4d48], currentPage=1, totalPages=11, totalElements=103, pageSize=10), errors=null, timestamp=2026-06-29T19:03:17.796118) - Status: 200 OK - Headers: [] - Execution time: 24 ms
-
-29-06-2026 19:03:21.477 INFO  [http-nio-8080-exec-3] [f2d076e402] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:03:21.479 INFO  [http-nio-8080-exec-3] [f2d076e402] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 2 ms
-
-29-06-2026 19:03:21.495 INFO  [http-nio-8080-exec-3] [f2d076e402] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [4, 10]
-
-29-06-2026 19:03:21.502 INFO  [http-nio-8080-exec-3] [f2d076e402] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 4, size 10, sort: UNSORTED]]
-
-29-06-2026 19:03:21.511 INFO  [http-nio-8080-exec-3] [f2d076e402] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 5 of 11 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 16 ms
-
-29-06-2026 19:03:21.516 INFO  [http-nio-8080-exec-3] [f2d076e402] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@2ef3f46a, com.ptit.rikkei_bank.dto.response.UserResponse@45d3e75f, com.ptit.rikkei_bank.dto.response.UserResponse@1c190bf2, com.ptit.rikkei_bank.dto.response.UserResponse@573e0aaf, com.ptit.rikkei_bank.dto.response.UserResponse@66dff486, com.ptit.rikkei_bank.dto.response.UserResponse@3c6c1e1d, com.ptit.rikkei_bank.dto.response.UserResponse@68fed4f9, com.ptit.rikkei_bank.dto.response.UserResponse@4f32c03b, com.ptit.rikkei_bank.dto.response.UserResponse@5650669f, com.ptit.rikkei_bank.dto.response.UserResponse@a1016be], currentPage=5, totalPages=11, totalElements=103, pageSize=10), errors=null, timestamp=2026-06-29T19:03:21.516233900) - Status: 200 OK - Headers: [] - Execution time: 21 ms
-
-29-06-2026 19:03:32.554 INFO  [http-nio-8080-exec-5] [f07f1e85bc] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:03:32.555 INFO  [http-nio-8080-exec-5] [f07f1e85bc] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 1 ms
-
-29-06-2026 19:03:32.572 INFO  [http-nio-8080-exec-5] [f07f1e85bc] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [4, 2]
-
-29-06-2026 19:03:32.577 INFO  [http-nio-8080-exec-5] [f07f1e85bc] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 4, size 2, sort: UNSORTED]]
-
-29-06-2026 19:03:32.585 INFO  [http-nio-8080-exec-5] [f07f1e85bc] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 5 of 52 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 8 ms
-
-29-06-2026 19:03:32.588 INFO  [http-nio-8080-exec-5] [f07f1e85bc] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@7fa888fd, com.ptit.rikkei_bank.dto.response.UserResponse@521d5c7a], currentPage=5, totalPages=52, totalElements=103, pageSize=2), errors=null, timestamp=2026-06-29T19:03:32.588337) - Status: 200 OK - Headers: [] - Execution time: 16 ms
-
-29-06-2026 19:03:54.385 INFO  [http-nio-8080-exec-4] [3e047d3ff4] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:03:54.388 INFO  [http-nio-8080-exec-4] [3e047d3ff4] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 1 ms
-
-29-06-2026 19:03:54.407 INFO  [http-nio-8080-exec-4] [3e047d3ff4] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [0, 20]
-
-29-06-2026 19:03:54.412 INFO  [http-nio-8080-exec-4] [3e047d3ff4] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 0, size 20, sort: UNSORTED]]
-
-29-06-2026 19:03:54.429 INFO  [http-nio-8080-exec-4] [3e047d3ff4] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 1 of 6 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 17 ms
-
-29-06-2026 19:03:54.435 INFO  [http-nio-8080-exec-4] [3e047d3ff4] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@2dbec457, com.ptit.rikkei_bank.dto.response.UserResponse@689895eb, com.ptit.rikkei_bank.dto.response.UserResponse@6935564c, com.ptit.rikkei_bank.dto.response.UserResponse@5d6b40b6, com.ptit.rikkei_bank.dto.response.UserResponse@6acbb30, com.ptit.rikkei_bank.dto.response.UserResponse@2a3751c3, com.ptit.rikkei_bank.dto.response.UserResponse@6973e5ff, com.ptit.rikkei_bank.dto.response.UserResponse@6e9a6697, com.ptit.rikkei_bank.dto.response.UserResponse@d0c254f, com.ptit.rikkei_bank.dto.response.UserResponse@1d25c464, com.ptit.rikkei_bank.dto.response.UserResponse@6b0f8622, com.ptit.rikkei_bank.dto.response.UserResponse@561cfb0a, com.ptit.rikkei_bank.dto.response.UserResponse@3ad69adb, com.ptit.rikkei_bank.dto.response.UserResponse@9e37f01, com.ptit.rikkei_bank.dto.response.UserResponse@1ecad689, com.ptit.rikkei_bank.dto.response.UserResponse@2f3fbaf1, com.ptit.rikkei_bank.dto.response.UserResponse@21b1fd8f, com.ptit.rikkei_bank.dto.response.UserResponse@33b885cf, com.ptit.rikkei_bank.dto.response.UserResponse@7b8e73af, com.ptit.rikkei_bank.dto.response.UserResponse@29b4b61d], currentPage=1, totalPages=6, totalElements=103, pageSize=20), errors=null, timestamp=2026-06-29T19:03:54.435860400) - Status: 200 OK - Headers: [] - Execution time: 28 ms
-
-29-06-2026 19:04:15.421 INFO  [http-nio-8080-exec-6] [d532b7716b] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:04:15.424 INFO  [http-nio-8080-exec-6] [d532b7716b] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 3 ms
-
-29-06-2026 19:04:15.442 INFO  [http-nio-8080-exec-6] [d532b7716b] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [0, 10]
-
-29-06-2026 19:04:15.444 INFO  [http-nio-8080-exec-6] [d532b7716b] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 0, size 10, sort: UNSORTED]]
-
-29-06-2026 19:04:15.454 INFO  [http-nio-8080-exec-6] [d532b7716b] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 1 of 11 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 10 ms
-
-29-06-2026 19:04:15.458 INFO  [http-nio-8080-exec-6] [d532b7716b] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@708a5de6, com.ptit.rikkei_bank.dto.response.UserResponse@6432cccf, com.ptit.rikkei_bank.dto.response.UserResponse@5bb2294, com.ptit.rikkei_bank.dto.response.UserResponse@30bc2661, com.ptit.rikkei_bank.dto.response.UserResponse@127b28fd, com.ptit.rikkei_bank.dto.response.UserResponse@60dddac9, com.ptit.rikkei_bank.dto.response.UserResponse@3caefbc4, com.ptit.rikkei_bank.dto.response.UserResponse@6df04d1e, com.ptit.rikkei_bank.dto.response.UserResponse@2687bc9d, com.ptit.rikkei_bank.dto.response.UserResponse@28022116], currentPage=1, totalPages=11, totalElements=103, pageSize=10), errors=null, timestamp=2026-06-29T19:04:15.457770200) - Status: 200 OK - Headers: [] - Execution time: 16 ms
-
-29-06-2026 19:04:22.006 INFO  [http-nio-8080-exec-7] [57b6b18dc0] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:04:22.006 INFO  [http-nio-8080-exec-7] [57b6b18dc0] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 0 ms
-
-29-06-2026 19:04:22.027 INFO  [http-nio-8080-exec-7] [57b6b18dc0] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [0, 100]
-
-29-06-2026 19:04:22.030 INFO  [http-nio-8080-exec-7] [57b6b18dc0] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 0, size 100, sort: UNSORTED]]
-
-29-06-2026 19:04:22.050 INFO  [http-nio-8080-exec-7] [57b6b18dc0] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 1 of 2 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 20 ms
-
-29-06-2026 19:04:22.052 INFO  [http-nio-8080-exec-7] [57b6b18dc0] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@27ad4fd6, com.ptit.rikkei_bank.dto.response.UserResponse@1d47968c, com.ptit.rikkei_bank.dto.response.UserResponse@66a6aa10, com.ptit.rikkei_bank.dto.response.UserResponse@6e5c2b14, com.ptit.rikkei_bank.dto.response.UserResponse@23c21af6, com.ptit.rikkei_bank.dto.response.UserResponse@2900bf4, com.ptit.rikkei_bank.dto.response.UserResponse@5135d79c, com.ptit.rikkei_bank.dto.response.UserResponse@5e3e5225, com.ptit.rikkei_bank.dto.response.UserResponse@6d98e6be, com.ptit.rikkei_bank.dto.response.UserResponse@6fd59f52, com.ptit.rikkei_bank.dto.response.UserResponse@10a32c03, com.ptit.rikkei_bank.dto.response.UserResponse@3ca0eb48, com.ptit.rikkei_bank.dto.response.UserResponse@16275774, com.ptit.rikkei_bank.dto.response.UserResponse@55cb75ed, com.ptit.rikkei_bank.dto.response.UserResponse@5c819863, com.ptit.rikkei_bank.dto.response.UserResponse@6740c210, com.ptit.rikkei_bank.dto.response.UserResponse@4bf0a57b, com.ptit.rikkei_bank.dto.response.UserResponse@451ad5f5, com.ptit.rikkei_bank.dto.response.UserResponse@15080fb5, com.ptit.rikkei_bank.dto.response.UserResponse@74390f46, com.ptit.rikkei_bank.dto.response.UserResponse@3a2cb7c7, com.ptit.rikkei_bank.dto.response.UserResponse@298a780a, com.ptit.rikkei_bank.dto.response.UserResponse@7c2aaf29, com.ptit.rikkei_bank.dto.response.UserResponse@4055ccd5, com.ptit.rikkei_bank.dto.response.UserResponse@1f98c997, com.ptit.rikkei_bank.dto.response.UserResponse@65a8b846, com.ptit.rikkei_bank.dto.response.UserResponse@4c52103d, com.ptit.rikkei_bank.dto.response.UserResponse@220f4e06, com.ptit.rikkei_bank.dto.response.UserResponse@7b82efa1, com.ptit.rikkei_bank.dto.response.UserResponse@5b48021f, com.ptit.rikkei_bank.dto.response.UserResponse@74732b3, com.ptit.rikkei_bank.dto.response.UserResponse@5f603323, com.ptit.rikkei_bank.dto.response.UserResponse@33f32089, com.ptit.rikkei_bank.dto.response.UserResponse@28308412, com.ptit.rikkei_bank.dto.response.UserResponse@16dce90d, com.ptit.rikkei_bank.dto.response.UserResponse@487b29de, com.ptit.rikkei_bank.dto.response.UserResponse@6226af30, com.ptit.rikkei_bank.dto.response.UserResponse@4e1aa772, com.ptit.rikkei_bank.dto.response.UserResponse@3fffbb3d, com.ptit.rikkei_bank.dto.response.UserResponse@2edb50c5, com.ptit.rikkei_bank.dto.response.UserResponse@79d32501, com.ptit.rikkei_bank.dto.response.UserResponse@62693c7e, com.ptit.rikkei_bank.dto.response.UserResponse@208d555d, com.ptit.rikkei_bank.dto.response.UserResponse@542474f1, com.ptit.rikkei_bank.dto.response.UserResponse@343fb859, com.ptit.rikkei_bank.dto.response.UserResponse@1f1ef86c, com.ptit.rikkei_bank.dto.response.UserResponse@5573716f, com.ptit.rikkei_bank.dto.response.UserResponse@220714cc, com.ptit.rikkei_bank.dto.response.UserResponse@6b339da5, com.ptit.rikkei_bank.dto.response.UserResponse@386c537, com.ptit.rikkei_bank.dto.response.UserResponse@4d302421, com.ptit.rikkei_bank.dto.response.UserResponse@578be83f, com.ptit.rikkei_bank.dto.response.UserResponse@202299de, com.ptit.rikkei_bank.dto.response.UserResponse@15385f90, com.ptit.rikkei_bank.dto.response.UserResponse@5965603a, com.ptit.rikkei_bank.dto.response.UserResponse@5127b139, com.ptit.rikkei_bank.dto.response.UserResponse@657f2eaa, com.ptit.rikkei_bank.dto.response.UserResponse@326c394a, com.ptit.rikkei_bank.dto.response.UserResponse@407afb8d, com.ptit.rikkei_bank.dto.response.UserResponse@2c3834c2, com.ptit.rikkei_bank.dto.response.UserResponse@30ae4591, com.ptit.rikkei_bank.dto.response.UserResponse@63db9ca7, com.ptit.rikkei_bank.dto.response.UserResponse@746aa5c2, com.ptit.rikkei_bank.dto.response.UserResponse@191911a9, com.ptit.rikkei_bank.dto.response.UserResponse@5b594dd6, com.ptit.rikkei_bank.dto.response.UserResponse@64d8dcbe, com.ptit.rikkei_bank.dto.response.UserResponse@45bd3152, com.ptit.rikkei_bank.dto.response.UserResponse@1478e415, com.ptit.rikkei_bank.dto.response.UserResponse@5de3cb1, com.ptit.rikkei_bank.dto.response.UserResponse@27c12d98, com.ptit.rikkei_bank.dto.response.UserResponse@bdabf93, com.ptit.rikkei_bank.dto.response.UserResponse@58d1aab1, com.ptit.rikkei_bank.dto.response.UserResponse@2c1e2eae, com.ptit.rikkei_bank.dto.response.UserResponse@29d7b58, com.ptit.rikkei_bank.dto.response.UserResponse@5c656abf, com.ptit.rikkei_bank.dto.response.UserResponse@934c7a0, com.ptit.rikkei_bank.dto.response.UserResponse@5402e376, com.ptit.rikkei_bank.dto.response.UserResponse@3d2c0515, com.ptit.rikkei_bank.dto.response.UserResponse@4a6bb09d, com.ptit.rikkei_bank.dto.response.UserResponse@654d67b7, com.ptit.rikkei_bank.dto.response.UserResponse@2697313b, com.ptit.rikkei_bank.dto.response.UserResponse@7b4e9c51, com.ptit.rikkei_bank.dto.response.UserResponse@6c3634fd, com.ptit.rikkei_bank.dto.response.UserResponse@62c89613, com.ptit.rikkei_bank.dto.response.UserResponse@7d497d98, com.ptit.rikkei_bank.dto.response.UserResponse@726aca74, com.ptit.rikkei_bank.dto.response.UserResponse@2f269918, com.ptit.rikkei_bank.dto.response.UserResponse@9f8eae1, com.ptit.rikkei_bank.dto.response.UserResponse@3f6be3fb, com.ptit.rikkei_bank.dto.response.UserResponse@1bf6a708, com.ptit.rikkei_bank.dto.response.UserResponse@31337, com.ptit.rikkei_bank.dto.response.UserResponse@4ee25e34, com.ptit.rikkei_bank.dto.response.UserResponse@2e761828, com.ptit.rikkei_bank.dto.response.UserResponse@162409, com.ptit.rikkei_bank.dto.response.UserResponse@18941597, com.ptit.rikkei_bank.dto.response.UserResponse@44dbfb4f, com.ptit.rikkei_bank.dto.response.UserResponse@5a721ca4, com.ptit.rikkei_bank.dto.response.UserResponse@6bf54d8f, com.ptit.rikkei_bank.dto.response.UserResponse@5375c5cb, com.ptit.rikkei_bank.dto.response.UserResponse@48ef4d69], currentPage=1, totalPages=2, totalElements=103, pageSize=100), errors=null, timestamp=2026-06-29T19:04:22.052602700) - Status: 200 OK - Headers: [] - Execution time: 25 ms
-
-29-06-2026 19:04:43.101 INFO  [http-nio-8080-exec-8] [19116eede5] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:04:43.101 INFO  [http-nio-8080-exec-8] [19116eede5] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 0 ms
-
-29-06-2026 19:04:43.118 INFO  [http-nio-8080-exec-8] [19116eede5] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: deleteUser() - Arguments: [4]
-
-29-06-2026 19:04:43.125 INFO  [http-nio-8080-exec-8] [19116eede5] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: deleteUser() - Arguments: [4]
-
-29-06-2026 19:04:43.137 INFO  [http-nio-8080-exec-8] [19116eede5] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: deleteUser() - Result: null - Execution time: 12 ms
-
-29-06-2026 19:04:43.159 INFO  [http-nio-8080-exec-8] [19116eede5] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: deleteUser() - Result Body: ApiResponse(success=true, code=200, message=Xóa người dùng thành công!, data=null, errors=null, timestamp=2026-06-29T19:04:43.157735900) - Status: 200 OK - Headers: [] - Execution time: 39 ms
-
-29-06-2026 19:04:49.492 INFO  [http-nio-8080-exec-9] [b01bc09a52] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc4MjczNDQ0MywiZXhwIjoxNzgyNzM0NzQzfQ.G8kBkRxFP8mEL2cHRBbyfReoZYd664qtjC3085aPNAo]
-
-29-06-2026 19:04:49.496 INFO  [http-nio-8080-exec-9] [b01bc09a52] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.RedisTokenBlacklistServiceImpl - Method: isBlacklisted() - Result: false - Execution time: 4 ms
-
-29-06-2026 19:04:49.520 INFO  [http-nio-8080-exec-9] [b01bc09a52] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.c.UserController - Method: getAllUsers() - Arguments: [0, 10]
-
-29-06-2026 19:04:49.525 INFO  [http-nio-8080-exec-9] [b01bc09a52] c.p.r.aop.LoggingAspect [logAround:38] - Enter - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Arguments: [Page request [number: 0, size 10, sort: UNSORTED]]
-
-29-06-2026 19:04:49.535 INFO  [http-nio-8080-exec-9] [b01bc09a52] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.s.i.UserServiceImpl - Method: getAllUsers() - Result: Page 1 of 11 containing com.ptit.rikkei_bank.dto.response.UserResponse instances - Execution time: 10 ms
-
-29-06-2026 19:04:49.541 INFO  [http-nio-8080-exec-9] [b01bc09a52] c.p.r.aop.LoggingAspect [logAround:45] - Exit - Class: c.p.r.c.UserController - Method: getAllUsers() - Result Body: ApiResponse(success=true, code=200, message=Lấy danh sách người dùng thành công, data=PageResponse(content=[com.ptit.rikkei_bank.dto.response.UserResponse@1433c0e8, com.ptit.rikkei_bank.dto.response.UserResponse@635c4229, com.ptit.rikkei_bank.dto.response.UserResponse@1614ca72, com.ptit.rikkei_bank.dto.response.UserResponse@792ddc2e, com.ptit.rikkei_bank.dto.response.UserResponse@73937763, com.ptit.rikkei_bank.dto.response.UserResponse@725f3e32, com.ptit.rikkei_bank.dto.response.UserResponse@42283d51, com.ptit.rikkei_bank.dto.response.UserResponse@55734596, com.ptit.rikkei_bank.dto.response.UserResponse@3db30834, com.ptit.rikkei_bank.dto.response.UserResponse@36161f1e], currentPage=1, totalPages=11, totalElements=102, pageSize=10), errors=null, timestamp=2026-06-29T19:04:49.539007800) - Status: 200 OK - Headers: [] - Execution time: 19 ms
-
-29-06-2026 19:05:12.223 INFO  [SpringApplicationShutdownHook] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
-
-29-06-2026 19:05:12.234 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
-
-29-06-2026 19:05:12.264 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
-
-29-06-2026 19:05:12.268 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
-
-29-06-2026 19:05:12.278 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
-
-29-06-2026 19:09:10.794 INFO  [Test worker] [] c.p.r.RikkeiBankApplicationTests [logStarting:54] - Starting RikkeiBankApplicationTests using Java 21.0.10 with PID 11544 (started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
-
-29-06-2026 19:09:10.798 INFO  [Test worker] [] c.p.r.RikkeiBankApplicationTests [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
-
-29-06-2026 19:09:12.468 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
-
-29-06-2026 19:09:12.468 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-29-06-2026 19:09:12.752 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 264 ms. Found 6 JPA repository interfaces.
-
-29-06-2026 19:09:12.843 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
-
-29-06-2026 19:09:12.848 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-
-29-06-2026 19:09:12.878 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 19:09:12.883 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 19:09:12.884 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 19:09:12.886 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 19:09:12.888 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 19:09:12.888 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-
-29-06-2026 19:09:12.888 INFO  [Test worker] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
-
-29-06-2026 19:09:14.408 INFO  [Test worker] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
-
-29-06-2026 19:09:14.638 INFO  [Test worker] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
-
-29-06-2026 19:09:15.361 INFO  [Test worker] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
-
-29-06-2026 19:09:15.410 INFO  [Test worker] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
-
-29-06-2026 19:09:15.668 INFO  [Test worker] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@62b0792
-
-29-06-2026 19:09:15.668 INFO  [Test worker] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
-
-29-06-2026 19:09:15.828 INFO  [Test worker] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
-	Database JDBC URL [jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true]
-	Database driver: MySQL Connector/J
-	Database dialect: MySQLDialect
-	Database version: 8.0.43
-	Default catalog/schema: rikkei_bank/undefined
-	Autocommit mode: undefined/unknown
-	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-
-29-06-2026 19:09:17.659 INFO  [Test worker] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-
-29-06-2026 19:09:17.818 INFO  [Test worker] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-29-06-2026 19:09:18.210 INFO  [Test worker] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
-
-29-06-2026 19:09:21.248 INFO  [Test worker] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-
-29-06-2026 19:09:24.241 INFO  [Test worker] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/actuator'
-
-29-06-2026 19:09:24.385 INFO  [Test worker] [] c.p.r.RikkeiBankApplicationTests [logStarted:60] - Started RikkeiBankApplicationTests in 14.3 seconds (process running for 16.945)
-
-29-06-2026 19:09:26.423 INFO  [Test worker] [] o.s.m.w.MockServletContext [log:431] - Initializing Spring TestDispatcherServlet ''
-
-29-06-2026 19:09:26.423 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:523] - Initializing Servlet ''
-
-29-06-2026 19:09:26.428 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:545] - Completed initialization in 0 ms
-
-29-06-2026 19:09:27.503 INFO  [Test worker] [] o.s.m.w.MockServletContext [log:431] - Initializing Spring TestDispatcherServlet ''
-
-29-06-2026 19:09:27.508 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:523] - Initializing Servlet ''
-
-29-06-2026 19:09:27.508 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:545] - Completed initialization in 0 ms
-
-29-06-2026 19:09:27.668 INFO  [Test worker] [] o.s.m.w.MockServletContext [log:431] - Initializing Spring TestDispatcherServlet ''
-
-29-06-2026 19:09:27.673 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:523] - Initializing Servlet ''
-
-29-06-2026 19:09:27.673 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:545] - Completed initialization in 0 ms
-
-29-06-2026 19:09:27.783 INFO  [Test worker] [] o.s.m.w.MockServletContext [log:431] - Initializing Spring TestDispatcherServlet ''
-
-29-06-2026 19:09:27.783 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:523] - Initializing Servlet ''
-
-29-06-2026 19:09:27.788 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:545] - Completed initialization in 0 ms
-
-29-06-2026 19:09:27.861 WARN  [Test worker] [] o.s.w.s.m.s.DefaultHandlerExceptionResolver [logException:248] - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.ptit.rikkei_bank.dto.response.ApiResponse<java.lang.Void>> com.ptit.rikkei_bank.controller.UserController.changePassword(com.ptit.rikkei_bank.security.CustomUserDetails,com.ptit.rikkei_bank.dto.request.ChangePasswordRequest) with 2 errors: [Field error in object 'changePasswordRequest' on field 'oldPassword': rejected value []; codes [NotBlank.changePasswordRequest.oldPassword,NotBlank.oldPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordRequest.oldPassword,oldPassword]; arguments []; default message [oldPassword]]; default message [Mật khẩu cũ không được để trống]] [Field error in object 'changePasswordRequest' on field 'newPassword': rejected value []; codes [NotBlank.changePasswordRequest.newPassword,NotBlank.newPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordRequest.newPassword,newPassword]; arguments []; default message [newPassword]]; default message [Mật khẩu mới không được để trống]] ]
-
-29-06-2026 19:09:27.898 INFO  [Test worker] [] o.s.m.w.MockServletContext [log:431] - Initializing Spring TestDispatcherServlet ''
-
-29-06-2026 19:09:27.898 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:523] - Initializing Servlet ''
-
-29-06-2026 19:09:27.898 INFO  [Test worker] [] o.s.t.w.s.TestDispatcherServlet [initServletBean:545] - Completed initialization in 0 ms
-
-29-06-2026 19:09:28.704 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
-
-29-06-2026 19:09:28.715 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
-
-29-06-2026 19:09:28.773 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
+30-06-2026 23:37:02.232 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
 
