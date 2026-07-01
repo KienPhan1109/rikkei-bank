@@ -1945,6 +1945,54 @@
                                     ]
                                 }
                             }
+                        },
+                        {
+                            "name": "Get Account Deposits",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/accounts/{{accountNumber}}/deposits",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "accounts",
+                                        "{{accountNumber}}",
+                                        "deposits"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Get Account Withdrawals",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/accounts/{{accountNumber}}/withdrawals",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "accounts",
+                                        "{{accountNumber}}",
+                                        "withdrawals"
+                                    ]
+                                }
+                            }
                         }
                     ]
                 },

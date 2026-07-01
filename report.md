@@ -466,6 +466,28 @@ erDiagram
 
 ---
 
+#### 10. Staff lấy lịch sử nạp tiền của tài khoản (Staff Get Account Deposits)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/api/v1/staff/accounts/{accountNumber}/deposits`
+*   **Mô tả:** Xem lịch sử nạp tiền mặt của một tài khoản cụ thể dưới dạng phân trang (Chỉ dành cho ADMIN, STAFF).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Query Parameters:**
+    *   `page` (int, default: 0)
+    *   `size` (int, default: 10)
+
+#### 11. Staff lấy lịch sử rút tiền của tài khoản (Staff Get Account Withdrawals)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/api/v1/staff/accounts/{accountNumber}/withdrawals`
+*   **Mô tả:** Xem lịch sử rút tiền mặt của một tài khoản cụ thể dưới dạng phân trang (Chỉ dành cho ADMIN, STAFF).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Query Parameters:**
+    *   `page` (int, default: 0)
+    *   `size` (int, default: 10)
+
+---
+
 ### 📂 4.5. Nhóm API Chuyển Tiền & Xem Lịch Sử Hệ Thống (Transfers & Admin Transactions)
 *   **Base URL:**
     *   Khách hàng: `/api/v1/accounts`
