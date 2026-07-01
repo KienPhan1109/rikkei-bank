@@ -189,20 +189,20 @@ public class LoggingAspect {
     }
 
     @AfterReturning(
-        pointcut = "execution(* com.ptit.rikkei_bank.service.TransactionService.transfer(..)) && args(userId, request)",
+        pointcut = "execution(* com.ptit.rikkei_bank.service.TransactionService.transfer(..)) && args(userId, fromAccountNumber, request)",
         returning = "result"
     )
-    public void logAuditTransferSuccess(Object result, Long userId, TransferRequest request) {
-        log.info("[AUDIT] User {} transferred {} to Account {}", 
-                 userId, request.getAmount(), request.getToAccountNumber());
+    public void logAuditTransferSuccess(Object result, Long userId, String fromAccountNumber, TransferRequest request) {
+        log.info("[AUDIT] User {} transferred {} from Account {} to Account {}", 
+                 userId, request.getAmount(), fromAccountNumber, request.getToAccountNumber());
     }
 
     @AfterThrowing(
-        pointcut = "execution(* com.ptit.rikkei_bank.service.TransactionService.transfer(..)) && args(userId, request)",
+        pointcut = "execution(* com.ptit.rikkei_bank.service.TransactionService.transfer(..)) && args(userId, fromAccountNumber, request)",
         throwing = "ex"
     )
-    public void logAuditTransferFailure(Exception ex, Long userId, TransferRequest request) {
-        log.warn("[AUDIT] Transfer failed from User {} to Account {}. Amount: {}. Reason: {}", 
-                 userId, request.getToAccountNumber(), request.getAmount(), ex.getMessage());
+    public void logAuditTransferFailure(Exception ex, Long userId, String fromAccountNumber, TransferRequest request) {
+        log.warn("[AUDIT] Transfer failed from User {} from Account {} to Account {}. Amount: {}. Reason: {}", 
+                 userId, fromAccountNumber, request.getToAccountNumber(), request.getAmount(), ex.getMessage());
     }
 }

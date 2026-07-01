@@ -1,2 +1,99 @@
 01-07-2026 21:14:10.581 WARN  [http-nio-8080-exec-7] [c5adae6a3d] c.p.r.e.GlobalExceptionHandler [handleInvalidTokenException:94] - Token error: Refresh token đã bị thu hồi!
 
+01-07-2026 21:19:05.486 WARN  [lettuce-nioEventLoop-4-2] [] i.l.c.p.ConnectionWatchdog [log:105] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection closed prematurely
+
+io.lettuce.core.RedisConnectionException: Connection closed prematurely
+	at io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:76)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:251)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelInactive(ChannelInboundHandlerAdapter.java:81)
+	at io.lettuce.core.ChannelGroupListener.channelInactive(ChannelGroupListener.java:54)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:251)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1424)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:876)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$6.run(AbstractChannel.java:676)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:148)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:141)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:535)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:201)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+01-07-2026 21:19:10.548 WARN  [lettuce-nioEventLoop-4-13] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:19:23.063 WARN  [lettuce-nioEventLoop-4-15] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:19:39.558 WARN  [lettuce-nioEventLoop-4-16] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:20:09.658 WARN  [lettuce-nioEventLoop-4-17] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:20:39.774 WARN  [lettuce-nioEventLoop-4-18] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:21:09.850 WARN  [lettuce-nioEventLoop-4-1] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:21:39.946 WARN  [lettuce-nioEventLoop-4-2] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:22:02.968 WARN  [boundedElastic-1] [] o.s.b.d.r.h.DataRedisReactiveHealthIndicator [logExceptionIfPresent:90] - Redis health check failed
+
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1873)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1804)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1601)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.lambda$getConnection$0(LettuceConnectionFactory.java:1581)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.doInLock(LettuceConnectionFactory.java:1542)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1578)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:1283)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:1153)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:122)
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:63)
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:228)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:72)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:63)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:41)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:315)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:220)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:113)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:113)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1802)
+	... 16 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:384)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:432)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+01-07-2026 21:22:10.047 WARN  [lettuce-nioEventLoop-4-4] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:26:40.921 WARN  [http-nio-8080-exec-1] [80daa69fc6] c.p.r.e.GlobalExceptionHandler [handleNoResourceFoundException:34] - Resource not found - Request path error: No static resource api/v1/actuator/metrics for request '/api/v1/actuator/metrics/'.
+
+01-07-2026 21:30:30.086 WARN  [http-nio-8080-exec-7] [97877bac8b] o.h.orm.jdbc.error [logExceptions:143] - HHH000247: ErrorCode: 1049, SQLState: 42000
+
+01-07-2026 21:30:30.088 WARN  [http-nio-8080-exec-7] [97877bac8b] o.h.orm.jdbc.error [logExceptions:144] - Unknown database 'rikkei_bank'
+
+01-07-2026 21:30:30.134 WARN  [http-nio-8080-exec-7] [97877bac8b] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Đã có lỗi xảy ra!
+
+01-07-2026 21:31:49.382 WARN  [http-nio-8080-exec-1] [d7a05d901c] c.p.r.s.i.AuthServiceImpl [login:102] - Login failed: Bad credentials - testuser
+
+01-07-2026 21:31:49.392 WARN  [http-nio-8080-exec-1] [d7a05d901c] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
+

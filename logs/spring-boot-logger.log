@@ -375,3 +375,485 @@ com.ptit.rikkei_bank.exception.InvalidTokenException: Refresh token đã bị th
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 01-07-2026 21:14:10.581 WARN  [http-nio-8080-exec-7] [c5adae6a3d] c.p.r.e.GlobalExceptionHandler [handleInvalidTokenException:94] - Token error: Refresh token đã bị thu hồi!
 
+01-07-2026 21:16:54.240 INFO  [http-nio-8080-exec-10] [254767320d] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 239ms
+
+01-07-2026 21:17:06.546 INFO  [http-nio-8080-exec-1] [f8dd41ea5e] c.p.r.s.i.AuthServiceImpl [logout:140] - [Logout] Token TTL remaining: 287 seconds
+
+01-07-2026 21:17:06.553 INFO  [http-nio-8080-exec-1] [f8dd41ea5e] c.p.r.s.i.RedisTokenBlacklistServiceImpl [blacklistToken:27] - [Redis] Blacklisted token successfully for 287 seconds
+
+01-07-2026 21:17:06.576 INFO  [http-nio-8080-exec-1] [f8dd41ea5e] c.p.r.s.i.AuthServiceImpl [lambda$logout$3:158] - [Logout] Successfully revoked refresh token for user: testuser
+
+01-07-2026 21:17:06.593 INFO  [http-nio-8080-exec-1] [f8dd41ea5e] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/logout - Status: 200 - Time: 57ms
+
+01-07-2026 21:19:05.459 INFO  [lettuce-eventExecutorLoop-1-1] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+
+01-07-2026 21:19:05.486 WARN  [lettuce-nioEventLoop-4-2] [] i.l.c.p.ConnectionWatchdog [log:105] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection closed prematurely
+
+io.lettuce.core.RedisConnectionException: Connection closed prematurely
+	at io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:76)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:251)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelInactive(ChannelInboundHandlerAdapter.java:81)
+	at io.lettuce.core.ChannelGroupListener.channelInactive(ChannelGroupListener.java:54)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:251)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1424)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:876)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$6.run(AbstractChannel.java:676)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:148)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:141)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:535)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:201)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+01-07-2026 21:19:10.541 INFO  [lettuce-eventExecutorLoop-1-12] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:19:10.548 WARN  [lettuce-nioEventLoop-4-13] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:19:23.052 INFO  [lettuce-eventExecutorLoop-1-14] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:19:23.063 WARN  [lettuce-nioEventLoop-4-15] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:19:39.544 INFO  [lettuce-eventExecutorLoop-1-15] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:19:39.558 WARN  [lettuce-nioEventLoop-4-16] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:20:09.641 INFO  [lettuce-eventExecutorLoop-1-9] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:20:09.658 WARN  [lettuce-nioEventLoop-4-17] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:20:39.752 INFO  [lettuce-eventExecutorLoop-1-14] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:20:39.774 WARN  [lettuce-nioEventLoop-4-18] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:21:09.847 INFO  [lettuce-eventExecutorLoop-1-16] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:21:09.850 WARN  [lettuce-nioEventLoop-4-1] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:21:39.942 INFO  [lettuce-eventExecutorLoop-1-18] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:21:39.946 WARN  [lettuce-nioEventLoop-4-2] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:22:02.968 WARN  [boundedElastic-1] [] o.s.b.d.r.h.DataRedisReactiveHealthIndicator [logExceptionIfPresent:90] - Redis health check failed
+
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1873)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1804)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1601)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.lambda$getConnection$0(LettuceConnectionFactory.java:1581)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.doInLock(LettuceConnectionFactory.java:1542)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1578)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:1283)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:1153)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:122)
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:63)
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:228)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:72)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:63)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:41)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:315)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:220)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:113)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:113)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1802)
+	... 16 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:384)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:432)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+01-07-2026 21:22:10.042 INFO  [lettuce-eventExecutorLoop-1-2] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:22:10.047 WARN  [lettuce-nioEventLoop-4-4] [] i.l.c.p.ConnectionWatchdog [log:151] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: getsockopt: localhost/127.0.0.1:6379
+
+01-07-2026 21:22:40.143 INFO  [lettuce-eventExecutorLoop-1-4] [] i.l.c.p.ConnectionWatchdog [log:171] - Reconnecting, last destination was localhost/<unresolved>:6379
+
+01-07-2026 21:22:40.181 INFO  [lettuce-nioEventLoop-4-6] [] i.l.c.p.ReconnectionHandler [lambda$null$3:174] - Reconnected to localhost/<unresolved>:6379
+
+01-07-2026 21:26:40.921 WARN  [http-nio-8080-exec-1] [80daa69fc6] c.p.r.e.GlobalExceptionHandler [handleNoResourceFoundException:34] - Resource not found - Request path error: No static resource api/v1/actuator/metrics for request '/api/v1/actuator/metrics/'.
+
+01-07-2026 21:30:30.086 WARN  [http-nio-8080-exec-7] [97877bac8b] o.h.orm.jdbc.error [logExceptions:143] - HHH000247: ErrorCode: 1049, SQLState: 42000
+
+01-07-2026 21:30:30.088 WARN  [http-nio-8080-exec-7] [97877bac8b] o.h.orm.jdbc.error [logExceptions:144] - Unknown database 'rikkei_bank'
+
+01-07-2026 21:30:30.118 ERROR [http-nio-8080-exec-7] [97877bac8b] c.p.r.s.i.AuthServiceImpl [login:105] - Login failed: Unexpected error - JDBC exception executing SQL [Unknown database 'rikkei_bank'] [select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.is_deleted,u1_0.is_kyc,u1_0.password,u1_0.phone_number,u1_0.role_id,u1_0.username from users u1_0 where u1_0.username=? and u1_0.is_deleted=false]; SQL [select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.is_deleted,u1_0.is_kyc,u1_0.password,u1_0.phone_number,u1_0.role_id,u1_0.username from users u1_0 where u1_0.username=? and u1_0.is_deleted=false]
+
+org.springframework.security.authentication.InternalAuthenticationServiceException: JDBC exception executing SQL [Unknown database 'rikkei_bank'] [select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.is_deleted,u1_0.is_kyc,u1_0.password,u1_0.phone_number,u1_0.role_id,u1_0.username from users u1_0 where u1_0.username=? and u1_0.is_deleted=false]; SQL [select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.is_deleted,u1_0.is_kyc,u1_0.password,u1_0.phone_number,u1_0.role_id,u1_0.username from users u1_0 where u1_0.username=? and u1_0.is_deleted=false]
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:121)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:145)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:183)
+	at com.ptit.rikkei_bank.service.impl.AuthServiceImpl.login(AuthServiceImpl.java:75)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
+	at com.ptit.rikkei_bank.aop.LoggingAspect.logServiceAndRepoAround(LoggingAspect.java:109)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.ptit.rikkei_bank.service.impl.AuthServiceImpl$$SpringCGLIB$$0.login(<generated>)
+	at com.ptit.rikkei_bank.controller.AuthController.login(AuthController.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
+	at com.ptit.rikkei_bank.aop.LoggingAspect.logControllerAround(LoggingAspect.java:67)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.ptit.rikkei_bank.controller.AuthController$$SpringCGLIB$$0.login(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$2(FilterChainProxy.java:235)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:491)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:353)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:84)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:131)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:132)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at com.ptit.rikkei_bank.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:230)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:243)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:336)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:140)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at com.ptit.rikkei_bank.filter.TraceIdFilter.doFilter(TraceIdFilter.java:31)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [Unknown database 'rikkei_bank'] [select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.is_deleted,u1_0.is_kyc,u1_0.password,u1_0.phone_number,u1_0.role_id,u1_0.username from users u1_0 where u1_0.username=? and u1_0.is_deleted=false]; SQL [select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.is_deleted,u1_0.is_kyc,u1_0.password,u1_0.phone_number,u1_0.role_id,u1_0.username from users u1_0 where u1_0.username=? and u1_0.is_deleted=false]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:156)
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131)
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:223)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:577)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
+	at jdk.proxy4/jdk.proxy4.$Proxy163.findByUsernameAndIsDeletedFalse(Unknown Source)
+	at com.ptit.rikkei_bank.security.CustomUserDetailsService.loadUserByUsername(CustomUserDetailsService.java:18)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:106)
+	... 166 common frames omitted
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [Unknown database 'rikkei_bank'] [select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.is_deleted,u1_0.is_kyc,u1_0.password,u1_0.phone_number,u1_0.role_id,u1_0.username from users u1_0 where u1_0.username=? and u1_0.is_deleted=false]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:64)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:292)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:188)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.<init>(JdbcValuesResultSetImpl.java:71)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValues(JdbcSelectExecutorStandardImpl.java:422)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:349)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:143)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:100)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:63)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:137)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$1(ConcreteSqmSelectQueryPlan.java:136)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:484)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:411)
+	at org.hibernate.query.sqm.internal.SqmQueryImpl.doList(SqmQueryImpl.java:379)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:153)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResultOrNull(AbstractSelectionQuery.java:320)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:337)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:100)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:166)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:156)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:167)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
+	... 173 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'rikkei_bank'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1056)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:269)
+	... 203 common frames omitted
+01-07-2026 21:30:30.134 WARN  [http-nio-8080-exec-7] [97877bac8b] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Đã có lỗi xảy ra!
+
+01-07-2026 21:30:46.246 INFO  [SpringApplicationShutdownHook] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
+
+01-07-2026 21:30:46.258 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
+
+01-07-2026 21:30:46.292 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
+
+01-07-2026 21:30:46.299 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
+
+01-07-2026 21:30:46.312 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
+
+01-07-2026 21:30:59.304 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 24420 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+
+01-07-2026 21:30:59.310 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
+
+01-07-2026 21:30:59.388 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+01-07-2026 21:30:59.389 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+01-07-2026 21:31:00.929 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+
+01-07-2026 21:31:00.932 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+01-07-2026 21:31:01.200 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 253 ms. Found 6 JPA repository interfaces.
+
+01-07-2026 21:31:01.295 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+
+01-07-2026 21:31:01.297 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+
+01-07-2026 21:31:01.327 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 21:31:01.329 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 21:31:01.329 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 21:31:01.330 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 21:31:01.331 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 21:31:01.331 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 21:31:01.331 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+
+01-07-2026 21:31:02.612 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
+
+01-07-2026 21:31:02.651 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
+
+01-07-2026 21:31:02.651 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
+
+01-07-2026 21:31:02.751 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 3360 ms
+
+01-07-2026 21:31:03.318 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
+
+01-07-2026 21:31:03.480 INFO  [restartedMain] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
+
+01-07-2026 21:31:04.358 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
+
+01-07-2026 21:31:04.427 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
+
+01-07-2026 21:31:04.851 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68a899d
+
+01-07-2026 21:31:04.856 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
+
+01-07-2026 21:31:05.027 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: rikkei_bank/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+
+01-07-2026 21:31:08.331 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+
+01-07-2026 21:31:09.744 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+01-07-2026 21:31:09.923 INFO  [restartedMain] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
+
+01-07-2026 21:31:13.969 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+
+01-07-2026 21:31:15.272 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/api/v1/actuator'
+
+01-07-2026 21:31:15.445 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
+
+01-07-2026 21:31:15.462 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 17.131 seconds (process running for 18.11)
+
+01-07-2026 21:31:16.136 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:50] - [DataInitializer] Default admin user created! (Username: admin / Password: admin123)
+
+01-07-2026 21:31:16.271 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:65] - [DataInitializer] Default staff user created! (Username: staff / Password: staff123)
+
+01-07-2026 21:31:48.647 INFO  [http-nio-8080-exec-1] [] o.a.c.c.C.[.[.[/] [log:168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+01-07-2026 21:31:48.647 INFO  [http-nio-8080-exec-1] [] o.s.w.s.DispatcherServlet [initServletBean:523] - Initializing Servlet 'dispatcherServlet'
+
+01-07-2026 21:31:48.651 INFO  [http-nio-8080-exec-1] [] o.s.w.s.DispatcherServlet [initServletBean:545] - Completed initialization in 4 ms
+
+01-07-2026 21:31:49.382 WARN  [http-nio-8080-exec-1] [d7a05d901c] c.p.r.s.i.AuthServiceImpl [login:102] - Login failed: Bad credentials - testuser
+
+01-07-2026 21:31:49.392 WARN  [http-nio-8080-exec-1] [d7a05d901c] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
+
+01-07-2026 21:31:56.141 INFO  [http-nio-8080-exec-6] [0b9e83b23a] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 463ms
+
+01-07-2026 21:32:05.640 INFO  [http-nio-8080-exec-4] [bf7d8e34d8] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/refresh - Status: 200 - Time: 33ms
+
+01-07-2026 21:32:22.068 INFO  [http-nio-8080-exec-10] [1bf3b023e6] c.p.r.s.i.AuthServiceImpl [logout:140] - [Logout] Token TTL remaining: 282 seconds
+
+01-07-2026 21:32:22.102 INFO  [http-nio-8080-exec-10] [1bf3b023e6] c.p.r.s.i.RedisTokenBlacklistServiceImpl [blacklistToken:27] - [Redis] Blacklisted token successfully for 282 seconds
+
+01-07-2026 21:32:22.133 INFO  [http-nio-8080-exec-10] [1bf3b023e6] c.p.r.s.i.AuthServiceImpl [lambda$logout$3:158] - [Logout] Successfully revoked refresh token for user: admin
+
+01-07-2026 21:32:22.168 INFO  [http-nio-8080-exec-10] [1bf3b023e6] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/logout - Status: 200 - Time: 110ms
+
+01-07-2026 21:44:15.221 INFO  [SpringApplicationShutdownHook] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
+
+01-07-2026 21:44:15.230 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
+
+01-07-2026 21:44:15.260 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
+
+01-07-2026 21:44:15.264 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
+
+01-07-2026 21:44:15.270 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
+
