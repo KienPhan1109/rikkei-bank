@@ -68,27 +68,6 @@ public class UserServiceTest {
     }
 
     @Test
-    void testToggleUserStatus_Success() {
-        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
-        when(userRepository.save(any(User.class))).thenReturn(user);
-
-        userService.toggleUserStatus(1L, false);
-
-        assertFalse(user.getIsActive());
-        verify(userRepository, times(1)).findById(1L);
-        verify(userRepository, times(1)).save(user);
-    }
-
-    @Test
-    void testToggleUserStatus_UserNotFound() {
-        when(userRepository.findById(1L)).thenReturn(Optional.empty());
-
-        assertThrows(BusinessException.class, () -> userService.toggleUserStatus(1L, false));
-        verify(userRepository, times(1)).findById(1L);
-        verify(userRepository, never()).save(any(User.class));
-    }
-
-    @Test
     void testDeleteUser_Success() {
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
         when(userRepository.save(any(User.class))).thenReturn(user);

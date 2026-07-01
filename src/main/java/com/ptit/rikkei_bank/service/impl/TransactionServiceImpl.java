@@ -140,6 +140,47 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     @Transactional(readOnly = true)
+    public PageResponse<TransactionResponse> getDepositHistory(Long userId, String accountNumber, Pageable pageable) {
+        Account account = accountRepository.findByAccountNumber(accountNumber)
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản: " + accountNumber));
+
+        User caller = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng với ID: " + userId));
+
+        boolean hasAccess = caller.getRole() != null && 
+                ("ADMIN".equalsIgnoreCase(caller.getRole().getName()) || "STAFF".equalsIgnoreCase(caller.getRole().getName()));
+
+        if (!account.getUser().getId().equals(userId) && !hasAccess) {
+            throw new ForbiddenException("Không có quyền truy cập lịch sử nạp tiền của tài khoản này!");
+        }
+
+        Page<TransactionResponse> txPage = transactionRepository.findDepositsByAccountIdProjected(account.getId(), pageable);
+        return PageResponse.of(txPage);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public PageResponse<TransactionResponse> getWithdrawalHistory(Long userId, String accountNumber, Pageable pageable) {
+        Account account = accountRepository.findByAccountNumber(accountNumber)
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản: " + accountNumber));
+
+        User caller = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng với ID: " + userId));
+
+        boolean hasAccess = caller.getRole() != null && 
+                ("ADMIN".equalsIgnoreCase(caller.getRole().getName()) || "STAFF".equalsIgnoreCase(caller.getRole().getName()));
+
+        if (!account.getUser().getId().equals(userId) && !hasAccess) {
+            throw new ForbiddenException("Không có quyền truy cập lịch sử rút tiền của tài khoản này!");
+        }
+
+        Page<TransactionResponse> txPage = transactionRepository.findWithdrawalsByAccountIdProjected(account.getId(), pageable);
+        return PageResponse.of(txPage);
+    }
+
+
+    @Override
+    @Transactional(readOnly = true)
     public PageResponse<TransactionResponse> getAllTransactions(Pageable pageable) {
         Page<TransactionResponse> txPage = transactionRepository.findAllProjected(pageable);
         return PageResponse.of(txPage);

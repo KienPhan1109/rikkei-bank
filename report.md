@@ -299,34 +299,21 @@ erDiagram
     }
     ```
 
-#### 2. Kích hoạt/Khóa người dùng (Toggle User Active Status)
-*   **Phương thức:** `PUT`
-*   **Đường dẫn:** `/api/v1/staff/users/{id}/status`
-*   **Mô tả:** Khóa hoặc kích hoạt lại hoạt động tài khoản của người dùng sử dụng Request Body JSON (Chỉ dành cho ADMIN, STAFF).
-*   **Yêu cầu Headers:**
-    *   `Authorization`: `Bearer {{accessToken}}`
-*   **Yêu cầu Request Body (JSON):**
-    ```json
-    {
-      "active": false
-    }
-    ```
-
-#### 3. Khóa người dùng dây chuyền (Lock User)
+#### 2. Khóa người dùng dây chuyền (Lock User)
 *   **Phương thức:** `POST`
 *   **Đường dẫn:** `/api/v1/staff/users/{id}/lock`
 *   **Mô tả:** Khóa hoạt động người dùng và đồng thời khóa toàn bộ các tài khoản thanh toán của họ (Chỉ dành cho ADMIN, STAFF).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
 
-#### 4. Mở khóa người dùng (Unlock User)
+#### 3. Mở khóa người dùng (Unlock User)
 *   **Phương thức:** `POST`
 *   **Đường dẫn:** `/api/v1/staff/users/{id}/unlock`
 *   **Mô tả:** Mở khóa hoạt động người dùng và mở khóa lại toàn bộ các tài khoản thanh toán tương ứng (Chỉ dành cho ADMIN, STAFF).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
 
-#### 5. Đổi mật khẩu cá nhân (Change Password)
+#### 4. Đổi mật khẩu cá nhân (Change Password)
 *   **Phương thức:** `PUT`
 *   **Đường dẫn:** `/api/v1/users/me/password`
 *   **Mô tả:** Cho phép người dùng đang đăng nhập tự đổi mật khẩu.
@@ -353,17 +340,13 @@ erDiagram
 *   **Mô tả:** Khách hàng nộp hồ sơ eKYC cá nhân. Hỗ trợ ghi đè/nộp lại hồ sơ mới nếu trạng thái trước đó bị STAFF/ADMIN từ chối (`REJECT`).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`
-*   **Yêu cầu Request Body (JSON):**
-    ```json
-    {
-      "idNumber": "038206012345",
-      "fullName": "Phan Trung Kiên",
-      "dob": "2006-09-11",
-      "sex": "MALE",
-      "address": "Hà Nội, Việt Nam",
-      "idCardFrontUrl": "https://rikkeibank.cdn/kyc/front_038206012345.png"
-    }
-    ```
+*   **Yêu cầu Request Body (multipart/form-data):**
+    *   `idNumber` (text): Số CMND/CCCD (9 hoặc 12 chữ số)
+    *   `fullName` (text): Họ và tên khách hàng
+    *   `dob` (text): Ngày sinh (Định dạng: `YYYY-MM-DD`)
+    *   `sex` (text): Giới tính
+    *   `address` (text): Địa chỉ
+    *   `image` (file): Tệp ảnh mặt trước thẻ căn cước (hệ thống sẽ tự động upload lên Cloudinary)
 *   **Phản hồi thành công (200 OK):** Trả về chi tiết `KycResponse`.
 
 #### 2. Xem hồ sơ định danh cá nhân (Get My KYC)
@@ -458,6 +441,28 @@ erDiagram
 *   **Phương thức:** `GET`
 *   **Đường dẫn:** `/api/v1/staff/accounts`
 *   **Mô tả:** Xem danh sách toàn bộ tài khoản của khách hàng dạng phân trang (Chỉ dành cho ADMIN, STAFF).
+
+---
+
+#### 8. Lấy lịch sử nạp tiền (Get Deposit History)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/api/v1/accounts/{accountNumber}/deposits`
+*   **Mô tả:** Xem lịch sử nạp tiền mặt của tài khoản thanh toán (phân trang).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Query Parameters:**
+    *   `page` (int, default: 0)
+    *   `size` (int, default: 10)
+
+#### 9. Lấy lịch sử rút tiền (Get Withdrawal History)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/api/v1/accounts/{accountNumber}/withdrawals`
+*   **Mô tả:** Xem lịch sử rút tiền mặt của tài khoản thanh toán (phân trang).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Query Parameters:**
+    *   `page` (int, default: 0)
+    *   `size` (int, default: 10)
 
 ---
 

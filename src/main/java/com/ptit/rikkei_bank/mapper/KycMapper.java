@@ -18,7 +18,6 @@ public class KycMapper {
         profile.setDob(request.getDob());
         profile.setSex(request.getSex());
         profile.setAddress(request.getAddress());
-        profile.setIdCardFrontUrl(request.getIdCardFrontUrl());
         return profile;
     }
 

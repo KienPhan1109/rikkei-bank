@@ -22,7 +22,7 @@ public class KycController {
     @PostMapping
     public ResponseEntity<ApiResponse<KycResponse>> submitKyc(
             @AuthenticationPrincipal CustomUserDetails userDetails,
-            @Valid @RequestBody KycSubmitRequest request) {
+            @Valid @ModelAttribute KycSubmitRequest request) {
         Long userId = userDetails.getUser().getId();
         KycResponse response = kycService.submitKyc(userId, request);
         return ResponseEntity.ok(ApiResponse.success(

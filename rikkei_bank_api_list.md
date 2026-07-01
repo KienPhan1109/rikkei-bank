@@ -11,7 +11,6 @@
 | 4 | POST | `/api/v1/auth/logout` | Chấm dứt phiên làm việc hiện tại, vô hiệu hóa quyền truy cập bằng cách đưa Access Token vào danh sách từ chối (Blacklist). | USER | Authentication |
 | 5 | GET | `/api/v1/staff/users` | Truy xuất danh sách tài khoản người dùng. Ứng dụng kỹ thuật Constructor Projection trong JPQL để phân trang dữ liệu tối ưu. | ADMIN/STAFF | Users |
 | 6 | GET | `/api/v1/staff/users/{id}` | Lấy thông tin chi tiết một người dùng cụ thể bằng ID. | ADMIN/STAFF | Users |
-| 7 | PUT | `/api/v1/staff/users/{id}/status` | Cập nhật trạng thái hoạt động của tài khoản người dùng bằng cách truyền giá trị active qua Request Body JSON. | ADMIN/STAFF | Users |
 | 8 | POST | `/api/v1/staff/users/{id}/lock` | Khóa tài khoản người dùng và khóa dây chuyền toàn bộ tài khoản thanh toán của họ. | ADMIN/STAFF | Users |
 | 9 | POST | `/api/v1/staff/users/{id}/unlock` | Mở khóa tài khoản người dùng và tự động kích hoạt lại toàn bộ tài khoản thanh toán của họ. | ADMIN/STAFF | Users |
 | 10 | PUT | `/api/v1/users/me/password` | Cập nhật mật khẩu cá nhân. Yêu cầu cung cấp mật khẩu hiện tại và áp dụng thuật toán băm BCrypt cho mật khẩu mới. | USER | Users |
@@ -33,3 +32,5 @@
 | 26 | GET | `/api/v1/staff/transactions` | Xem toàn bộ danh sách giao dịch tài chính trên toàn hệ thống dạng phân trang. | ADMIN/STAFF | Transactions |
 | 27 | GET | `/api/v1/actuator/health` | Kiểm định trạng thái khả dụng của ứng dụng, cơ sở dữ liệu và các thành phần tích hợp hệ thống. | PUBLIC | Actuator |
 | 28 | GET | `/api/v1/actuator/metrics` | Truy xuất chỉ số giám sát hiệu năng hệ thống theo thời gian thực (Mức độ tiêu thụ CPU, Bộ nhớ, HTTP Request Metrics). | PUBLIC | Actuator |
+| 29 | GET | `/api/v1/accounts/{accountNumber}/deposits` | Lấy lịch sử giao dịch nạp tiền mặt của tài khoản cụ thể dưới định dạng phân trang. | USER | Accounts |
+| 30 | GET | `/api/v1/accounts/{accountNumber}/withdrawals` | Lấy lịch sử giao dịch rút tiền mặt của tài khoản cụ thể dưới định dạng phân trang. | USER | Accounts |

@@ -10,6 +10,8 @@ import lombok.Setter;
 import com.ptit.rikkei_bank.validator.UniqueIdNumber;
 import com.ptit.rikkei_bank.validator.ValidDob;
 import jakarta.validation.constraints.Pattern;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
 @Getter
@@ -28,6 +30,7 @@ public class KycSubmitRequest {
 
     @NotNull(message = "Ngày sinh không được để trống")
     @ValidDob(minAge = 14)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dob;
 
     @NotBlank(message = "Giới tính không được để trống")
@@ -36,6 +39,6 @@ public class KycSubmitRequest {
     @NotBlank(message = "Địa chỉ không được để trống")
     private String address;
 
-    @NotBlank(message = "Đường dẫn ảnh mặt trước CCCD không được để trống")
-    private String idCardFrontUrl;
+    @NotNull(message = "Ảnh mặt trước CCCD không được để trống")
+    private MultipartFile idCardFrontUrl;
 }

@@ -1,6 +1,5 @@
 package com.ptit.rikkei_bank.controller;
 
-import com.ptit.rikkei_bank.dto.request.UserStatusUpdateRequest;
 import com.ptit.rikkei_bank.dto.response.ApiResponse;
 import com.ptit.rikkei_bank.dto.response.PageResponse;
 import com.ptit.rikkei_bank.dto.response.UserResponse;
@@ -44,18 +43,7 @@ public class StaffUserController {
         ));
     }
 
-    @PutMapping("/{id}/status")
-    public ResponseEntity<ApiResponse<Void>> toggleUserStatus(
-            @PathVariable("id") Long id,
-            @Valid @RequestBody UserStatusUpdateRequest request) {
-        userService.toggleUserStatus(id, request.getActive());
-        String message = request.getActive() ? "Kích hoạt người dùng thành công!" : "Khóa người dùng thành công!";
-        return ResponseEntity.ok(ApiResponse.success(
-                HttpStatus.OK.value(), 
-                message, 
-                null
-        ));
-    }
+
 
     @PostMapping("/{id}/lock")
     public ResponseEntity<ApiResponse<Void>> lockUser(@PathVariable("id") Long id) {

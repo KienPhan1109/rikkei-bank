@@ -99,20 +99,6 @@ public class UserControllerTest {
     }
 
     @Test
-    void testToggleUserStatus() throws Exception {
-        doNothing().when(userService).toggleUserStatus(1L, false);
-
-        mockMvc.perform(put("/api/v1/users/1/status")
-                        .param("active", "false")
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code").value(200))
-                .andExpect(jsonPath("$.message").value("Khóa người dùng thành công!"));
-
-        verify(userService, times(1)).toggleUserStatus(1L, false);
-    }
-
-    @Test
     void testDeleteUser() throws Exception {
         doNothing().when(userService).deleteUser(1L);
 

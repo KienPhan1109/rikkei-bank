@@ -159,4 +159,36 @@ public class AccountController {
                 responses
         ));
     }
+
+    @GetMapping("/{accountNumber}/deposits")
+    public ResponseEntity<ApiResponse<PageResponse<TransactionResponse>>> getDepositHistory(
+            @AuthenticationPrincipal CustomUserDetails userDetails,
+            @PathVariable("accountNumber") String accountNumber,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Long userId = userDetails.getUser().getId();
+        Pageable pageable = PageRequest.of(page, size);
+        PageResponse<TransactionResponse> responses = transactionService.getDepositHistory(userId, accountNumber, pageable);
+        return ResponseEntity.ok(ApiResponse.success(
+                HttpStatus.OK.value(),
+                "Lấy lịch sử nạp tiền thành công!",
+                responses
+        ));
+    }
+
+    @GetMapping("/{accountNumber}/withdrawals")
+    public ResponseEntity<ApiResponse<PageResponse<TransactionResponse>>> getWithdrawalHistory(
+            @AuthenticationPrincipal CustomUserDetails userDetails,
+            @PathVariable("accountNumber") String accountNumber,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Long userId = userDetails.getUser().getId();
+        Pageable pageable = PageRequest.of(page, size);
+        PageResponse<TransactionResponse> responses = transactionService.getWithdrawalHistory(userId, accountNumber, pageable);
+        return ResponseEntity.ok(ApiResponse.success(
+                HttpStatus.OK.value(),
+                "Lấy lịch sử rút tiền thành công!",
+                responses
+        ));
+    }
 }

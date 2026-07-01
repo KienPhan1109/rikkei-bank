@@ -46,19 +46,7 @@ public class UserServiceImpl implements UserService {
         return response;
     }
 
-    @Override
-    @Transactional
-    public void toggleUserStatus(Long userId, boolean active) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng với ID: " + userId));
-        
-        if (!active && user.getRole() != null && "ADMIN".equalsIgnoreCase(user.getRole().getName())) {
-            throw new BusinessException("Không được phép khóa tài khoản quản trị viên (ADMIN)!");
-        }
-        
-        user.setIsActive(active);
-        userRepository.save(user);
-    }
+
 
     @Override
     @Transactional

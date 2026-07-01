@@ -18,6 +18,14 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
            "FROM Transaction t WHERE t.fromAccount.id = :accountId OR t.toAccount.id = :accountId ORDER BY t.createdAt DESC")
     Page<TransactionResponse> findByAccountProjected(@Param("accountId") Long accountId, Pageable pageable);
 
+    @Query("SELECT new com.ptit.rikkei_bank.dto.response.TransactionResponse(t.id, t.transactionCode, t.amount, t.description, t.status, t.createdAt, null, t.toAccount.accountNumber) " +
+           "FROM Transaction t WHERE t.toAccount.id = :accountId AND t.fromAccount IS NULL ORDER BY t.createdAt DESC")
+    Page<TransactionResponse> findDepositsByAccountIdProjected(@Param("accountId") Long accountId, Pageable pageable);
+
+    @Query("SELECT new com.ptit.rikkei_bank.dto.response.TransactionResponse(t.id, t.transactionCode, t.amount, t.description, t.status, t.createdAt, t.fromAccount.accountNumber, null) " +
+           "FROM Transaction t WHERE t.fromAccount.id = :accountId AND t.toAccount IS NULL ORDER BY t.createdAt DESC")
+    Page<TransactionResponse> findWithdrawalsByAccountIdProjected(@Param("accountId") Long accountId, Pageable pageable);
+
     @EntityGraph(attributePaths = {"fromAccount", "toAccount"})
     @Query("SELECT t FROM Transaction t WHERE t.fromAccount.accountNumber = :fromAccountNumber OR t.toAccount.accountNumber = :toAccountNumber ORDER BY t.createdAt DESC")
     List<Transaction> findByFromAccountAccountNumberOrToAccountAccountNumberOrderByCreatedAtDesc(@Param("fromAccountNumber") String fromAccountNumber, @Param("toAccountNumber") String toAccountNumber);

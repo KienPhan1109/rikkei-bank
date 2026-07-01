@@ -13,12 +13,14 @@ import com.ptit.rikkei_bank.mapper.KycMapper;
 import com.ptit.rikkei_bank.repository.KycProfileRepository;
 import com.ptit.rikkei_bank.repository.UserRepository;
 import com.ptit.rikkei_bank.service.KycService;
+import com.ptit.rikkei_bank.service.CloudinaryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,12 +32,24 @@ public class KycServiceImpl implements KycService {
     private final KycProfileRepository kycProfileRepository;
     private final UserRepository userRepository;
     private final KycMapper kycMapper;
+    private final CloudinaryService cloudinaryService;
 
     @Override
     @Transactional
     public KycResponse submitKyc(Long userId, KycSubmitRequest request) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng với ID: " + userId));
+
+        String idCardFrontUrl;
+        try {
+            idCardFrontUrl = cloudinaryService.uploadFile(request.getIdCardFrontUrl());
+        } catch (IOException e) {
+            throw new BusinessException("Lỗi khi tải ảnh CCCD lên Cloudinary: " + e.getMessage());
+        }
+
+        if (idCardFrontUrl == null) {
+            throw new BusinessException("Vui lòng tải lên ảnh CCCD mặt trước hợp lệ!");
+        }
 
         KycProfile existingProfile = kycProfileRepository.findByUserId(userId).orElse(null);
         KycProfile profile;
@@ -53,7 +67,7 @@ public class KycServiceImpl implements KycService {
                 profile.setDob(request.getDob());
                 profile.setSex(request.getSex());
                 profile.setAddress(request.getAddress());
-                profile.setIdCardFrontUrl(request.getIdCardFrontUrl());
+                profile.setIdCardFrontUrl(idCardFrontUrl);
                 profile.setStatus(Status.PENDING);
                 profile.setRejectionReason(null); // Clear previous rejection reason
                 profile.setCreatedAt(LocalDateTime.now());
@@ -66,6 +80,7 @@ public class KycServiceImpl implements KycService {
                 throw new BusinessException("Số CMND/CCCD đã tồn tại trên hệ thống!");
             }
             profile = kycMapper.toEntity(request);
+            profile.setIdCardFrontUrl(idCardFrontUrl);
             profile.setStatus(Status.PENDING);
             profile.setUser(user);
             profile.setCreatedAt(LocalDateTime.now());
