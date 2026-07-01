@@ -109,3 +109,21 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 
 01-07-2026 22:36:08.768 WARN  [http-nio-8080-exec-9] [f161c4b894] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
 
+01-07-2026 22:37:26.263 WARN  [http-nio-8080-exec-2] [e7ff02071f] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
+
+01-07-2026 22:54:41.408 WARN  [Test worker] [] o.s.w.s.PageNotFound [noHandlerFound:1174] - No mapping for GET /api/v1/users
+
+01-07-2026 22:54:41.413 WARN  [Test worker] [] o.s.w.s.PageNotFound [handleNoHandlerFoundException:448] - No endpoint GET /api/v1/users.
+
+01-07-2026 22:54:41.509 WARN  [Test worker] [] o.s.w.s.m.s.DefaultHandlerExceptionResolver [logException:248] - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.ptit.rikkei_bank.dto.response.ApiResponse<java.lang.Void>> com.ptit.rikkei_bank.controller.UserController.changePassword(com.ptit.rikkei_bank.security.CustomUserDetails,com.ptit.rikkei_bank.dto.request.ChangePasswordRequest) with 2 errors: [Field error in object 'changePasswordRequest' on field 'oldPassword': rejected value []; codes [NotBlank.changePasswordRequest.oldPassword,NotBlank.oldPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordRequest.oldPassword,oldPassword]; arguments []; default message [oldPassword]]; default message [Mật khẩu cũ không được để trống]] [Field error in object 'changePasswordRequest' on field 'newPassword': rejected value []; codes [NotBlank.changePasswordRequest.newPassword,NotBlank.newPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordRequest.newPassword,newPassword]; arguments []; default message [newPassword]]; default message [Mật khẩu mới không được để trống]] ]
+
+01-07-2026 22:58:17.858 WARN  [http-nio-8080-exec-2] [01543c7375] c.p.r.s.i.AuthServiceImpl [login:102] - Login failed: Bad credentials - testuser
+
+01-07-2026 22:58:17.866 WARN  [http-nio-8080-exec-2] [01543c7375] c.p.r.aop.LoggingAspect [logControllerAround:92] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
+
+01-07-2026 22:58:32.916 WARN  [http-nio-8080-exec-4] [89ea03ebd1] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
+
+01-07-2026 23:00:28.126 WARN  [Test worker] [] c.p.r.e.GlobalExceptionHandler [handleResourceNotFoundException:101] - Resource not found: Không tìm thấy người dùng với ID: 2
+
+01-07-2026 23:00:28.530 WARN  [Test worker] [] o.s.w.s.m.s.DefaultHandlerExceptionResolver [logException:248] - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.ptit.rikkei_bank.dto.response.ApiResponse<java.lang.Void>> com.ptit.rikkei_bank.controller.UserController.changePassword(com.ptit.rikkei_bank.security.CustomUserDetails,com.ptit.rikkei_bank.dto.request.ChangePasswordRequest) with 2 errors: [Field error in object 'changePasswordRequest' on field 'newPassword': rejected value []; codes [NotBlank.changePasswordRequest.newPassword,NotBlank.newPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordRequest.newPassword,newPassword]; arguments []; default message [newPassword]]; default message [Mật khẩu mới không được để trống]] [Field error in object 'changePasswordRequest' on field 'oldPassword': rejected value []; codes [NotBlank.changePasswordRequest.oldPassword,NotBlank.oldPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordRequest.oldPassword,oldPassword]; arguments []; default message [oldPassword]]; default message [Mật khẩu cũ không được để trống]] ]
+

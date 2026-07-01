@@ -16,10 +16,10 @@ spring.jpa.open-in-view=false
 # JWT Configuration
 # MUST BE at least 256 bits (32 characters) for HS256 algorithm
 app.jwt.secret=your_super_secret_jwt_key_must_be_long_enough
-# Access Token expiration (in milliseconds) - Default: 300,000 ms (5 minutes)
-app.jwt.expiration=300000
-# Refresh Token expiration (in milliseconds) - Default: 86,400,000 ms (24 hours)
-app.jwt.refreshExpiration=86400000
+# Access Token expiration (in milliseconds) - Default: 5 * 60 * 1000 ms (5 minutes)
+app.jwt.expiration=5 * 60 * 1000
+# Refresh Token expiration (in milliseconds) - Default: 24 * 60 * 60 * 1000 ms (24 hours)
+app.jwt.refreshExpiration=24 * 60 * 60 * 1000
 
 # Actuator Endpoints (Monitoring)
 management.endpoints.web.exposure.include=health,metrics

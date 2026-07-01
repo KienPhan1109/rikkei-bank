@@ -70,46 +70,8 @@ public class UserControllerTest {
         SecurityContextHolder.clearContext();
     }
 
-    @Test
-    void testGetAllUsers() throws Exception {
-        // Ghi đè getPageable() và getSort() trả về null để tránh lỗi serialization của Jackson đối với Spring Data Page
-        Page<UserResponse> page = new PageImpl<UserResponse>(Collections.singletonList(userResponse)) {
-            @Override
-            public Pageable getPageable() {
-                return null;
-            }
-            @Override
-            public Sort getSort() {
-                return null;
-            }
-        };
-        
-        when(userService.getAllUsers(any())).thenReturn(page);
 
-        mockMvc.perform(get("/api/v1/users")
-                        .param("page", "0")
-                        .param("size", "10")
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code").value(200))
-                .andExpect(jsonPath("$.message").value("Lấy danh sách người dùng thành công"))
-                .andExpect(jsonPath("$.data.content[0].username").value("testuser"));
 
-        verify(userService, times(1)).getAllUsers(PageRequest.of(0, 10));
-    }
-
-    @Test
-    void testDeleteUser() throws Exception {
-        doNothing().when(userService).deleteUser(1L);
-
-        mockMvc.perform(delete("/api/v1/users/1")
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code").value(200))
-                .andExpect(jsonPath("$.message").value("Xóa người dùng thành công!"));
-
-        verify(userService, times(1)).deleteUser(1L);
-    }
 
     @Test
     void testChangePassword_Success() throws Exception {

@@ -24,6 +24,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+import com.ptit.rikkei_bank.exception.ResourceNotFoundException;
+import com.ptit.rikkei_bank.entity.Role;
+import java.util.ArrayList;
+
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
@@ -67,26 +71,6 @@ public class UserServiceTest {
         verify(userRepository, times(1)).findAllProjected(pageable);
     }
 
-    @Test
-    void testDeleteUser_Success() {
-        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
-        when(userRepository.save(any(User.class))).thenReturn(user);
-
-        userService.deleteUser(1L);
-
-        assertTrue(user.getIsDeleted());
-        verify(userRepository, times(1)).findById(1L);
-        verify(userRepository, times(1)).save(user);
-    }
-
-    @Test
-    void testDeleteUser_UserNotFound() {
-        when(userRepository.findById(1L)).thenReturn(Optional.empty());
-
-        assertThrows(BusinessException.class, () -> userService.deleteUser(1L));
-        verify(userRepository, times(1)).findById(1L);
-        verify(userRepository, never()).save(any(User.class));
-    }
 
     @Test
     void testChangePassword_Success() {
@@ -113,5 +97,66 @@ public class UserServiceTest {
         verify(userRepository, times(1)).findById(1L);
         verify(passwordEncoder, times(1)).matches("wrongoldpass", "hashedpassword");
         verify(userRepository, never()).save(any(User.class));
+    }
+
+    @Test
+    void testGetUserById_Success() {
+        Role role = new Role(1L, "CUSTOMER", "Customer");
+        user.setRole(role);
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+
+        UserResponse response = userService.getUserById(1L);
+
+        assertNotNull(response);
+        assertEquals("testuser", response.getUsername());
+        verify(userRepository, times(1)).findById(1L);
+    }
+
+    @Test
+    void testGetUserById_NotFound() {
+        when(userRepository.findById(2L)).thenReturn(Optional.empty());
+
+        assertThrows(ResourceNotFoundException.class, () -> userService.getUserById(2L));
+        verify(userRepository, times(1)).findById(2L);
+    }
+
+    @Test
+    void testLockUser_Success() {
+        Role role = new Role(1L, "CUSTOMER", "Customer");
+        user.setRole(role);
+        user.setAccounts(new ArrayList<>());
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(userRepository.save(any(User.class))).thenReturn(user);
+
+        userService.lockUser(1L);
+
+        assertFalse(user.getIsActive());
+        verify(userRepository, times(1)).findById(1L);
+        verify(userRepository, times(1)).save(user);
+    }
+
+    @Test
+    void testLockUser_AdminException() {
+        Role role = new Role(1L, "ADMIN", "Administrator");
+        user.setRole(role);
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+
+        assertThrows(BusinessException.class, () -> userService.lockUser(1L));
+        verify(userRepository, times(1)).findById(1L);
+        verify(userRepository, never()).save(any(User.class));
+    }
+
+    @Test
+    void testUnlockUser_Success() {
+        user.setIsActive(false);
+        user.setAccounts(new ArrayList<>());
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(userRepository.save(any(User.class))).thenReturn(user);
+
+        userService.unlockUser(1L);
+
+        assertTrue(user.getIsActive());
+        verify(userRepository, times(1)).findById(1L);
+        verify(userRepository, times(1)).save(user);
     }
 }
