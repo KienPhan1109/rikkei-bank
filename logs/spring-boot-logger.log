@@ -857,3 +857,255 @@ Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'rikkei_bank'
 
 01-07-2026 21:44:15.270 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
 
+01-07-2026 22:21:54.272 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 21236 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+
+01-07-2026 22:21:54.275 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
+
+01-07-2026 22:21:54.319 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+01-07-2026 22:21:54.319 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+01-07-2026 22:21:55.432 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+
+01-07-2026 22:21:55.434 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+01-07-2026 22:21:55.675 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 231 ms. Found 6 JPA repository interfaces.
+
+01-07-2026 22:21:55.739 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+
+01-07-2026 22:21:55.740 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+
+01-07-2026 22:21:55.764 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 22:21:55.765 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 22:21:55.766 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 22:21:55.766 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 22:21:55.767 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 22:21:55.810 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 22:21:55.811 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 57 ms. Found 0 Redis repository interfaces.
+
+01-07-2026 22:21:57.447 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
+
+01-07-2026 22:21:57.482 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
+
+01-07-2026 22:21:57.482 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
+
+01-07-2026 22:21:57.558 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 3236 ms
+
+01-07-2026 22:21:58.179 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
+
+01-07-2026 22:21:58.241 INFO  [restartedMain] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
+
+01-07-2026 22:21:58.912 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
+
+01-07-2026 22:21:58.950 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
+
+01-07-2026 22:21:59.405 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ced6fb1
+
+01-07-2026 22:21:59.407 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
+
+01-07-2026 22:21:59.590 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: rikkei_bank/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+
+01-07-2026 22:22:01.899 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+
+01-07-2026 22:22:03.162 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+01-07-2026 22:22:03.287 INFO  [restartedMain] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
+
+01-07-2026 22:22:06.301 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+
+01-07-2026 22:22:07.633 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/api/v1/actuator'
+
+01-07-2026 22:22:07.769 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
+
+01-07-2026 22:22:07.783 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 14.092 seconds (process running for 14.698)
+
+01-07-2026 22:22:08.349 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:50] - [DataInitializer] Default admin user created! (Username: admin / Password: admin123)
+
+01-07-2026 22:22:08.567 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:65] - [DataInitializer] Default staff user created! (Username: staff / Password: staff123)
+
+01-07-2026 22:22:20.781 INFO  [http-nio-8080-exec-4] [] o.a.c.c.C.[.[.[/] [log:168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+01-07-2026 22:22:20.784 INFO  [http-nio-8080-exec-4] [] o.s.w.s.DispatcherServlet [initServletBean:523] - Initializing Servlet 'dispatcherServlet'
+
+01-07-2026 22:22:20.785 INFO  [http-nio-8080-exec-4] [] o.s.w.s.DispatcherServlet [initServletBean:545] - Completed initialization in 1 ms
+
+01-07-2026 22:22:21.522 INFO  [http-nio-8080-exec-4] [f989d5c672] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 433ms
+
+01-07-2026 22:22:32.230 WARN  [http-nio-8080-exec-1] [4964dc61e6] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
+
+01-07-2026 22:22:32.338 WARN  [http-nio-8080-exec-1] [4964dc61e6] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [KycController] submitKyc() - Message: Vui lòng tải lên ảnh CCCD mặt trước hợp lệ!
+
+01-07-2026 22:22:53.942 INFO  [http-nio-8080-exec-6] [797a5fa9ce] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/kyc - Status: 200 - Time: 2925ms
+
+01-07-2026 22:23:06.177 INFO  [http-nio-8080-exec-8] [087471ef6d] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/staff/kyc/1/status - Status: 200 - Time: 29ms
+
+01-07-2026 22:23:12.739 INFO  [http-nio-8080-exec-9] [d62534dbbb] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 115ms
+
+01-07-2026 22:23:14.458 INFO  [http-nio-8080-exec-3] [22a89455cb] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 145ms
+
+01-07-2026 22:23:15.462 INFO  [http-nio-8080-exec-7] [7960812fb9] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 115ms
+
+01-07-2026 22:23:23.302 INFO  [http-nio-8080-exec-10] [e153aa7c1b] c.p.r.aop.LoggingAspect [logControllerAround:78] - GET /api/v1/accounts - Status: 200 - Time: 33ms
+
+01-07-2026 22:23:29.557 INFO  [http-nio-8080-exec-2] [0fdaabfffb] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts/2785313770/deposits - Status: 200 - Time: 42ms
+
+01-07-2026 22:23:30.430 INFO  [http-nio-8080-exec-4] [f221bcdcfc] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts/2785313770/deposits - Status: 200 - Time: 14ms
+
+01-07-2026 22:23:31.178 INFO  [http-nio-8080-exec-1] [bf8486f0c1] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts/2785313770/deposits - Status: 200 - Time: 59ms
+
+01-07-2026 22:23:35.010 INFO  [http-nio-8080-exec-5] [5e09cb5212] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts/2785313770/withdrawals - Status: 200 - Time: 158ms
+
+01-07-2026 22:23:46.592 INFO  [http-nio-8080-exec-6] [60106076ea] c.p.r.aop.LoggingAspect [logAuditTransferSuccess:196] - [AUDIT] User 1 transferred 50000.0 from Account 2785313770 to Account 1459289546
+
+01-07-2026 22:23:46.662 INFO  [http-nio-8080-exec-6] [60106076ea] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts/2785313770/transfers - Status: 200 - Time: 231ms
+
+01-07-2026 22:23:58.389 INFO  [http-nio-8080-exec-8] [2758946ae3] c.p.r.aop.LoggingAspect [logControllerAround:78] - GET /api/v1/staff/transactions - Status: 200 - Time: 6ms
+
+01-07-2026 22:24:05.086 INFO  [http-nio-8080-exec-9] [dfe059dcc0] c.p.r.aop.LoggingAspect [logControllerAround:78] - GET /api/v1/staff/accounts/2785313770/deposits - Status: 200 - Time: 17ms
+
+01-07-2026 22:24:15.967 INFO  [http-nio-8080-exec-3] [a6998de208] c.p.r.aop.LoggingAspect [logControllerAround:78] - GET /api/v1/staff/accounts/2785313770/withdrawals - Status: 200 - Time: 28ms
+
+01-07-2026 22:24:27.645 INFO  [http-nio-8080-exec-7] [6cc791066e] c.p.r.aop.LoggingAspect [logControllerAround:78] - GET /api/v1/staff/transactions/deposits - Status: 200 - Time: 8ms
+
+01-07-2026 22:30:06.302 INFO  [File Watcher] [] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener [onApplicationEvent:216] - Restarting due to 90 class path changes (0 additions, 90 deletions, 0 modifications)
+
+01-07-2026 22:30:06.309 INFO  [Thread-1] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
+
+01-07-2026 22:30:06.324 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
+
+01-07-2026 22:30:06.375 INFO  [Thread-1] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
+
+01-07-2026 22:30:06.382 INFO  [Thread-1] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
+
+01-07-2026 22:30:06.396 INFO  [Thread-1] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
+
+01-07-2026 22:30:06.590 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 21236 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+
+01-07-2026 22:30:06.592 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
+
+01-07-2026 22:30:06.595 WARN  [restartedMain] [] o.s.c.a.MergedAnnotation [log:64] - Failed to introspect meta-annotation @EnableConfigurationProperties on class com.ptit.rikkei_bank.RikkeiBankApplication: java.lang.TypeNotPresentException: Type com.ptit.rikkei_bank.config.JwtProperties not present
+
+01-07-2026 22:30:06.602 WARN  [restartedMain] [] o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext [refresh:629] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: I/O failure while processing configuration class [null]
+
+01-07-2026 22:30:06.626 ERROR [restartedMain] [] o.s.b.SpringApplication [reportFailure:863] - Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: I/O failure while processing configuration class [null]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:290)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:452)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.ptit.rikkei_bank.RikkeiBankApplication.main(RikkeiBankApplication.java:13)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+Caused by: java.io.FileNotFoundException: class path resource [com/ptit/rikkei_bank/RikkeiBankApplication.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:212)
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:54)
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:48)
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:62)
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:127)
+	at org.springframework.core.type.classreading.AbstractMetadataReaderFactory.getMetadataReader(AbstractMetadataReaderFactory.java:62)
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:40)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:730)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:696)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:674)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:283)
+	... 18 common frames omitted
+01-07-2026 22:30:11.220 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 21236 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+
+01-07-2026 22:30:11.220 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
+
+01-07-2026 22:30:12.917 WARN  [restartedMain] [] o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext [refresh:629] - Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration.propertySourcesPlaceholderConfigurer
+
+01-07-2026 22:30:12.920 INFO  [restartedMain] [] o.s.b.a.l.ConditionEvaluationReportLogger [logMessage:82] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+
+01-07-2026 22:30:12.928 ERROR [restartedMain] [] o.s.b.SpringApplication [reportFailure:863] - Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration.propertySourcesPlaceholderConfigurer
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.ptit.rikkei_bank.RikkeiBankApplication.main(RikkeiBankApplication.java:13)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.ptit.rikkei_bank.config.OpenApiConfig] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@3f62ee4f]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:360)
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:417)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$0(AbstractAutowireCapableBeanFactory.java:748)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:747)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:681)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:653)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1699)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:632)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:604)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:589)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanDefinitionsForType(OnBeanCondition.java:334)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanDefinitionsForType(OnBeanCondition.java:323)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:221)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.evaluateConditionalOnMissingBean(OnBeanCondition.java:204)
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:149)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: io/swagger/v3/oas/models/OpenAPI
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465)
+	... 37 common frames omitted
+Caused by: java.lang.ClassNotFoundException: io.swagger.v3.oas.models.OpenAPI
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:536)
+	at java.base/java.lang.Class.forName(Class.java:515)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:123)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 41 common frames omitted
