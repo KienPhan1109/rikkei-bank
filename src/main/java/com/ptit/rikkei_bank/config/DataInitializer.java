@@ -65,7 +65,7 @@ public class DataInitializer implements CommandLineRunner {
             log.info("[DataInitializer] Default staff user created! (Username: staff / Password: staff123)");
         }
         // Generate 50 random mock users for pagination testing
-        if (userRepository.count() == 0) {
+        if (userRepository.count() < 3) {
             log.info("[DataInitializer] Generating 50 mock users for pagination testing...");
             List<User> mockUsers = new ArrayList<>();
             Role customerRole = roleRepository.findByName("CUSTOMER").orElse(null);
@@ -84,7 +84,7 @@ public class DataInitializer implements CommandLineRunner {
                     mockUsers.add(u);
                 }
                 userRepository.saveAll(mockUsers);
-                log.info("[DataInitializer] Successfully generated 100 mock users!");
+                log.info("[DataInitializer] Successfully generated 50 mock users!");
             }
         }
     }

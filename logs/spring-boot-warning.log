@@ -107,3 +107,5 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 
 01-07-2026 22:30:12.917 WARN  [restartedMain] [] o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext [refresh:629] - Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration.propertySourcesPlaceholderConfigurer
 
+01-07-2026 22:36:08.768 WARN  [http-nio-8080-exec-9] [f161c4b894] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
+

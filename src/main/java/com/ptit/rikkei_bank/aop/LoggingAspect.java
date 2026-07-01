@@ -1,6 +1,8 @@
 package com.ptit.rikkei_bank.aop;
 
 
+import org.springframework.security.core.Authentication;
+import org.springframework.validation.BindingResult;
 import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.SerializationFeature;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -140,17 +142,32 @@ public class LoggingAspect {
     private String serializeArgs(Object[] args) {
         if (args == null || args.length == 0) return "[]";
         List<String> argStrings = Arrays.stream(args).map(arg -> {
-            if (arg == null) return "null";
-            // Bỏ qua việc serialize một số object phức tạp của Spring
-            if (arg instanceof org.springframework.validation.BindingResult) return "BindingResult";
-            if (arg instanceof HttpServletRequest) return "HttpServletRequest";
-            if (arg instanceof org.springframework.security.core.Authentication) return "Authentication";
+            switch (arg) {
+                case
+                    null -> {
+                    return "null";
+                }
+                // Bỏ qua việc serialize một số object phức tạp của Spring
+                case BindingResult bindingResult -> {
+                    return "BindingResult";
+                }
+                case
+                    HttpServletRequest request -> {
+                    return "HttpServletRequest";
+                }
+                case
+                    Authentication authentication -> {
+                    return "Authentication";
+                }
+                default -> {
+                }
+            }
             try {
                 return objectMapper.writeValueAsString(arg);
             } catch (Exception e) {
                 return arg.toString(); // Fallback nếu không parse được JSON
             }
-        }).collect(Collectors.toList());
+        }).toList();
         return argStrings.toString();
     }
 
