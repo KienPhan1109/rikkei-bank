@@ -30,4 +30,30 @@ public class StaffTransactionController {
                 responses
         ));
     }
+
+    @GetMapping("/deposits")
+    public ResponseEntity<ApiResponse<PageResponse<TransactionResponse>>> getAllDeposits(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        PageResponse<TransactionResponse> responses = transactionService.getAllDeposits(pageable);
+        return ResponseEntity.ok(ApiResponse.success(
+                HttpStatus.OK.value(),
+                "Lấy danh sách toàn bộ giao dịch nạp tiền thành công",
+                responses
+        ));
+    }
+
+    @GetMapping("/withdrawals")
+    public ResponseEntity<ApiResponse<PageResponse<TransactionResponse>>> getAllWithdrawals(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        PageResponse<TransactionResponse> responses = transactionService.getAllWithdrawals(pageable);
+        return ResponseEntity.ok(ApiResponse.success(
+                HttpStatus.OK.value(),
+                "Lấy danh sách toàn bộ giao dịch rút tiền thành công",
+                responses
+        ));
+    }
 }

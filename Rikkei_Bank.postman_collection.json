@@ -1972,6 +1972,52 @@
                                     ]
                                 }
                             }
+                        },
+                        {
+                            "name": "Get All Deposits",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/transactions/deposits",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "transactions",
+                                        "deposits"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Get All Withdrawals",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {{accessToken}}"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/staff/transactions/withdrawals",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "staff",
+                                        "transactions",
+                                        "withdrawals"
+                                    ]
+                                }
+                            }
                         }
                     ]
                 },

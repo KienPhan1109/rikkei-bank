@@ -514,6 +514,28 @@ erDiagram
 
 ---
 
+#### 3. Xem toàn bộ giao dịch nạp tiền hệ thống (Staff Get All Deposits)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/api/v1/staff/transactions/deposits`
+*   **Mô tả:** Trích xuất danh sách tất cả các giao dịch nạp tiền mặt phát sinh trên toàn hệ thống dưới dạng phân trang (Chỉ dành cho ADMIN, STAFF).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Query Parameters:**
+    *   `page` (int, default: 0)
+    *   `size` (int, default: 10)
+
+#### 4. Xem toàn bộ giao dịch rút tiền hệ thống (Staff Get All Withdrawals)
+*   **Phương thức:** `GET`
+*   **Đường dẫn:** `/api/v1/staff/transactions/withdrawals`
+*   **Mô tả:** Trích xuất danh sách tất cả các giao dịch rút tiền mặt phát sinh trên toàn hệ thống dưới dạng phân trang (Chỉ dành cho ADMIN, STAFF).
+*   **Yêu cầu Headers:**
+    *   `Authorization`: `Bearer {{accessToken}}`
+*   **Query Parameters:**
+    *   `page` (int, default: 0)
+    *   `size` (int, default: 10)
+
+---
+
 ### 📂 4.6. Nhóm API Giám Sát Hệ Thống (Actuator)
 *   **Base URL:** `/api/v1/actuator`
 

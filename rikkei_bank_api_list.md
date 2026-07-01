@@ -34,3 +34,5 @@
 | 28 | GET | `/api/v1/actuator/metrics` | Truy xuất chỉ số giám sát hiệu năng hệ thống theo thời gian thực (Mức độ tiêu thụ CPU, Bộ nhớ, HTTP Request Metrics). | PUBLIC | Actuator |
 | 29 | GET | `/api/v1/accounts/{accountNumber}/deposits` | Lấy lịch sử giao dịch nạp tiền mặt của tài khoản cụ thể dưới định dạng phân trang. | USER | Accounts |
 | 30 | GET | `/api/v1/accounts/{accountNumber}/withdrawals` | Lấy lịch sử giao dịch rút tiền mặt của tài khoản cụ thể dưới định dạng phân trang. | USER | Accounts |
+| 31 | GET | `/api/v1/staff/transactions/deposits` | Lấy toàn bộ danh sách giao dịch nạp tiền trên hệ thống dạng phân trang (Dành cho ADMIN/STAFF). | ADMIN/STAFF | Transactions |
+| 32 | GET | `/api/v1/staff/transactions/withdrawals` | Lấy toàn bộ danh sách giao dịch rút tiền trên hệ thống dạng phân trang (Dành cho ADMIN/STAFF). | ADMIN/STAFF | Transactions |

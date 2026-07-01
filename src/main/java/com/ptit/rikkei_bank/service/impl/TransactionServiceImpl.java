@@ -185,4 +185,18 @@ public class TransactionServiceImpl implements TransactionService {
         Page<TransactionResponse> txPage = transactionRepository.findAllProjected(pageable);
         return PageResponse.of(txPage);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public PageResponse<TransactionResponse> getAllDeposits(Pageable pageable) {
+        Page<TransactionResponse> txPage = transactionRepository.findAllDepositsProjected(pageable);
+        return PageResponse.of(txPage);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public PageResponse<TransactionResponse> getAllWithdrawals(Pageable pageable) {
+        Page<TransactionResponse> txPage = transactionRepository.findAllWithdrawalsProjected(pageable);
+        return PageResponse.of(txPage);
+    }
 }

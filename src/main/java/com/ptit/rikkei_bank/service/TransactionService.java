@@ -13,4 +13,6 @@ public interface TransactionService {
     PageResponse<TransactionResponse> getDepositHistory(Long userId, String accountNumber, Pageable pageable);
     PageResponse<TransactionResponse> getWithdrawalHistory(Long userId, String accountNumber, Pageable pageable);
     PageResponse<TransactionResponse> getAllTransactions(Pageable pageable);
+    PageResponse<TransactionResponse> getAllDeposits(Pageable pageable);
+    PageResponse<TransactionResponse> getAllWithdrawals(Pageable pageable);
 }
