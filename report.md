@@ -463,12 +463,12 @@ erDiagram
 
 ### 📂 4.5. Nhóm API Chuyển Tiền & Xem Lịch Sử Hệ Thống (Transfers & Admin Transactions)
 *   **Base URL:**
-    *   Khách hàng: `/api/v1/transfers`
+    *   Khách hàng: `/api/v1/accounts`
     *   Quản trị viên: `/api/v1/staff/transactions`
 
 #### 1. Thực hiện chuyển tiền (Transfer Money)
 *   **Phương thức:** `POST`
-*   **Đường dẫn:** `/api/v1/transfers`
+*   **Đường dẫn:** `/api/v1/accounts/{fromAccountNumber}/transfers`
 *   **Mô tả:** Thực hiện chuyển khoản nội bộ sang số tài khoản đích (RESTful).
 *   **Yêu cầu Headers:**
     *   `Authorization`: `Bearer {{accessToken}}`

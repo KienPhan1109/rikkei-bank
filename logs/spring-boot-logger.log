@@ -1,56 +1,66 @@
-30-06-2026 23:09:43.775 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 22220 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+01-07-2026 18:30:12.796 INFO  [SpringApplicationShutdownHook] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
 
-30-06-2026 23:09:43.781 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
+01-07-2026 18:30:12.802 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
 
-30-06-2026 23:09:43.884 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01-07-2026 18:30:12.831 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
 
-30-06-2026 23:09:43.884 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01-07-2026 18:30:12.835 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
 
-30-06-2026 23:09:46.418 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+01-07-2026 18:30:12.846 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
 
-30-06-2026 23:09:46.425 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-07-2026 18:30:15.971 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 17808 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
 
-30-06-2026 23:09:46.928 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 473 ms. Found 6 JPA repository interfaces.
+01-07-2026 18:30:15.973 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
 
-30-06-2026 23:09:47.095 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+01-07-2026 18:30:16.011 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 
-30-06-2026 23:09:47.100 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+01-07-2026 18:30:16.011 INFO  [restartedMain] [] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [log:69] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
 
-30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+01-07-2026 18:30:16.904 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
 
-30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+01-07-2026 18:30:16.907 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 
-30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+01-07-2026 18:30:17.074 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 156 ms. Found 6 JPA repository interfaces.
 
-30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+01-07-2026 18:30:17.120 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
 
-30-06-2026 23:09:47.183 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+01-07-2026 18:30:17.122 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
 
-30-06-2026 23:09:47.190 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+01-07-2026 18:30:17.151 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-30-06-2026 23:09:47.190 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 34 ms. Found 0 Redis repository interfaces.
+01-07-2026 18:30:17.152 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-30-06-2026 23:09:49.501 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
+01-07-2026 18:30:17.152 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-30-06-2026 23:09:49.540 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
+01-07-2026 18:30:17.163 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-30-06-2026 23:09:49.540 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
+01-07-2026 18:30:17.165 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-30-06-2026 23:09:49.694 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 5810 ms
+01-07-2026 18:30:17.166 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
 
-30-06-2026 23:09:50.670 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
+01-07-2026 18:30:17.166 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 31 ms. Found 0 Redis repository interfaces.
 
-30-06-2026 23:09:50.870 INFO  [restartedMain] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
+01-07-2026 18:30:17.942 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
 
-30-06-2026 23:09:52.187 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
+01-07-2026 18:30:17.956 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
 
-30-06-2026 23:09:52.281 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
+01-07-2026 18:30:17.958 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
 
-30-06-2026 23:09:53.003 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c05ce8c
+01-07-2026 18:30:18.014 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 2001 ms
 
-30-06-2026 23:09:53.016 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
+01-07-2026 18:30:18.360 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
 
-30-06-2026 23:09:53.276 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
+01-07-2026 18:30:18.401 INFO  [restartedMain] [] org.hibernate.orm.core [logVersion:41] - HHH000001: Hibernate ORM core version 7.4.1.Final
+
+01-07-2026 18:30:18.811 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
+
+01-07-2026 18:30:18.839 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-1 - Starting...
+
+01-07-2026 18:30:19.051 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@cd0f932
+
+01-07-2026 18:30:19.053 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-1 - Start completed.
+
+01-07-2026 18:30:19.145 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -63,83 +73,182 @@
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
 
-30-06-2026 23:09:56.850 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+01-07-2026 18:30:20.417 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 
-30-06-2026 23:09:58.423 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-07-2026 18:30:21.414 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
 
-30-06-2026 23:09:58.642 INFO  [restartedMain] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
+01-07-2026 18:30:21.474 INFO  [restartedMain] [] o.s.d.j.r.q.QueryEnhancerFactories [<clinit>:48] - Hibernate is in classpath; If applicable, HQL parser will be used.
 
-30-06-2026 23:10:03.239 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+01-07-2026 18:30:22.939 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
 
-30-06-2026 23:10:05.710 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/actuator'
+01-07-2026 18:30:23.697 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/api/v1/actuator'
 
-30-06-2026 23:10:05.995 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
+01-07-2026 18:30:23.774 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
 
-30-06-2026 23:10:06.020 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 23.25 seconds (process running for 24.281)
+01-07-2026 18:30:23.786 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 8.273 seconds (process running for 8.785)
 
-30-06-2026 23:10:07.230 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:50] - [DataInitializer] Default admin user created! (Username: admin / Password: admin123)
+01-07-2026 18:30:24.144 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:50] - [DataInitializer] Default admin user created! (Username: admin / Password: admin123)
 
-30-06-2026 23:10:07.436 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:65] - [DataInitializer] Default staff user created! (Username: staff / Password: staff123)
+01-07-2026 18:30:24.222 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:65] - [DataInitializer] Default staff user created! (Username: staff / Password: staff123)
 
-30-06-2026 23:10:07.487 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:69] - [DataInitializer] Generating 100 mock users for pagination testing...
+01-07-2026 18:30:24.237 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:69] - [DataInitializer] Generating 100 mock users for pagination testing...
 
-30-06-2026 23:10:24.565 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:87] - [DataInitializer] Successfully generated 100 mock users!
+01-07-2026 18:30:31.413 INFO  [restartedMain] [] c.p.r.c.DataInitializer [run:87] - [DataInitializer] Successfully generated 100 mock users!
 
-30-06-2026 23:12:35.815 INFO  [http-nio-8080-exec-2] [] o.a.c.c.C.[.[.[/] [log:168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-07-2026 18:31:07.888 INFO  [http-nio-8080-exec-1] [] o.a.c.c.C.[.[.[/] [log:168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 
-30-06-2026 23:12:35.815 INFO  [http-nio-8080-exec-2] [] o.s.w.s.DispatcherServlet [initServletBean:523] - Initializing Servlet 'dispatcherServlet'
+01-07-2026 18:31:07.888 INFO  [http-nio-8080-exec-1] [] o.s.w.s.DispatcherServlet [initServletBean:523] - Initializing Servlet 'dispatcherServlet'
 
-30-06-2026 23:12:35.822 INFO  [http-nio-8080-exec-2] [] o.s.w.s.DispatcherServlet [initServletBean:545] - Completed initialization in 7 ms
+01-07-2026 18:31:07.890 INFO  [http-nio-8080-exec-1] [] o.s.w.s.DispatcherServlet [initServletBean:545] - Completed initialization in 2 ms
 
-30-06-2026 23:12:36.610 WARN  [http-nio-8080-exec-2] [b7d9cc962f] c.p.r.s.i.AuthServiceImpl [login:102] - Login failed: Bad credentials - testuser
+01-07-2026 18:31:08.210 INFO  [http-nio-8080-exec-1] [61c3454eb7] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/register - Status: 201 - Time: 166ms
 
-30-06-2026 23:12:36.622 WARN  [http-nio-8080-exec-2] [b7d9cc962f] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
+01-07-2026 18:31:12.816 INFO  [http-nio-8080-exec-7] [d6a020c933] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 810ms
 
-30-06-2026 23:12:42.264 INFO  [http-nio-8080-exec-3] [8238e54810] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 509ms
+01-07-2026 18:31:24.935 WARN  [http-nio-8080-exec-4] [e3e7992fe2] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
 
-30-06-2026 23:12:50.224 WARN  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
+01-07-2026 18:31:25.004 INFO  [http-nio-8080-exec-4] [e3e7992fe2] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/kyc - Status: 200 - Time: 25ms
 
-30-06-2026 23:12:50.263 INFO  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.AuthServiceImpl [logout:140] - [Logout] Token TTL remaining: 291 seconds
+01-07-2026 18:32:01.801 WARN  [http-nio-8080-exec-5] [843cbeccf1] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] createAccount() - Message: Tài khoản chưa thực hiện định danh eKYC! Vui lòng thực hiện KYC trước khi mở tài khoản.
 
-30-06-2026 23:12:50.270 INFO  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.RedisTokenBlacklistServiceImpl [blacklistToken:35] - [Local] Blacklisted token in memory cache
+01-07-2026 18:32:16.619 INFO  [http-nio-8080-exec-6] [8e3c365ecd] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 101ms
 
-30-06-2026 23:12:50.310 INFO  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.AuthServiceImpl [lambda$logout$3:158] - [Logout] Successfully revoked refresh token for user: admin
+01-07-2026 18:32:46.541 INFO  [http-nio-8080-exec-8] [914f07ae76] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/staff/kyc/1/status - Status: 200 - Time: 32ms
 
-30-06-2026 23:12:50.355 INFO  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/logout - Status: 200 - Time: 104ms
+01-07-2026 18:32:54.420 INFO  [http-nio-8080-exec-9] [a26311dcab] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 156ms
 
-30-06-2026 23:14:55.841 INFO  [http-nio-8080-exec-6] [ca453219b3] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/register - Status: 201 - Time: 210ms
+01-07-2026 18:34:27.166 INFO  [http-nio-8080-exec-2] [c08dd774f7] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/accounts/8347737341/status - Status: 200 - Time: 43ms
 
-30-06-2026 23:15:41.062 INFO  [http-nio-8080-exec-8] [93643fd107] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 227ms
+01-07-2026 18:34:37.603 INFO  [http-nio-8080-exec-7] [202d820f5a] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/accounts/8347737341/status - Status: 200 - Time: 42ms
 
-30-06-2026 23:16:14.679 INFO  [http-nio-8080-exec-10] [ed4dc68f1c] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/refresh - Status: 200 - Time: 27ms
+01-07-2026 18:35:03.362 INFO  [http-nio-8080-exec-4] [26bc74a83f] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/accounts/8347737341/status - Status: 200 - Time: 13ms
 
-30-06-2026 23:21:17.794 ERROR [http-nio-8080-exec-4] [f71903c7b2] c.p.r.s.JwtTokenProvider [validateToken:70] - Expired JWT token
+01-07-2026 18:35:12.669 WARN  [http-nio-8080-exec-5] [97acb5a0bf] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] deposit() - Message: Tài khoản đang bị khóa!
 
-30-06-2026 23:21:23.389 INFO  [http-nio-8080-exec-5] [91c3b72b9b] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 217ms
+01-07-2026 18:35:17.048 WARN  [http-nio-8080-exec-6] [fb0d23ec1e] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] withdraw() - Message: Tài khoản đang bị khóa!
 
-30-06-2026 23:21:26.959 INFO  [http-nio-8080-exec-7] [54cacbe574] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/kyc/submit - Status: 200 - Time: 69ms
+01-07-2026 18:35:20.940 INFO  [http-nio-8080-exec-8] [0a23d3265c] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/accounts/8347737341/status - Status: 200 - Time: 21ms
 
-30-06-2026 23:21:35.463 WARN  [http-nio-8080-exec-6] [24c5dbfedd] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] createAccount() - Message: Tài khoản chưa thực hiện định danh eKYC! Vui lòng thực hiện KYC trước khi mở tài khoản.
+01-07-2026 18:35:24.219 INFO  [http-nio-8080-exec-10] [7c01e888ac] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts/8347737341/deposits - Status: 200 - Time: 19ms
 
-30-06-2026 23:21:53.531 INFO  [http-nio-8080-exec-9] [18ef01fc39] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 260ms
+01-07-2026 18:35:32.213 INFO  [http-nio-8080-exec-1] [ce29200bd7] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts/8347737341/withdrawals - Status: 200 - Time: 126ms
 
-30-06-2026 23:22:26.697 INFO  [http-nio-8080-exec-10] [aec29b4f8c] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/users/103/status - Status: 200 - Time: 36ms
+01-07-2026 18:35:43.774 INFO  [http-nio-8080-exec-2] [a3ed1ecd08] c.p.r.aop.LoggingAspect [logControllerAround:78] - GET /api/v1/accounts/8347737341 - Status: 200 - Time: 14ms
 
-30-06-2026 23:22:34.817 INFO  [http-nio-8080-exec-1] [67b0ef1ce2] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/users/103/status - Status: 200 - Time: 28ms
+01-07-2026 18:35:50.255 INFO  [http-nio-8080-exec-7] [cdc31db3b8] c.p.r.aop.LoggingAspect [logControllerAround:78] - GET /api/v1/accounts - Status: 200 - Time: 26ms
 
-30-06-2026 23:23:06.805 INFO  [http-nio-8080-exec-2] [3ff9cc9702] c.p.r.aop.LoggingAspect [logControllerAround:78] - PUT /api/v1/staff/kyc/1/status - Status: 200 - Time: 19ms
+01-07-2026 18:36:30.839 INFO  [http-nio-8080-exec-4] [609d1bb194] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 366ms
 
-30-06-2026 23:23:14.292 INFO  [http-nio-8080-exec-3] [720f2971e6] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 212ms
+01-07-2026 18:36:32.178 INFO  [http-nio-8080-exec-5] [b1574e824d] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 115ms
 
-30-06-2026 23:27:58.932 INFO  [http-nio-8080-exec-6] [87af4ee02e] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/login - Status: 200 - Time: 276ms
+01-07-2026 18:36:33.145 INFO  [http-nio-8080-exec-3] [ea5ff2831c] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 105ms
 
-30-06-2026 23:37:02.126 INFO  [SpringApplicationShutdownHook] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
+01-07-2026 18:36:34.072 INFO  [http-nio-8080-exec-6] [3a4011a9b9] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/accounts - Status: 200 - Time: 112ms
 
-30-06-2026 23:37:02.136 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
+01-07-2026 18:37:24.826 ERROR [http-nio-8080-exec-9] [75c97abc4e] c.p.r.s.JwtTokenProvider [validateToken:70] - Expired JWT token
 
-30-06-2026 23:37:02.220 INFO  [SpringApplicationShutdownHook] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
+01-07-2026 18:37:30.283 INFO  [http-nio-8080-exec-8] [a2aa5ad942] c.p.r.aop.LoggingAspect [logControllerAround:78] - POST /api/v1/auth/refresh - Status: 200 - Time: 26ms
 
-30-06-2026 23:37:02.226 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
+01-07-2026 18:37:32.505 INFO  [http-nio-8080-exec-10] [8952070c77] c.p.r.aop.LoggingAspect [logControllerAround:78] - GET /api/v1/accounts/5828155214/transactions - Status: 200 - Time: 24ms
 
-30-06-2026 23:37:02.232 INFO  [SpringApplicationShutdownHook] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
+01-07-2026 18:39:33.175 INFO  [File Watcher] [] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener [onApplicationEvent:216] - Restarting due to 5 class path changes (0 additions, 5 deletions, 0 modifications)
+
+01-07-2026 18:39:33.185 INFO  [Thread-1] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
+
+01-07-2026 18:39:33.225 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
+
+01-07-2026 18:39:33.320 INFO  [Thread-1] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
+
+01-07-2026 18:39:33.329 INFO  [Thread-1] [] c.z.h.HikariDataSource [close:349] - HikariPool-1 - Shutdown initiated...
+
+01-07-2026 18:39:33.349 INFO  [Thread-1] [] c.z.h.HikariDataSource [close:351] - HikariPool-1 - Shutdown completed.
+
+01-07-2026 18:39:33.589 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 17808 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+
+01-07-2026 18:39:33.590 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
+
+01-07-2026 18:39:34.263 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+
+01-07-2026 18:39:34.263 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+01-07-2026 18:39:34.327 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 65 ms. Found 6 JPA repository interfaces.
+
+01-07-2026 18:39:34.362 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [multipleStoresDetected:291] - Multiple Spring Data modules found, entering strict repository configuration mode
+
+01-07-2026 18:39:34.363 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:145] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+
+01-07-2026 18:39:34.371 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 18:39:34.373 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.KycProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 18:39:34.375 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 18:39:34.375 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 18:39:34.375 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 18:39:34.375 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationExtensionSupport [isStrictRepositoryCandidate:327] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ptit.rikkei_bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+
+01-07-2026 18:39:34.375 INFO  [restartedMain] [] o.s.d.r.c.RepositoryConfigurationDelegate [registerRepositoriesIn:213] - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+
+01-07-2026 18:39:34.739 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [initialize:114] - Tomcat initialized with port 8080 (http)
+
+01-07-2026 18:39:34.741 INFO  [restartedMain] [] o.a.c.c.StandardService [log:168] - Starting service [Tomcat]
+
+01-07-2026 18:39:34.741 INFO  [restartedMain] [] o.a.c.core.StandardEngine [log:168] - Starting Servlet engine: [Apache Tomcat/11.0.22]
+
+01-07-2026 18:39:34.783 INFO  [restartedMain] [] o.s.b.w.c.s.WebApplicationContextInitializer [prepareWebApplicationContext:77] - Root WebApplicationContext: initialization completed in 1182 ms
+
+01-07-2026 18:39:35.000 INFO  [restartedMain] [] org.hibernate.orm.jpa [logPersistenceUnitInformation:102] - HHH008540: Processing PersistenceUnitInfo [name: default]
+
+01-07-2026 18:39:35.078 INFO  [restartedMain] [] o.s.o.j.p.SpringPersistenceUnitInfo [addTransformer:129] - No LoadTimeWeaver setup: ignoring JPA class transformer
+
+01-07-2026 18:39:35.082 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:109] - HikariPool-2 - Starting...
+
+01-07-2026 18:39:35.089 INFO  [restartedMain] [] c.z.h.pool.HikariPool [checkFailFast:580] - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@129bc016
+
+01-07-2026 18:39:35.090 INFO  [restartedMain] [] c.z.h.HikariDataSource [getConnection:122] - HikariPool-2 - Start completed.
+
+01-07-2026 18:39:35.092 INFO  [restartedMain] [] o.h.o.connections.pooling [logConnectionInfo:179] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/rikkei_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: rikkei_bank/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+
+01-07-2026 18:39:35.386 INFO  [restartedMain] [] org.hibernate.orm.core [initiateService:53] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+
+01-07-2026 18:39:35.425 INFO  [restartedMain] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [buildNativeEntityManagerFactory:464] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+01-07-2026 18:39:35.703 INFO  [restartedMain] [] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [configure:80] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+
+01-07-2026 18:39:36.305 INFO  [restartedMain] [] o.s.b.a.e.w.EndpointLinksResolver [<init>:60] - Exposing 2 endpoints beneath base path '/api/v1/actuator'
+
+01-07-2026 18:39:36.345 INFO  [restartedMain] [] o.s.b.t.TomcatWebServer [start:240] - Tomcat started on port 8080 (http) with context path '/'
+
+01-07-2026 18:39:36.352 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarted:60] - Started RikkeiBankApplication in 2.857 seconds (process running for 561.354)
+
+01-07-2026 18:39:36.418 INFO  [restartedMain] [] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [onApplicationEvent:66] - Condition evaluation unchanged
+
+01-07-2026 18:39:37.730 INFO  [File Watcher] [] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener [onApplicationEvent:216] - Restarting due to 4 class path changes (4 additions, 0 deletions, 0 modifications)
+
+01-07-2026 18:39:37.732 INFO  [Thread-5] [] o.s.b.t.GracefulShutdown [shutDownGracefully:54] - Commencing graceful shutdown. Waiting for active requests to complete
+
+01-07-2026 18:39:37.742 INFO  [tomcat-shutdown] [] o.s.b.t.GracefulShutdown [doShutdown:76] - Graceful shutdown complete
+
+01-07-2026 18:39:37.760 INFO  [Thread-5] [] o.s.o.j.LocalContainerEntityManagerFactoryBean [destroy:693] - Closing JPA EntityManagerFactory for persistence unit 'default'
+
+01-07-2026 18:39:37.761 INFO  [Thread-5] [] c.z.h.HikariDataSource [close:349] - HikariPool-2 - Shutdown initiated...
+
+01-07-2026 18:39:37.768 INFO  [Thread-5] [] c.z.h.HikariDataSource [close:351] - HikariPool-2 - Shutdown completed.
+
+01-07-2026 18:39:40.956 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStarting:54] - Starting RikkeiBankApplication using Java 21.0.10 with PID 17808 (D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank\build\classes\java\main started by KienPhan in D:\Phan Trung Kiên - PTIT\JAVA WEB SERVICE\Rikkei Bank)
+
+01-07-2026 18:39:40.959 INFO  [restartedMain] [] c.p.r.RikkeiBankApplication [logStartupProfileInfo:652] - No active profile set, falling back to 1 default profile: "default"
 

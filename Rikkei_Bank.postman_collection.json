@@ -752,55 +752,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "Toggle User Status Fail Lock Admin",
-                    "request": {
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{baseUrl}}/users/1/status?active=false",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "users",
-                                "1",
-                                "status"
-                            ],
-                            "query": [
-                                {
-                                    "key": "active",
-                                    "value": "false"
-                                }
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is not 200\", function () {",
-                                    "    pm.expect(pm.response.code).to.be.above(399);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has error message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
                 }
             ]
         },
@@ -1005,7 +956,15 @@
                                     "    var jsonData = pm.response.json();",
                                     "    pm.expect(jsonData.message).to.exist;",
                                     "});",
-                                    ""
+                                    "",
+                                    "",
+                                    "pm.test(\"Extract and save accountNumber\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    if (jsonData && jsonData.data && jsonData.data.accountNumber) {",
+                                    "        pm.collectionVariables.set(\"accountNumber\", jsonData.data.accountNumber);",
+                                    "        console.log(\"Saved accountNumber: \" + jsonData.data.accountNumber);",
+                                    "    }",
+                                    "});"
                                 ],
                                 "type": "text/javascript"
                             }
@@ -1068,13 +1027,13 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{baseUrl}}/accounts/9283748201",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
                                 "accounts",
-                                "9283748201"
+                                "{{accountNumber}}"
                             ]
                         }
                     },
@@ -1122,13 +1081,13 @@
                             "raw": "{\n  \"active\": false\n}"
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/accounts/9283748201/status",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/status",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
                                 "accounts",
-                                "9283748201",
+                                "{{accountNumber}}",
                                 "status"
                             ]
                         }
@@ -1159,7 +1118,62 @@
                     ]
                 },
                 {
-                    "name": "Deposit (Nạp tiền)",
+                    "name": "Unlock Account Success",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{accessToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"active\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/status",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "accounts",
+                                "{{accountNumber}}",
+                                "status"
+                            ]
+                        }
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200 OK\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response time is acceptable\", function () {",
+                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Response has success message\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData.message).to.exist;",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Deposit Cash Success",
                     "request": {
                         "method": "POST",
                         "header": [
@@ -1178,20 +1192,20 @@
                             }
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/deposit",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/deposits",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
                                 "accounts",
                                 "{{accountNumber}}",
-                                "deposit"
+                                "deposits"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "Withdraw (Rút tiền)",
+                    "name": "Withdraw Cash Success",
                     "request": {
                         "method": "POST",
                         "header": [
@@ -1210,14 +1224,14 @@
                             }
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/withdraw",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/withdrawals",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
                                 "accounts",
                                 "{{accountNumber}}",
-                                "withdraw"
+                                "withdrawals"
                             ]
                         }
                     }
@@ -1275,14 +1289,16 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"fromAccountNumber\": \"9283748201\",\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 50000.00,\n  \"description\": \"Kien chuyen khoan an sang\",\n  \"transactionPin\": \"123456\"\n}"
+                            "raw": "{\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 50000.0,\n  \"description\": \"Kien chuyen khoan an sang\",\n  \"transactionPin\": \"123456\"\n}"
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/transfers",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/transfers",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
+                                "accounts",
+                                "{{accountNumber}}",
                                 "transfers"
                             ]
                         }
@@ -1323,19 +1339,14 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{baseUrl}}/transactions/history?accountNumber=9283748201",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/transactions",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
-                                "transactions",
-                                "history"
-                            ],
-                            "query": [
-                                {
-                                    "key": "accountNumber",
-                                    "value": "9283748201"
-                                }
+                                "accounts",
+                                "{{accountNumber}}",
+                                "transactions"
                             ]
                         }
                     },
@@ -1380,16 +1391,17 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"fromAccountNumber\": \"9283748201\",\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 999999999.00,\n  \"description\": \"Chuyen tien\",\n  \"transactionPin\": \"123456\"\n}"
+                            "raw": "{\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 999999999.0,\n  \"description\": \"Chuyen tien\",\n  \"transactionPin\": \"123456\"\n}"
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/transactions/transfer",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/transfers",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
-                                "transactions",
-                                "transfer"
+                                "accounts",
+                                "{{accountNumber}}",
+                                "transfers"
                             ]
                         }
                     },
@@ -1430,16 +1442,17 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"fromAccountNumber\": \"9283748201\",\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 50000.00,\n  \"description\": \"Chuyen tien\",\n  \"transactionPin\": \"wrongpin\"\n}"
+                            "raw": "{\n  \"toAccountNumber\": \"1029384756\",\n  \"amount\": 50000.0,\n  \"description\": \"Chuyen tien\",\n  \"transactionPin\": \"wrongpin\"\n}"
                         },
                         "url": {
-                            "raw": "{{baseUrl}}/transactions/transfer",
+                            "raw": "{{baseUrl}}/accounts/{{accountNumber}}/transfers",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
-                                "transactions",
-                                "transfer"
+                                "accounts",
+                                "{{accountNumber}}",
+                                "transfers"
                             ]
                         }
                     },
@@ -1690,118 +1703,6 @@
             "name": "Admin & Staff",
             "item": [
                 {
-                    "name": "Get All Users Success",
-                    "request": {
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{baseUrl}}/users",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "users"
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Delete User Success",
-                    "request": {
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{accessToken}}"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{baseUrl}}/users/103",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "users",
-                                "103"
-                            ]
-                        }
-                    },
-                    "response": [],
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "exec": [
-                                    "pm.test(\"Status code is 200 OK\", function () {",
-                                    "    pm.response.to.have.status(200);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response time is acceptable\", function () {",
-                                    "    pm.expect(pm.response.responseTime).to.be.below(2000);",
-                                    "});",
-                                    "",
-                                    "pm.test(\"Response has success message\", function () {",
-                                    "    var jsonData = pm.response.json();",
-                                    "    pm.expect(jsonData.message).to.exist;",
-                                    "});",
-                                    ""
-                                ],
-                                "type": "text/javascript"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Users",
-                    "item": []
-                },
-                {
-                    "name": "Accounts",
-                    "item": []
-                },
-                {
-                    "name": "Transactions",
-                    "item": []
-                },
-                {
-                    "name": "KYC",
-                    "item": []
-                }
-            ]
-        },
-        {
-            "name": "Admin & Staff",
-            "item": [
-                {
                     "name": "Users",
                     "item": [
                         {
@@ -2031,14 +1932,14 @@
                                     "raw": "{\n  \"status\": \"CONFIRM\"\n}"
                                 },
                                 "url": {
-                                    "raw": "{{baseUrl}}/staff/kyc/103/status",
+                                    "raw": "{{baseUrl}}/staff/kyc/1/status",
                                     "host": [
                                         "{{baseUrl}}"
                                     ],
                                     "path": [
                                         "staff",
                                         "kyc",
-                                        "103",
+                                        "1",
                                         "status"
                                     ]
                                 }
@@ -2240,6 +2141,11 @@
         },
         {
             "key": "revokedRefreshToken",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "accountNumber",
             "value": "",
             "type": "string"
         }

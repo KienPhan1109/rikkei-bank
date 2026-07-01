@@ -1,8 +1,8 @@
-30-06-2026 23:12:36.610 WARN  [http-nio-8080-exec-2] [b7d9cc962f] c.p.r.s.i.AuthServiceImpl [login:102] - Login failed: Bad credentials - testuser
+01-07-2026 18:31:24.935 WARN  [http-nio-8080-exec-4] [e3e7992fe2] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
 
-30-06-2026 23:12:36.622 WARN  [http-nio-8080-exec-2] [b7d9cc962f] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AuthController] login() - Message: Đăng nhập thất bại. Sai tài khoản hoặc mật khẩu!
+01-07-2026 18:32:01.801 WARN  [http-nio-8080-exec-5] [843cbeccf1] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] createAccount() - Message: Tài khoản chưa thực hiện định danh eKYC! Vui lòng thực hiện KYC trước khi mở tài khoản.
 
-30-06-2026 23:12:50.224 WARN  [http-nio-8080-exec-4] [a799bb74dd] c.p.r.s.i.RedisTokenBlacklistServiceImpl [isBlacklisted:45] - [Redis] Redis is unavailable, falling back to local memory cache. Error: Unable to connect to Redis
+01-07-2026 18:35:12.669 WARN  [http-nio-8080-exec-5] [97acb5a0bf] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] deposit() - Message: Tài khoản đang bị khóa!
 
-30-06-2026 23:21:35.463 WARN  [http-nio-8080-exec-6] [24c5dbfedd] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] createAccount() - Message: Tài khoản chưa thực hiện định danh eKYC! Vui lòng thực hiện KYC trước khi mở tài khoản.
+01-07-2026 18:35:17.048 WARN  [http-nio-8080-exec-6] [fb0d23ec1e] c.p.r.aop.LoggingAspect [logControllerAround:90] - BUSINESS WARNING - Web [AccountController] withdraw() - Message: Tài khoản đang bị khóa!
 

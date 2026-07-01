@@ -1,2 +1,2 @@
-30-06-2026 23:21:17.794 ERROR [http-nio-8080-exec-4] [f71903c7b2] c.p.r.s.JwtTokenProvider [validateToken:70] - Expired JWT token
+01-07-2026 18:37:24.826 ERROR [http-nio-8080-exec-9] [75c97abc4e] c.p.r.s.JwtTokenProvider [validateToken:70] - Expired JWT token
 

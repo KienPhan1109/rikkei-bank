@@ -28,7 +28,7 @@
 | 21 | POST | `/api/v1/accounts/{accountNumber}/withdrawals` | Rút tiền mặt từ tài khoản thanh toán cụ thể sử dụng mã PIN xác thực (RESTful). | USER | Accounts |
 | 22 | PUT | `/api/v1/accounts/{accountNumber}/pin` | Thay đổi mã PIN giao dịch bảo mật của tài khoản. | USER | Accounts |
 | 23 | GET | `/api/v1/staff/accounts` | Lấy danh sách tất cả tài khoản thanh toán trên toàn hệ thống dạng phân trang. | ADMIN/STAFF | Accounts |
-| 24 | POST | `/api/v1/transfers` | Thực thi giao dịch chuyển khoản nội bộ. Áp dụng Khóa bi quan (Pessimistic Locking) và đảm bảo tính chất nguyên tử (ACID). | USER | Transactions |
+| 24 | POST | `/api/v1/accounts/{accountNumber}/transfers` | Thực thi giao dịch chuyển khoản nội bộ từ tài khoản nguồn. Áp dụng Khóa bi quan (Pessimistic Locking) và đảm bảo tính chất nguyên tử (ACID). | USER | Transactions |
 | 25 | GET | `/api/v1/accounts/{accountNumber}/transactions` | Truy vấn lịch sử giao dịch tài chính của một tài khoản cụ thể dưới định dạng phân trang (RESTful). | USER/ADMIN/STAFF | Transactions |
 | 26 | GET | `/api/v1/staff/transactions` | Xem toàn bộ danh sách giao dịch tài chính trên toàn hệ thống dạng phân trang. | ADMIN/STAFF | Transactions |
 | 27 | GET | `/api/v1/actuator/health` | Kiểm định trạng thái khả dụng của ứng dụng, cơ sở dữ liệu và các thành phần tích hợp hệ thống. | PUBLIC | Actuator |

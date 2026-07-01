@@ -8,6 +8,7 @@ import com.ptit.rikkei_bank.dto.request.AccountStatusRequest;
 import com.ptit.rikkei_bank.dto.request.ChangePinRequest;
 import com.ptit.rikkei_bank.dto.request.DepositRequest;
 import com.ptit.rikkei_bank.dto.request.WithdrawRequest;
+import com.ptit.rikkei_bank.dto.request.TransferRequest;
 import com.ptit.rikkei_bank.dto.response.PageResponse;
 import com.ptit.rikkei_bank.dto.response.AccountResponse;
 import com.ptit.rikkei_bank.dto.response.ApiResponse;
@@ -113,6 +114,21 @@ public class AccountController {
                 response
         ));
     }
+
+    @PostMapping("/{accountNumber}/transfers")
+    public ResponseEntity<ApiResponse<TransactionResponse>> transfer(
+            @AuthenticationPrincipal CustomUserDetails userDetails,
+            @PathVariable("accountNumber") String accountNumber,
+            @Valid @RequestBody TransferRequest request) {
+        Long userId = userDetails.getUser().getId();
+        TransactionResponse response = transactionService.transfer(userId, accountNumber, request);
+        return ResponseEntity.ok(ApiResponse.success(
+                HttpStatus.OK.value(),
+                "Thực hiện giao dịch chuyển khoản thành công!",
+                response
+        ));
+    }
+
 
     @PutMapping("/{accountNumber}/pin")
     public ResponseEntity<ApiResponse<Void>> changePin(

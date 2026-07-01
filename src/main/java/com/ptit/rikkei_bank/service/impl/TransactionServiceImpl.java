@@ -39,16 +39,10 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     @Transactional
-    public TransactionResponse transfer(Long userId, TransferRequest request) {
+    public TransactionResponse transfer(Long userId, String fromAccountNumber, TransferRequest request) {
         if (request.getAmount() == null || request.getAmount().compareTo(new BigDecimal("2000")) < 0) {
             throw new BusinessException("Số tiền chuyển khoản tối thiểu là 2000 VND!");
         }
-
-        List<Account> userAccounts = accountRepository.findByUserId(userId);
-        if (userAccounts.isEmpty()) {
-            throw new BusinessException("Người dùng chưa có tài khoản thanh toán!");
-        }
-        String fromAccountNumber = userAccounts.get(0).getAccountNumber();
 
         // Lock accounts to prevent race conditions
         // Need to ensure consistent lock order to avoid deadlocks
